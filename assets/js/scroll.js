@@ -7,21 +7,23 @@ gsap.registerPlugin(ScrollTrigger);
 let lenisInstance = null;
 
 export function initScroll() {
+  if (lenisInstance) return lenisInstance;
+
   lenisInstance = new Lenis({
-    duration: 1.6,
+    duration: 1.4,
     easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     orientation: 'vertical',
     smoothWheel: true,
-    wheelMultiplier: 0.8,
+    wheelMultiplier: 0.9,
     touchMultiplier: 1.5,
   });
 
-  function raf(time) {
-    lenisInstance.raf(time);
-    ScrollTrigger.update();
-    requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
+  lenisInstance.on('scroll', ScrollTrigger.update);
+
+  gsap.ticker.add((time) => {
+    lenisInstance.raf(time * 1000);
+  });
+  gsap.ticker.lagSmoothing(0);
 
   return lenisInstance;
 }
@@ -29,36 +31,57 @@ export function initScroll() {
 export function getLenis() { return lenisInstance; }
 
 export function initScrollAnimations() {
-  // Fade up
   gsap.utils.toArray('.reveal').forEach(el => {
-    gsap.from(el, {
-      opacity: 0,
-      y: 60,
-      duration: 1.0,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 88%',
-        toggleActions: 'play none none reverse',
+    gsap.fromTo(el,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          toggleActions: 'play none none none',
+        }
       }
-    });
+    );
   });
 
-  // Clip reveal
   gsap.utils.toArray('.reveal-clip').forEach(el => {
-    gsap.from(el, {
-      clipPath: 'inset(100% 0 0 0)',
-      duration: 1.3,
-      ease: 'power4.inOut',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 85%',
-        toggleActions: 'play none none reverse',
+    gsap.fromTo(el,
+      { clipPath: 'inset(0 0 100% 0)' },
+      {
+        clipPath: 'inset(0 0 0% 0)',
+        duration: 1.4,
+        ease: 'power4.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        }
       }
-    });
+    );
+
+    const inner = el.querySelector(':scope > *');
+    if (inner) {
+      gsap.fromTo(inner,
+        { y: '8%', scale: 1.08 },
+        {
+          y: '0%',
+          scale: 1,
+          duration: 1.4,
+          ease: 'power4.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          }
+        }
+      );
+    }
   });
 
-  // Parallax
   gsap.utils.toArray('.parallax').forEach(el => {
     gsap.to(el, {
       yPercent: -18,

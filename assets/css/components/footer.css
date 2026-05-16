@@ -1,17 +1,17 @@
 .footer {
-  background: var(--color-text);
+  background: var(--color-dark-bg);
   color: var(--color-bg);
-  padding: var(--space-section) var(--space-gutter) 3rem;
+  padding: clamp(80px, 12vw, 140px) var(--space-gutter) 3rem;
   position: relative;
   overflow: hidden;
 }
 
 .footer__inner {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr;
   gap: 4rem;
   padding-bottom: 4rem;
-  border-bottom: 1px solid rgba(245,240,235,0.1);
+  border-bottom: 1px solid rgba(245,240,235,0.12);
   margin-bottom: 2rem;
 }
 
@@ -23,38 +23,49 @@
 
 .footer__logo {
   font-family: var(--font-display);
-  font-size: clamp(1.3rem, 2vw, 1.8rem);
-  letter-spacing: 0.05em;
+  font-size: clamp(1.5rem, 2.2vw, 2.1rem);
+  letter-spacing: 0.02em;
   display: block;
+  font-style: italic;
 }
 
 .footer__studio {
   font-family: var(--font-mono);
   font-size: var(--text-caption);
-  letter-spacing: 0.3em;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--color-gold);
 }
 
 .footer__tagline {
   font-size: var(--text-body);
-  color: rgba(245,240,235,0.5);
+  color: rgba(245,240,235,0.55);
   font-style: italic;
   margin-top: 0.5rem;
   font-family: var(--font-display);
+  line-height: 1.5;
+}
+
+.footer__col--nav,
+.footer__col--social {
+  padding-top: 0.5rem;
 }
 
 .footer__col--nav a,
 .footer__col--social a {
   font-family: var(--font-mono);
   font-size: var(--text-caption);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: rgba(245,240,235,0.6);
-  transition: color 0.3s;
+  color: rgba(245,240,235,0.65);
+  transition: color 0.3s, transform 0.3s;
+  display: inline-block;
 }
 .footer__col--nav a:hover,
-.footer__col--social a:hover { color: var(--color-gold); }
+.footer__col--social a:hover {
+  color: var(--color-gold);
+  transform: translateX(4px);
+}
 
 .footer__bottom {
   display: flex;
@@ -62,8 +73,8 @@
   align-items: center;
   font-family: var(--font-mono);
   font-size: var(--text-caption);
-  letter-spacing: 0.1em;
-  color: rgba(245,240,235,0.3);
+  letter-spacing: 0.15em;
+  color: rgba(245,240,235,0.35);
 }
 
 @media (max-width: 768px) {

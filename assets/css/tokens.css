@@ -1,40 +1,38 @@
 :root {
-  /* ── Brand Colors ── */
   --color-bg:           #F5F0EB;
   --color-bg-alt:       #EDE8E2;
   --color-surface:      #FFFFFF;
-  --color-text:         #1A1410;
+  --color-text:         #1A1612;
   --color-text-muted:   #7A6E68;
   --color-text-light:   #B5A99F;
   --color-accent:       #6B1F2A;
+  --color-accent-dark:  #4A1520;
   --color-accent-light: #9C4A55;
   --color-gold:         #C9A96E;
   --color-gold-light:   #E8D5B0;
-  --color-border:       rgba(26, 20, 16, 0.12);
-  --color-border-strong:rgba(26, 20, 16, 0.25);
+  --color-warm-gray:    #8B7355;
+  --color-dark-bg:      #0F0D0B;
+  --color-border:       rgba(26, 22, 18, 0.12);
+  --color-border-strong:rgba(26, 22, 18, 0.25);
 
-  /* ── Typography ── */
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body:    'DM Sans', system-ui, sans-serif;
-  --font-mono:    'JetBrains Mono', monospace;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
 
-  /* ── Type Scale (fluid) ── */
-  --text-hero:    clamp(5rem, 14vw, 16rem);
-  --text-display: clamp(3rem, 7vw, 8rem);
-  --text-h1:      clamp(2rem, 4vw, 4.5rem);
-  --text-h2:      clamp(1.5rem, 2.5vw, 3rem);
-  --text-h3:      clamp(1.2rem, 1.8vw, 2rem);
-  --text-body-lg: clamp(1.1rem, 1.4vw, 1.35rem);
-  --text-body:    clamp(0.95rem, 1.1vw, 1.1rem);
-  --text-caption: 0.7rem;
+  --text-hero:    clamp(5rem, 13vw, 12rem);
+  --text-display: clamp(3rem, 7.5vw, 8rem);
+  --text-h1:      clamp(2.4rem, 5vw, 5.25rem);
+  --text-h2:      clamp(1.75rem, 3vw, 3.25rem);
+  --text-h3:      clamp(1.25rem, 1.9vw, 2rem);
+  --text-body-lg: clamp(1.1rem, 1.35vw, 1.35rem);
+  --text-body:    clamp(0.95rem, 1.05vw, 1.08rem);
+  --text-caption: 0.72rem;
 
-  /* ── Spacing ── */
-  --space-section: clamp(100px, 14vw, 180px);
+  --space-section: clamp(120px, 14vw, 200px);
   --space-gutter:  clamp(24px, 5vw, 80px);
   --container-max: 1440px;
   --container-w:   min(92vw, var(--container-max));
 
-  /* ── Animation ── */
   --ease-out-expo:    cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
   --ease-bounce:      cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -43,7 +41,6 @@
   --duration-slow:    1.0s;
   --duration-cinematic: 1.4s;
 
-  /* ── Z-index layers ── */
   --z-noise:       9997;
   --z-cursor:      9998;
   --z-loader:      9999;
