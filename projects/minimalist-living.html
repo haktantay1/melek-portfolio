@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimalist Living Space — Melek Karlankuş</title>
+  <meta name="description" content="A sophisticated residential space where organic forms meet contemporary luxury. Interior Design by Melek Karlankuş, YULA Design Studio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/reset.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components/nav.css">
+  <link rel="stylesheet" href="/assets/css/components/cursor.css">
+  <link rel="stylesheet" href="/assets/css/components/loader.css">
+  <link rel="stylesheet" href="/assets/css/components/footer.css">
+  <link rel="stylesheet" href="/assets/css/pages/project.css">
+</head>
+<body data-barba="wrapper">
+
+<canvas id="noise-canvas"></canvas>
+<div class="cursor"><div class="cursor__dot"></div><div class="cursor__ring"><span class="cursor__label"></span></div></div>
+<div class="page-transition-overlay"></div>
+
+<nav class="nav" id="nav">
+  <a href="/" class="nav__logo"><span class="nav__logo-m">M</span>K</a>
+  <div class="nav__links">
+    <a href="/work.html" class="nav__link">Work</a>
+    <a href="/about.html" class="nav__link">About</a>
+    <a href="/contact.html" class="nav__link btn-magnetic nav__cta">Let's Talk</a>
+  </div>
+  <button class="nav__menu-btn" aria-label="Open menu"><span></span><span></span></button>
+</nav>
+
+<div class="nav-overlay" role="dialog">
+  <button class="nav-overlay__close" aria-label="Close menu">✕</button>
+  <nav class="nav-overlay__links">
+    <a href="/" class="nav-overlay__link"><span class="nav-overlay__num">01</span>Home</a>
+    <a href="/work.html" class="nav-overlay__link"><span class="nav-overlay__num">02</span>Work</a>
+    <a href="/about.html" class="nav-overlay__link"><span class="nav-overlay__num">03</span>About</a>
+    <a href="/contact.html" class="nav-overlay__link"><span class="nav-overlay__num">04</span>Contact</a>
+  </nav>
+  <div class="nav-overlay__footer">
+    <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
+    <a href="mailto:melekkarlankus@gmail.com">Email</a>
+  </div>
+</div>
+
+<main data-barba="container" data-barba-namespace="project">
+
+  <section class="proj-hero">
+    <div class="proj-hero__bg" style="background: linear-gradient(135deg, #D4C4B0 0%, #8B6E5A 60%, #5C3A2A 100%);">
+    </div>
+    <div class="proj-hero__overlay"></div>
+    <div class="proj-hero__content">
+      <span class="proj-hero__num">01</span>
+      <h1 class="proj-hero__title">Minimalist Living Space</h1>
+      <p class="proj-hero__subtitle">Organic Form Meets Contemporary Luxury</p>
+      <div class="proj-hero__meta">
+        <span>Residential Interior</span>
+        <span>2024</span>
+        <span>Interior Design & Visualization</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-overview">
+    <div class="proj-overview__inner">
+      <div class="proj-overview__text">
+        <p class="bio-reveal">A sophisticated residential space where organic forms meet contemporary luxury.
+        The project is defined by a custom-designed, fluid metallic fireplace that serves
+        as a sculptural focal point. The design achieves a harmony between warm timber
+        textures and minimalist Zen aesthetics, utilizing curved furniture and a carefully
+        curated material palette to enhance the serene and refined atmosphere.</p>
+      </div>
+      <div class="proj-overview__image reveal-clip">
+        <div class="proj-overview__image-inner" style="background: linear-gradient(160deg, #C4B4A0 0%, #7A5A48 100%); width:100%; height:100%; min-height:500px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-gallery">
+    <div class="proj-gallery__inner">
+      <div class="proj-gallery__item proj-gallery__item--full reveal-clip">
+        <div style="background: linear-gradient(135deg, #D4C4B0 0%, #8B6E5A 100%); width:100%; height:100%; aspect-ratio:16/9;"></div>
+      </div>
+      <div class="proj-gallery__row">
+        <div class="proj-gallery__item proj-gallery__item--half reveal-clip">
+          <div style="background: linear-gradient(160deg, #C8B89A 0%, #7A6050 100%); aspect-ratio:4/5; width:100%;"></div>
+        </div>
+        <div class="proj-gallery__item proj-gallery__item--half reveal-clip">
+          <div style="background: linear-gradient(160deg, #B8A890 0%, #6A5040 100%); aspect-ratio:4/5; width:100%;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-details">
+    <div class="proj-details__inner">
+      <div class="proj-detail reveal">
+        <h3>Challenge</h3>
+        <p>Creating a space that feels simultaneously warm and minimal — avoiding coldness without sacrificing clarity.</p>
+      </div>
+      <div class="proj-detail reveal">
+        <h3>Solution</h3>
+        <p>A fluid metallic fireplace as the sculptural anchor, surrounded by organic terrazzo volumes and warm timber wall paneling.</p>
+      </div>
+      <div class="proj-detail reveal">
+        <h3>Outcome</h3>
+        <p>A residence that breathes — every element earns its place through material honesty and spatial poetry.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-tools">
+    <div class="proj-tools__inner">
+      <span class="proj-tools__label">Tools Used</span>
+      <span class="proj-tool">AutoCAD</span>
+      <span class="proj-tool">3ds Max</span>
+      <span class="proj-tool">V-Ray</span>
+      <span class="proj-tool">Photoshop</span>
+      <span class="proj-tool">SketchUp</span>
+    </div>
+  </section>
+
+  <section class="next-project">
+    <div class="next-project__bg" style="background: linear-gradient(135deg, #C4A882 0%, #6B4E35 100%);"></div>
+    <div class="next-project__overlay"></div>
+    <a href="/projects/private-nook.html" class="next-project__link">
+      <span class="next-project__label">Next Project</span>
+      <h2 class="next-project__title">Private Nook</h2>
+    </a>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__col footer__col--brand">
+      <span class="footer__logo">Melek Karlankuş</span>
+      <span class="footer__studio">YULA Design Studio</span>
+      <span class="footer__tagline">Designing spaces where silence speaks</span>
+    </div>
+    <div class="footer__col footer__col--nav">
+      <a href="/work.html">Work</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <div class="footer__col footer__col--social">
+      <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:melekkarlankus@gmail.com">Email</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 Melek Karlankuş — All Rights Reserved</span>
+    <span>İstanbul, Turkey</span>
+  </div>
+</footer>
+
+<script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

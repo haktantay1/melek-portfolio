@@ -1,0 +1,151 @@
+/* ── WORK HERO ── */
+.work-hero {
+  padding-top: 160px;
+  padding-bottom: var(--space-section);
+  background: var(--color-bg);
+}
+
+.work-hero__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.work-hero__title {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  line-height: 0.95;
+}
+
+.work-hero__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.work-hero__sub {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.work-hero__count {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 5rem);
+  color: var(--color-accent);
+}
+
+/* ── FILTER BAR ── */
+.filter-bar {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-section);
+  overflow-x: auto;
+}
+
+.filter-btn {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding: 16px 28px;
+  border-right: 1px solid var(--color-border);
+  white-space: nowrap;
+  transition: color 0.3s, background 0.3s;
+  background: none;
+  cursor: pointer;
+}
+.filter-btn:hover { color: var(--color-accent); }
+.filter-btn.is-active {
+  color: var(--color-bg);
+  background: var(--color-accent);
+}
+
+/* ── PROJECT GRID ── */
+.work-grid {
+  width: var(--container-w);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5rem 4rem;
+  margin-bottom: var(--space-section);
+}
+
+.work-grid .project-card__image {
+  height: clamp(300px, 35vw, 520px);
+}
+
+.work-grid .project-card__img-inner { height: 100%; }
+
+/* Stagger odd cards down */
+.work-grid .project-card:nth-child(even) {
+  transform: translateY(4rem);
+}
+
+/* ── ILLUSTRATIONS SECTION ── */
+.illustrations-section {
+  padding: var(--space-section) 0;
+  background: var(--color-bg-alt);
+  overflow: hidden;
+}
+
+.illustrations-section .container {
+  margin-bottom: 3rem;
+}
+
+.illus-drag-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.illus-drag-label::before {
+  content: '←→';
+  color: var(--color-accent);
+}
+
+.illus-scroll-track {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 var(--space-gutter);
+  overflow-x: auto;
+  scrollbar-width: none;
+  cursor: grab;
+}
+.illus-scroll-track:active { cursor: grabbing; }
+.illus-scroll-track::-webkit-scrollbar { display: none; }
+
+.illus-item {
+  flex: 0 0 clamp(220px, 22vw, 320px);
+  aspect-ratio: 2/3;
+  border-radius: 2px;
+  overflow: hidden;
+  user-select: none;
+}
+
+.illus-item__inner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+.illus-item:hover .illus-item__inner { transform: scale(1.04); }
+
+@media (max-width: 768px) {
+  .work-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .work-grid .project-card:nth-child(even) { transform: none; }
+  .work-hero__inner { flex-direction: column; gap: 1rem; align-items: flex-start; }
+  .work-hero__meta { align-items: flex-start; }
+}

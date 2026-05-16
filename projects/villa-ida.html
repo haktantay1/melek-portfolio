@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Villa İDA — Melek Karlankuş</title>
+  <meta name="description" content="Holistic Architecture & Interior Design — Villa İDA by Melek Karlankuş, YULA Design Studio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/reset.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components/nav.css">
+  <link rel="stylesheet" href="/assets/css/components/cursor.css">
+  <link rel="stylesheet" href="/assets/css/components/loader.css">
+  <link rel="stylesheet" href="/assets/css/components/footer.css">
+  <link rel="stylesheet" href="/assets/css/pages/project.css">
+</head>
+<body data-barba="wrapper">
+<canvas id="noise-canvas"></canvas>
+<div class="cursor"><div class="cursor__dot"></div><div class="cursor__ring"><span class="cursor__label"></span></div></div>
+<div class="page-transition-overlay"></div>
+<nav class="nav" id="nav">
+  <a href="/" class="nav__logo"><span class="nav__logo-m">M</span>K</a>
+  <div class="nav__links">
+    <a href="/work.html" class="nav__link">Work</a>
+    <a href="/about.html" class="nav__link">About</a>
+    <a href="/contact.html" class="nav__link btn-magnetic nav__cta">Let's Talk</a>
+  </div>
+  <button class="nav__menu-btn" aria-label="Open menu"><span></span><span></span></button>
+</nav>
+<div class="nav-overlay" role="dialog">
+  <button class="nav-overlay__close" aria-label="Close menu">✕</button>
+  <nav class="nav-overlay__links">
+    <a href="/" class="nav-overlay__link"><span class="nav-overlay__num">01</span>Home</a>
+    <a href="/work.html" class="nav-overlay__link"><span class="nav-overlay__num">02</span>Work</a>
+    <a href="/about.html" class="nav-overlay__link"><span class="nav-overlay__num">03</span>About</a>
+    <a href="/contact.html" class="nav-overlay__link"><span class="nav-overlay__num">04</span>Contact</a>
+  </nav>
+  <div class="nav-overlay__footer">
+    <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
+    <a href="mailto:melekkarlankus@gmail.com">Email</a>
+  </div>
+</div>
+
+<main data-barba="container" data-barba-namespace="project">
+
+  <section class="proj-hero">
+    <div class="proj-hero__bg" style="background: linear-gradient(135deg, #B8A89A 0%, #7A6858 60%, #4A3A2A 100%);"></div>
+    <div class="proj-hero__overlay"></div>
+    <div class="proj-hero__content">
+      <span class="proj-hero__num">03</span>
+      <h1 class="proj-hero__title">Villa İDA</h1>
+      <p class="proj-hero__subtitle">Holistic Architecture & Interior Design</p>
+      <div class="proj-hero__meta">
+        <span>Architecture + Interior</span>
+        <span>2024</span>
+        <span>Architectural & Interior Design</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-overview">
+    <div class="proj-overview__inner">
+      <div class="proj-overview__text">
+        <p class="bio-reveal">A holistic design approach where the architectural shell and the interior experience
+        were developed simultaneously to ensure a seamless narrative between form and function.
+        Located in the serene landscape of the Ida Mountains, the project is characterized by
+        a deliberate selection of materials and a sculptural form-finding process.
+
+        In ancient narratives, Mount Ida is described as a geography associated with retreat,
+        observation, and contemplation — forming the foundation for creating spaces where
+        the user's attention is redirected toward their own thought process.</p>
+      </div>
+      <div class="proj-overview__image reveal-clip">
+        <div style="background: linear-gradient(160deg, #B8A89A 0%, #6A5A4A 100%); width:100%; height:100%; min-height:500px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-gallery">
+    <div class="proj-gallery__inner">
+      <div class="proj-gallery__item proj-gallery__item--full reveal-clip">
+        <div style="background: linear-gradient(135deg, #C4B4A4 0%, #8A7060 100%); width:100%; aspect-ratio:16/9;"></div>
+      </div>
+      <div class="proj-gallery__row">
+        <div class="proj-gallery__item proj-gallery__item--half reveal-clip">
+          <div style="background: linear-gradient(160deg, #B0A090 0%, #706050 100%); aspect-ratio:4/5; width:100%;"></div>
+        </div>
+        <div class="proj-gallery__item proj-gallery__item--half reveal-clip">
+          <div style="background: linear-gradient(160deg, #A89888 0%, #5C4C3C 100%); aspect-ratio:4/5; width:100%;"></div>
+        </div>
+      </div>
+      <div class="proj-gallery__item proj-gallery__item--full reveal-clip">
+        <div style="background: linear-gradient(180deg, #C8B8A8 0%, #7A6A5A 100%); width:100%; aspect-ratio:21/9;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-details">
+    <div class="proj-details__inner">
+      <div class="proj-detail reveal">
+        <h3>Challenge</h3>
+        <p>Translating the philosophical concept of Mount Ida — retreat, observation, contemplation — into built form.</p>
+      </div>
+      <div class="proj-detail reveal">
+        <h3>Solution</h3>
+        <p>A central courtyard with a water feature as the spatial heart; curved library walls that hold knowledge and frame silence.</p>
+      </div>
+      <div class="proj-detail reveal">
+        <h3>Outcome</h3>
+        <p>A villa that doesn't compete with the mountain — it listens to it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-tools">
+    <div class="proj-tools__inner">
+      <span class="proj-tools__label">Tools Used</span>
+      <span class="proj-tool">AutoCAD</span>
+      <span class="proj-tool">3ds Max</span>
+      <span class="proj-tool">V-Ray</span>
+      <span class="proj-tool">Photoshop</span>
+      <span class="proj-tool">SketchUp</span>
+      <span class="proj-tool">Rhino</span>
+    </div>
+  </section>
+
+  <section class="next-project">
+    <div class="next-project__bg" style="background: linear-gradient(135deg, #C4B090 0%, #7A5C40 100%);"></div>
+    <div class="next-project__overlay"></div>
+    <a href="/projects/sarot-thermal.html" class="next-project__link">
+      <span class="next-project__label">Next Project</span>
+      <h2 class="next-project__title">Sarot Thermal Palace</h2>
+    </a>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__col footer__col--brand">
+      <span class="footer__logo">Melek Karlankuş</span>
+      <span class="footer__studio">YULA Design Studio</span>
+      <span class="footer__tagline">Designing spaces where silence speaks</span>
+    </div>
+    <div class="footer__col footer__col--nav">
+      <a href="/work.html">Work</a><a href="/about.html">About</a><a href="/contact.html">Contact</a>
+    </div>
+    <div class="footer__col footer__col--social">
+      <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:melekkarlankus@gmail.com">Email</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 Melek Karlankuş — All Rights Reserved</span>
+    <span>İstanbul, Turkey</span>
+  </div>
+</footer>
+<script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+.marquee-section {
+  overflow: hidden;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: 20px 0;
+  background: var(--color-bg-alt);
+}
+
+.marquee-wrapper { overflow: hidden; }
+
+.marquee-inner {
+  display: flex;
+  gap: 48px;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  will-change: transform;
+}
+
+.marquee-dot { color: var(--color-accent); }

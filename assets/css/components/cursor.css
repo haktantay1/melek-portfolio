@@ -1,0 +1,70 @@
+@media (pointer: fine) {
+  * { cursor: none; }
+}
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: var(--z-cursor);
+}
+
+.cursor__dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s, opacity 0.2s;
+  position: absolute;
+}
+
+.cursor__ring {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--color-accent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    width 0.4s var(--ease-out-expo),
+    height 0.4s var(--ease-out-expo),
+    background 0.3s,
+    border-color 0.3s,
+    opacity 0.2s;
+  position: absolute;
+}
+
+.cursor__label {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-bg);
+  opacity: 0;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+/* Hover states */
+.cursor--link .cursor__ring {
+  width: 64px;
+  height: 64px;
+}
+
+.cursor--project .cursor__ring {
+  width: 90px;
+  height: 90px;
+  background: var(--color-accent);
+}
+.cursor--project .cursor__label { opacity: 1; }
+.cursor--project .cursor__dot  { opacity: 0; }
+
+.cursor--drag .cursor__ring {
+  width: 80px;
+  height: 80px;
+  border-style: dashed;
+}
