@@ -50,6 +50,7 @@ export function splitLines(el) {
     const outer = document.createElement('span');
     outer.style.display = 'block';
     outer.style.overflow = 'hidden';
+    outer.style.paddingBottom = '0.08em';
     const inner = document.createElement('span');
     inner.style.display = 'inline-block';
     inner.innerHTML = lineHTML;

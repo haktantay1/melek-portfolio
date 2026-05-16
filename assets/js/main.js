@@ -12,7 +12,12 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 
 const ns = document.querySelector('[data-barba-namespace]')?.dataset.barbaNamespace || 'home';
 
+let booted = false;
+
 function bootstrap() {
+  if (booted) return;
+  booted = true;
+
   initCursor();
   initNoise();
   initScroll();
@@ -20,28 +25,29 @@ function bootstrap() {
   runPage(ns);
   document.body.classList.add('is-loaded');
 
-  window.addEventListener('load', () => {
-    setTimeout(() => ScrollTrigger.refresh(), 100);
-  });
-
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(() => {
       ScrollTrigger.refresh();
     });
   }
+
+  window.addEventListener('load', () => {
+    setTimeout(() => ScrollTrigger.refresh(), 120);
+  });
 }
 
-if (prefersReducedMotion) {
-  document.querySelectorAll('.reveal').forEach(el => {
-    el.style.opacity = '1';
-    el.style.transform = 'none';
-  });
-  document.querySelectorAll('.reveal-clip').forEach(el => {
-    el.style.clipPath = 'none';
-    el.style.overflow = '';
-  });
-  document.getElementById('loader')?.remove();
-  bootstrap();
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', start);
 } else {
+  start();
+}
+
+function start() {
+  if (prefersReducedMotion) {
+    document.getElementById('loader')?.remove();
+    bootstrap();
+    return;
+  }
   initLoader(bootstrap);
+  setTimeout(bootstrap, 3500);
 }

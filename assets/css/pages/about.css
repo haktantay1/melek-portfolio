@@ -43,10 +43,6 @@
   line-height: 0.92;
   letter-spacing: -0.025em;
   margin-bottom: 3rem;
-  opacity: 0;
-}
-@media (prefers-reduced-motion: reduce) {
-  .about-hero__title { opacity: 1; }
 }
 
 .about-hero__bio {

@@ -4,17 +4,8 @@ export function initNoise() {
   if (canvas._inited) return;
   canvas._inited = true;
 
-  canvas.style.cssText = `
-    position: fixed; top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    pointer-events: none;
-    z-index: 9997;
-    opacity: 0.04;
-    mix-blend-mode: multiply;
-  `;
-
   const ctx = canvas.getContext('2d', { alpha: true });
-  const SCALE = 1.5;
+  const SCALE = 2;
 
   function resize() {
     canvas.width  = Math.floor(window.innerWidth / SCALE);
@@ -25,7 +16,7 @@ export function initNoise() {
 
   let frame = 0;
   function generateNoise() {
-    if (++frame % 4 !== 0) {
+    if (++frame % 5 !== 0) {
       requestAnimationFrame(generateNoise);
       return;
     }

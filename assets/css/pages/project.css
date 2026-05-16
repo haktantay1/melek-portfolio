@@ -21,6 +21,29 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transform-origin: center center;
+  animation: hero-ken-burns 30s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.proj-hero__spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(
+    240px 240px at var(--mx, 50%) var(--my, 50%),
+    rgba(245,240,235,0.18),
+    transparent 70%
+  );
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.proj-hero:hover .proj-hero__spotlight { opacity: 1; }
+
+.proj-hero__content {
+  z-index: 3;
 }
 
 .proj-hero__overlay {
@@ -63,10 +86,7 @@
   margin-bottom: 0.75rem;
   line-height: 0.95;
   letter-spacing: -0.025em;
-  opacity: 0;
-}
-@media (prefers-reduced-motion: reduce) {
-  .proj-hero__title { opacity: 1; }
+  text-shadow: 0 4px 28px rgba(0,0,0,0.4);
 }
 
 .proj-hero__subtitle {

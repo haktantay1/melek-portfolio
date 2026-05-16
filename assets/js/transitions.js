@@ -30,34 +30,34 @@ export function initTransitions() {
       if (el.hasAttribute('download')) return true;
       const href = el.getAttribute('href') || '';
       if (href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('#')) return true;
+      if (href.startsWith('http') && !href.includes(window.location.host)) return true;
       return false;
     },
     transitions: [{
       name: 'curtain-rise',
-      async leave(data) {
+      async leave() {
         const lenis = getLenis();
         lenis?.stop();
+        if (!overlay) return;
+        gsap.set(overlay, { y: '100%' });
         await gsap.to(overlay, {
-          y: 0,
-          duration: 0.75,
-          ease: 'power4.inOut',
-          onStart: () => {
-            gsap.set(overlay, { y: '100%' });
-          },
+          y: '0%',
+          duration: 0.7,
+          ease: 'expo.inOut',
         });
-        data.current.container.style.opacity = '0';
       },
-      async enter(data) {
+      async enter() {
         window.scrollTo(0, 0);
         const lenis = getLenis();
         lenis?.scrollTo(0, { immediate: true });
 
         ScrollTrigger.getAll().forEach(t => t.kill());
+        if (!overlay) { lenis?.start(); return; }
 
         await gsap.to(overlay, {
           y: '-100%',
-          duration: 0.75,
-          ease: 'power4.inOut',
+          duration: 0.7,
+          ease: 'expo.inOut',
           delay: 0.1,
         });
         gsap.set(overlay, { y: '100%' });
@@ -76,7 +76,7 @@ export function initTransitions() {
   barba.hooks.afterEnter(() => {
     initNav();
     refreshCursorTargets();
-    setTimeout(() => ScrollTrigger.refresh(), 50);
+    setTimeout(() => ScrollTrigger.refresh(), 80);
   });
 }
 

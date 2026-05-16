@@ -55,16 +55,28 @@ export function initNav() {
     link.addEventListener('click', closeMenu);
   });
 
-  const path = window.location.pathname;
+  const path = window.location.pathname.toLowerCase();
+  const pageOf = (href) => {
+    if (!href) return null;
+    const cleaned = href.replace(/[?#].*$/, '').toLowerCase();
+    if (cleaned === '' || cleaned === './' || cleaned === '../' || cleaned === '/' || cleaned.endsWith('/index.html') || cleaned === 'index.html') return 'home';
+    if (cleaned.endsWith('work.html'))    return 'work';
+    if (cleaned.endsWith('about.html'))   return 'about';
+    if (cleaned.endsWith('contact.html')) return 'contact';
+    return null;
+  };
+  const currentPage =
+    path === '' || path === '/' || path.endsWith('/index.html') || path.endsWith('/melek-portfolio/') ? 'home' :
+    path.endsWith('/work.html')    ? 'work' :
+    path.endsWith('/about.html')   ? 'about' :
+    path.endsWith('/contact.html') ? 'contact' :
+    path.includes('/projects/')    ? 'work' :
+    null;
+
   document.querySelectorAll('.nav__link, .nav-overlay__link').forEach(link => {
     link.classList.remove('is-active');
-    const href = link.getAttribute('href');
-    if (!href) return;
-    if (href === path) {
-      link.classList.add('is-active');
-    } else if (href === '/' && (path === '/' || path.endsWith('/index.html'))) {
-      link.classList.add('is-active');
-    } else if (href !== '/' && href.length > 1 && path.includes(href.replace(/^\//, '').replace('.html', ''))) {
+    const target = pageOf(link.getAttribute('href'));
+    if (target && target === currentPage) {
       link.classList.add('is-active');
     }
   });

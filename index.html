@@ -44,13 +44,13 @@
 <div class="page-transition-overlay"></div>
 
 <nav class="nav" id="nav">
-  <a href="/" class="nav__logo" aria-label="Melek Karlankuş — Home">
+  <a href="./" class="nav__logo" aria-label="Melek Karlankuş — Home">
     <span class="nav__logo-m">M</span>K
   </a>
   <div class="nav__links">
-    <a href="/work.html" class="nav__link">Work</a>
-    <a href="/about.html" class="nav__link">About</a>
-    <a href="/contact.html" class="nav__link btn-magnetic nav__cta">Let's Talk</a>
+    <a href="./work.html" class="nav__link">Work</a>
+    <a href="./about.html" class="nav__link">About</a>
+    <a href="./contact.html" class="nav__link btn-magnetic nav__cta">Let's Talk</a>
   </div>
   <button class="nav__menu-btn" aria-label="Open menu">
     <span></span><span></span>
@@ -60,16 +60,16 @@
 <div class="nav-overlay" role="dialog" aria-label="Navigation menu">
   <button class="nav-overlay__close" aria-label="Close menu">✕</button>
   <nav class="nav-overlay__links">
-    <a href="/" class="nav-overlay__link">
+    <a href="./" class="nav-overlay__link">
       <span class="nav-overlay__num">01</span>Home
     </a>
-    <a href="/work.html" class="nav-overlay__link">
+    <a href="./work.html" class="nav-overlay__link">
       <span class="nav-overlay__num">02</span>Work
     </a>
-    <a href="/about.html" class="nav-overlay__link">
+    <a href="./about.html" class="nav-overlay__link">
       <span class="nav-overlay__num">03</span>About
     </a>
-    <a href="/contact.html" class="nav-overlay__link">
+    <a href="./contact.html" class="nav-overlay__link">
       <span class="nav-overlay__num">04</span>Contact
     </a>
   </nav>
@@ -81,11 +81,13 @@
 
 <main data-barba="container" data-barba-namespace="home">
 
-  <!-- HERO -->
   <section class="hero" id="hero">
     <div class="hero__bg">
-      <div class="hero__bg-gradient"></div>
+      <img class="hero__bg-img" src="/assets/images/projects/p03-cover.jpg"
+           alt="" aria-hidden="true">
     </div>
+    <div class="hero__bg-gradient"></div>
+    <div class="hero__vignette"></div>
     <div class="hero__content">
       <div class="hero__top">
         <span class="hero__label">Interior Architect — İstanbul</span>
@@ -106,11 +108,10 @@
     </div>
   </section>
 
-  <!-- ABOUT TEASER -->
   <section class="about-teaser">
     <div class="container">
       <div class="about-teaser__inner">
-        <div class="about-teaser__label">
+        <div class="about-teaser__label" data-reveal>
           <span class="section-num">01</span>
           <span class="section-tag">About</span>
         </div>
@@ -122,7 +123,7 @@
             institutional spaces — each shaped by a conviction that great interiors
             do not decorate a space, they complete it.
           </p>
-          <div class="about-teaser__stats">
+          <div class="about-teaser__stats" data-reveal>
             <div class="stat">
               <span class="stat__num count-up" data-target="7">0</span>
               <span class="stat__label">Projects</span>
@@ -136,13 +137,12 @@
               <span class="stat__label">Years</span>
             </div>
           </div>
-          <a href="/about.html" class="link-underline btn-magnetic">Read More →</a>
+          <a href="./about.html" class="link-underline btn-magnetic">Read More →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MARQUEE -->
   <div class="marquee-section" aria-hidden="true">
     <div class="marquee-wrapper">
       <div class="marquee-inner">
@@ -164,25 +164,23 @@
     </div>
   </div>
 
-  <!-- FEATURED PROJECTS -->
   <section class="projects-featured">
     <div class="container">
-      <div class="section-header reveal">
+      <div class="section-header" data-reveal>
         <span class="section-num">02</span>
         <h2 class="section-title">Selected Work</h2>
-        <a href="/work.html" class="section-cta btn-magnetic">View All →</a>
+        <a href="./work.html" class="section-cta btn-magnetic">View All →</a>
       </div>
     </div>
 
-    <!-- Project 01 -->
     <div class="project-card project-card--featured project-card--left"
-         data-href="/projects/minimalist-living.html" role="link" tabindex="0"
+         data-href="./projects/minimalist-living.html" role="link" tabindex="0"
          aria-label="Minimalist Living Space project">
-      <div class="project-card__image reveal-clip">
+      <div class="project-card__image" data-clip>
         <img class="project-card__img-inner" src="/assets/images/projects/p01-cover.jpg"
              alt="Minimalist Living Space" loading="lazy">
       </div>
-      <div class="project-card__info">
+      <div class="project-card__info" data-reveal>
         <span class="project-card__num">01 — Residential</span>
         <h3 class="project-card__title">Minimalist Living Space</h3>
         <p class="project-card__subtitle">Organic form meets contemporary luxury</p>
@@ -190,15 +188,14 @@
       </div>
     </div>
 
-    <!-- Project 02 -->
     <div class="project-card project-card--featured project-card--right"
-         data-href="/projects/private-nook.html" role="link" tabindex="0"
+         data-href="./projects/private-nook.html" role="link" tabindex="0"
          aria-label="Private Nook project">
-      <div class="project-card__image reveal-clip">
+      <div class="project-card__image" data-clip>
         <img class="project-card__img-inner" src="/assets/images/projects/p02-cover.jpg"
              alt="Private Nook" loading="lazy">
       </div>
-      <div class="project-card__info">
+      <div class="project-card__info" data-reveal>
         <span class="project-card__num">02 — Residential</span>
         <h3 class="project-card__title">Private Nook</h3>
         <p class="project-card__subtitle">Interior Atmosphere</p>
@@ -206,15 +203,14 @@
       </div>
     </div>
 
-    <!-- Project 03 -->
     <div class="project-card project-card--full"
-         data-href="/projects/villa-ida.html" role="link" tabindex="0"
+         data-href="./projects/villa-ida.html" role="link" tabindex="0"
          aria-label="Villa IDA project">
-      <div class="project-card__image reveal-clip">
+      <div class="project-card__image" data-clip>
         <img class="project-card__img-inner" src="/assets/images/projects/p03-cover.jpg"
              alt="Villa İDA" loading="lazy">
       </div>
-      <div class="project-card__info">
+      <div class="project-card__info" data-reveal>
         <span class="project-card__num">03 — Architecture + Interior</span>
         <h3 class="project-card__title">Villa İDA</h3>
         <p class="project-card__subtitle">Holistic Architecture & Interior Design</p>
@@ -223,17 +219,16 @@
     </div>
   </section>
 
-  <!-- ILLUSTRATION TEASER -->
   <section class="illustration-teaser">
     <div class="container">
       <div class="illustration-teaser__inner">
-        <div class="illustration-teaser__text reveal">
+        <div class="illustration-teaser__text" data-reveal>
           <span class="section-num">03</span>
           <h2>Illustrations<br>&amp; Digital Arts</h2>
           <p>Beyond the built environment — a parallel practice of fashion illustration and architectural drawing that informs how I see space and form.</p>
-          <a href="/work.html#illustrations" class="link-underline btn-magnetic">Explore →</a>
+          <a href="./work.html#illustrations" class="link-underline btn-magnetic">Explore →</a>
         </div>
-        <div class="illustration-teaser__grid reveal-clip">
+        <div class="illustration-teaser__grid" data-clip>
           <div class="illus-tile" style="background: linear-gradient(160deg, #D4B8C0 0%, #8B5A6A 100%);"></div>
           <div class="illus-tile" style="background: linear-gradient(160deg, #C4D4B8 0%, #5A7A4A 100%);"></div>
           <div class="illus-tile" style="background: linear-gradient(160deg, #B8C4D4 0%, #4A5A7A 100%);"></div>
@@ -243,20 +238,19 @@
     </div>
   </section>
 
-  <!-- CONTACT CTA -->
   <section class="contact-cta">
     <div class="container">
-      <div class="contact-cta__inner reveal">
-        <span class="section-tag">Let's Work Together</span>
+      <div class="contact-cta__inner">
+        <span class="section-tag" data-reveal>Let's Work Together</span>
         <h2 class="contact-cta__title">Have a project<br>in mind?</h2>
-        <a href="/contact.html" class="contact-cta__btn btn-magnetic">
+        <a href="./contact.html" class="contact-cta__btn btn-magnetic">
           <span>Start a Conversation</span>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
             <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
       </div>
-      <div class="contact-cta__info">
+      <div class="contact-cta__info" data-reveal>
         <a href="mailto:melekkarlankus@gmail.com" class="contact-cta__email">
           melekkarlankus@gmail.com
         </a>
@@ -271,6 +265,12 @@
 
 </main>
 
+<div class="section-progress" aria-hidden="true">
+  <span class="section-progress__num">01</span>
+  <span class="section-progress__line"></span>
+  <span class="section-progress__total">03</span>
+</div>
+
 <footer class="footer">
   <div class="container footer__inner">
     <div class="footer__col footer__col--brand">
@@ -279,9 +279,9 @@
       <span class="footer__tagline">Designing spaces where silence speaks</span>
     </div>
     <div class="footer__col footer__col--nav">
-      <a href="/work.html">Work</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
+      <a href="./work.html">Work</a>
+      <a href="./about.html">About</a>
+      <a href="./contact.html">Contact</a>
     </div>
     <div class="footer__col footer__col--social">
       <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>

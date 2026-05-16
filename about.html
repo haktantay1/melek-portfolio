@@ -24,11 +24,11 @@
 <div class="page-transition-overlay"></div>
 
 <nav class="nav" id="nav">
-  <a href="/" class="nav__logo"><span class="nav__logo-m">M</span>K</a>
+  <a href="./" class="nav__logo"><span class="nav__logo-m">M</span>K</a>
   <div class="nav__links">
-    <a href="/work.html" class="nav__link">Work</a>
-    <a href="/about.html" class="nav__link">About</a>
-    <a href="/contact.html" class="nav__link btn-magnetic nav__cta">Let's Talk</a>
+    <a href="./work.html" class="nav__link">Work</a>
+    <a href="./about.html" class="nav__link">About</a>
+    <a href="./contact.html" class="nav__link btn-magnetic nav__cta">Let's Talk</a>
   </div>
   <button class="nav__menu-btn" aria-label="Open menu"><span></span><span></span></button>
 </nav>
@@ -36,10 +36,10 @@
 <div class="nav-overlay" role="dialog">
   <button class="nav-overlay__close" aria-label="Close menu">✕</button>
   <nav class="nav-overlay__links">
-    <a href="/" class="nav-overlay__link"><span class="nav-overlay__num">01</span>Home</a>
-    <a href="/work.html" class="nav-overlay__link"><span class="nav-overlay__num">02</span>Work</a>
-    <a href="/about.html" class="nav-overlay__link"><span class="nav-overlay__num">03</span>About</a>
-    <a href="/contact.html" class="nav-overlay__link"><span class="nav-overlay__num">04</span>Contact</a>
+    <a href="./" class="nav-overlay__link"><span class="nav-overlay__num">01</span>Home</a>
+    <a href="./work.html" class="nav-overlay__link"><span class="nav-overlay__num">02</span>Work</a>
+    <a href="./about.html" class="nav-overlay__link"><span class="nav-overlay__num">03</span>About</a>
+    <a href="./contact.html" class="nav-overlay__link"><span class="nav-overlay__num">04</span>Contact</a>
   </nav>
   <div class="nav-overlay__footer">
     <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
@@ -49,12 +49,11 @@
 
 <main data-barba="container" data-barba-namespace="about">
 
-  <!-- HERO -->
   <section class="about-hero">
     <div class="container">
       <div class="about-hero__inner">
 
-        <div class="about-hero__portrait reveal-clip">
+        <div class="about-hero__portrait" data-clip>
           <div class="about-hero__portrait-inner">
             <img src="/assets/images/projects/portrait.jpg" alt="Melek Karlankuş — YULA Design Studio" loading="eager">
           </div>
@@ -75,8 +74,8 @@
             grounded in material truth, refined through iterative form-finding, and
             delivered with the precision of technical excellence.
           </p>
-          <div style="margin-top: 3rem;">
-            <a href="/contact.html" class="link-underline btn-magnetic">Start a Project →</a>
+          <div style="margin-top: 3rem;" data-reveal>
+            <a href="./contact.html" class="link-underline btn-magnetic">Start a Project →</a>
           </div>
         </div>
 
@@ -84,37 +83,36 @@
     </div>
   </section>
 
-  <!-- STORY TIMELINE -->
   <section class="story-section">
     <div class="container">
-      <div class="section-header reveal">
+      <div class="section-header" data-reveal>
         <span class="section-num">01</span>
         <h2 class="section-title">Timeline</h2>
       </div>
 
       <div class="timeline">
-        <div class="timeline-item reveal">
+        <div class="timeline-item" data-reveal>
           <span class="timeline-year">2022</span>
           <div class="timeline-content">
             <h3>CandyZoo İzmir</h3>
             <p>Completed architectural execution drawings for a high-energy retail brand — first large-scale documentation project, delivered in full.</p>
           </div>
         </div>
-        <div class="timeline-item reveal">
+        <div class="timeline-item" data-reveal>
           <span class="timeline-year">2023</span>
           <div class="timeline-content">
             <h3>TÜBİTAK TÜSSİDE + Sarot Thermal Palace</h3>
             <p>Delivered a comprehensive corporate interior for Turkey's leading scientific institution, alongside the Presidential Suite at Sarot Thermal Palace. Mixed-Use Healthcare Center documentation for Iraq also completed.</p>
           </div>
         </div>
-        <div class="timeline-item reveal">
+        <div class="timeline-item" data-reveal>
           <span class="timeline-year">2024</span>
           <div class="timeline-content">
             <h3>Villa İDA + Minimalist Living + Private Nook</h3>
             <p>Most prolific year yet — three residential and architectural projects, each pushing the studio's design language further toward holistic, material-honest practice.</p>
           </div>
         </div>
-        <div class="timeline-item reveal">
+        <div class="timeline-item" data-reveal>
           <span class="timeline-year">Now</span>
           <div class="timeline-content">
             <h3>Open for Collaboration</h3>
@@ -125,31 +123,30 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
   <section class="services-section">
     <div class="container">
-      <div class="section-header reveal">
+      <div class="section-header" data-reveal>
         <span class="section-num">02</span>
         <h2 class="section-title">Services</h2>
       </div>
 
       <div class="services-grid">
-        <div class="service-item reveal">
+        <div class="service-item" data-reveal>
           <span class="service-num">01</span>
           <h3 class="service-title">Interior Design</h3>
           <p class="service-desc">From concept to completion — residential, hospitality, and commercial spaces designed with material precision and spatial poetry.</p>
         </div>
-        <div class="service-item reveal">
+        <div class="service-item" data-reveal>
           <span class="service-num">02</span>
           <h3 class="service-title">3D Visualization</h3>
           <p class="service-desc">Photorealistic renders that communicate the atmosphere of a space before a single wall is built.</p>
         </div>
-        <div class="service-item reveal">
+        <div class="service-item" data-reveal>
           <span class="service-num">03</span>
           <h3 class="service-title">Execution Drawings</h3>
           <p class="service-desc">Technical documentation — floor plans, sections, elevations, and details — to the standard required for construction.</p>
         </div>
-        <div class="service-item reveal">
+        <div class="service-item" data-reveal>
           <span class="service-num">04</span>
           <h3 class="service-title">Digital Illustration</h3>
           <p class="service-desc">Architectural and fashion illustrations that tell the story of a space or a style with an artist's hand.</p>
@@ -158,10 +155,9 @@
     </div>
   </section>
 
-  <!-- SKILLS -->
   <section class="skills-section">
     <div class="container">
-      <div class="section-header reveal">
+      <div class="section-header" data-reveal>
         <span class="section-num">03</span>
         <h2 class="section-title">Skills &amp; Tools</h2>
       </div>
@@ -190,10 +186,9 @@
     </div>
   </section>
 
-  <!-- STUDIO -->
   <section class="studio-section">
     <div class="container">
-      <div class="reveal">
+      <div data-reveal>
         <span class="section-num" style="display:block; text-align:center; margin-bottom:2rem;">04</span>
         <span class="studio-name">YULA Design Studio</span>
         <p class="studio-desc">
@@ -206,7 +201,7 @@
           <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener" class="studio-ig">
             @yula.designstudio
           </a>
-          <a href="/contact.html" class="studio-ig">
+          <a href="./contact.html" class="studio-ig">
             Work Together →
           </a>
         </div>
@@ -224,9 +219,9 @@
       <span class="footer__tagline">Designing spaces where silence speaks</span>
     </div>
     <div class="footer__col footer__col--nav">
-      <a href="/work.html">Work</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
+      <a href="./work.html">Work</a>
+      <a href="./about.html">About</a>
+      <a href="./contact.html">Contact</a>
     </div>
     <div class="footer__col footer__col--social">
       <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>

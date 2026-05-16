@@ -19,10 +19,6 @@
   font-weight: 400;
   line-height: 0.92;
   letter-spacing: -0.025em;
-  opacity: 0;
-}
-@media (prefers-reduced-motion: reduce) {
-  .work-hero__title { opacity: 1; }
 }
 
 .work-hero__meta {

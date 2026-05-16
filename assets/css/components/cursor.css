@@ -1,6 +1,10 @@
-@media (pointer: fine) {
-  html, body, * { cursor: none; }
-  input, textarea, select, [contenteditable="true"] { cursor: text; }
+@media (hover: hover) and (pointer: fine) {
+  body.has-cursor,
+  body.has-cursor * { cursor: none; }
+  body.has-cursor input,
+  body.has-cursor textarea,
+  body.has-cursor select,
+  body.has-cursor [contenteditable="true"] { cursor: text; }
 }
 
 .cursor {
@@ -10,7 +14,10 @@
   pointer-events: none;
   z-index: var(--z-cursor);
   mix-blend-mode: difference;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
+body.has-cursor .cursor { opacity: 1; }
 
 .cursor__dot {
   width: 6px;
@@ -70,6 +77,17 @@
   border-style: dashed;
 }
 
-@media (pointer: coarse) {
+@media (hover: none), (pointer: coarse) {
   .cursor { display: none; }
+}
+
+#noise-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: var(--z-noise);
+  opacity: 0.04;
+  mix-blend-mode: multiply;
 }

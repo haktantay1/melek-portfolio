@@ -10,17 +10,35 @@ export function initHomeAnimations() {
   if (heroName && !heroName._split) {
     heroName._split = true;
     const chars = splitChars(heroName);
-    gsap.set(heroName, { opacity: 1 });
+    chars.forEach(c => c.classList.add('char'));
     gsap.from(chars, {
-      yPercent: 120,
+      yPercent: 130,
       opacity: 0,
-      duration: 1.2,
+      duration: 1.4,
       stagger: 0.035,
-      ease: 'power4.out',
-      delay: 0.25,
+      ease: 'expo.out',
+      delay: 0.4,
     });
   }
 
+  gsap.from('.hero__bg-img', {
+    scale: 1.3,
+    duration: 2.4,
+    ease: 'power3.out',
+  });
+
+  gsap.from('.hero__label', {
+    y: 20, opacity: 0, duration: 0.9, ease: 'power2.out', delay: 0.3,
+  });
+  gsap.from('.hero__date', {
+    y: 20, opacity: 0, duration: 0.9, ease: 'power2.out', delay: 0.45,
+  });
+  gsap.from('.hero__tagline', {
+    y: 24, opacity: 0, duration: 1.0, ease: 'power2.out', delay: 1.0,
+  });
+  gsap.from('.hero__scroll', {
+    y: 16, opacity: 0, duration: 0.9, ease: 'power2.out', delay: 1.2,
+  });
   gsap.from('.hero__scroll-line', {
     scaleY: 0,
     transformOrigin: 'top',
@@ -29,19 +47,23 @@ export function initHomeAnimations() {
     delay: 1.3,
   });
 
-  gsap.fromTo(['.hero__label', '.hero__date'],
-    { opacity: 0, y: 15 },
-    { opacity: 0.7, y: 0, duration: 0.9, stagger: 0.12, ease: 'power2.out', delay: 0.4 }
-  );
-
-  gsap.fromTo('.hero__tagline',
-    { opacity: 0, y: 25 },
-    { opacity: 0.78, y: 0, duration: 1.0, ease: 'power2.out', delay: 1.0 }
-  );
-  gsap.fromTo('.hero__scroll',
-    { opacity: 0, y: 15 },
-    { opacity: 0.7, y: 0, duration: 0.9, ease: 'power2.out', delay: 1.2 }
-  );
+  document.querySelectorAll('.section-title').forEach(title => {
+    if (title._split) return;
+    title._split = true;
+    const lines = splitLines(title);
+    gsap.from(lines, {
+      yPercent: 110,
+      opacity: 0,
+      duration: 1.0,
+      stagger: 0.12,
+      ease: 'expo.out',
+      scrollTrigger: {
+        trigger: title,
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+      }
+    });
+  });
 
   const bioText = document.querySelector('.bio-reveal');
   if (bioText && !bioText._split) {
@@ -55,7 +77,7 @@ export function initHomeAnimations() {
       ease: 'power2.out',
       scrollTrigger: {
         trigger: bioText,
-        start: 'top 82%',
+        start: 'top 85%',
         toggleActions: 'play none none none',
       }
     });
@@ -80,6 +102,7 @@ export function initHomeAnimations() {
   });
 
   bindCardNavigation();
+  initSectionProgress();
 
   const ctaTitle = document.querySelector('.contact-cta__title');
   if (ctaTitle && !ctaTitle._split) {
@@ -90,10 +113,10 @@ export function initHomeAnimations() {
       opacity: 0,
       duration: 1.0,
       stagger: 0.12,
-      ease: 'power4.out',
+      ease: 'expo.out',
       scrollTrigger: {
         trigger: ctaTitle,
-        start: 'top 82%',
+        start: 'top 85%',
         toggleActions: 'play none none none',
       }
     });
@@ -105,16 +128,21 @@ export function initProjectAnimations() {
   if (heroTitle && !heroTitle._split) {
     heroTitle._split = true;
     const lines = splitLines(heroTitle);
-    gsap.set(heroTitle, { opacity: 1 });
     gsap.from(lines, {
-      yPercent: 110,
+      yPercent: 120,
       opacity: 0,
       duration: 1.2,
       stagger: 0.12,
-      ease: 'power4.out',
+      ease: 'expo.out',
       delay: 0.35,
     });
   }
+
+  gsap.from('.proj-hero__bg img', {
+    scale: 1.25,
+    duration: 2.2,
+    ease: 'power3.out',
+  });
 
   gsap.from('.proj-hero__num', {
     opacity: 0, y: 20, duration: 0.8, ease: 'power2.out', delay: 0.2,
@@ -126,10 +154,10 @@ export function initProjectAnimations() {
     opacity: 0, y: 12, duration: 0.7, stagger: 0.08, ease: 'power2.out', delay: 0.9,
   });
 
-  const overviewText = document.querySelector('.proj-overview__text p');
-  if (overviewText && !overviewText._split) {
-    overviewText._split = true;
-    const words = splitWords(overviewText);
+  document.querySelectorAll('.bio-reveal').forEach(bio => {
+    if (bio._split) return;
+    bio._split = true;
+    const words = splitWords(bio);
     gsap.from(words, {
       opacity: 0,
       y: 14,
@@ -137,9 +165,24 @@ export function initProjectAnimations() {
       stagger: 0.02,
       ease: 'power2.out',
       scrollTrigger: {
-        trigger: overviewText,
-        start: 'top 80%',
+        trigger: bio,
+        start: 'top 85%',
         toggleActions: 'play none none none',
+      }
+    });
+  });
+
+  const projHero = document.querySelector('.proj-hero');
+  if (projHero && !projHero._spotlight) {
+    projHero._spotlight = true;
+    projHero.addEventListener('mousemove', e => {
+      const rect = projHero.getBoundingClientRect();
+      const mx = ((e.clientX - rect.left) / rect.width) * 100;
+      const my = ((e.clientY - rect.top) / rect.height) * 100;
+      const spot = projHero.querySelector('.proj-hero__spotlight');
+      if (spot) {
+        spot.style.setProperty('--mx', mx + '%');
+        spot.style.setProperty('--my', my + '%');
       }
     });
   }
@@ -150,23 +193,38 @@ export function initWorkAnimations() {
   if (workTitle && !workTitle._split) {
     workTitle._split = true;
     const lines = splitLines(workTitle);
-    gsap.set(workTitle, { opacity: 1 });
     gsap.from(lines, {
-      yPercent: 110,
+      yPercent: 120,
       opacity: 0,
       duration: 1.2,
       stagger: 0.12,
-      ease: 'power4.out',
+      ease: 'expo.out',
       delay: 0.3,
     });
   }
-  gsap.from(['.work-hero__sub', '.work-hero__count'], {
-    opacity: 0,
-    y: 20,
-    duration: 0.9,
-    stagger: 0.1,
-    ease: 'power2.out',
-    delay: 0.5,
+  gsap.from('.work-hero__sub', {
+    opacity: 0, y: 20, duration: 0.9, ease: 'power2.out', delay: 0.5,
+  });
+  gsap.from('.work-hero__count', {
+    opacity: 0, y: 20, duration: 0.9, ease: 'power2.out', delay: 0.6,
+  });
+
+  document.querySelectorAll('.section-title').forEach(title => {
+    if (title._split) return;
+    title._split = true;
+    const lines = splitLines(title);
+    gsap.from(lines, {
+      yPercent: 110,
+      opacity: 0,
+      duration: 1.0,
+      stagger: 0.12,
+      ease: 'expo.out',
+      scrollTrigger: {
+        trigger: title,
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+      }
+    });
   });
 
   const filterBtns = document.querySelectorAll('button.filter-btn[data-filter]');
@@ -202,19 +260,38 @@ export function initWorkAnimations() {
   const track = document.querySelector('.illus-scroll-track');
   if (track && !track._dragBound) {
     track._dragBound = true;
-    let isDown = false, startX = 0, scrollLeft = 0;
+    let isDown = false, startX = 0, scrollLeft = 0, velocity = 0, lastX = 0, lastT = 0;
     track.addEventListener('mousedown', e => {
       isDown = true;
       startX = e.pageX - track.offsetLeft;
       scrollLeft = track.scrollLeft;
+      lastX = e.pageX;
+      lastT = performance.now();
+      velocity = 0;
     });
-    document.addEventListener('mouseup', () => { isDown = false; });
+    document.addEventListener('mouseup', () => {
+      if (!isDown) return;
+      isDown = false;
+      let v = velocity;
+      const decay = () => {
+        if (Math.abs(v) < 0.5) return;
+        track.scrollLeft -= v;
+        v *= 0.94;
+        requestAnimationFrame(decay);
+      };
+      decay();
+    });
     track.addEventListener('mouseleave', () => { isDown = false; });
     track.addEventListener('mousemove', e => {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - track.offsetLeft;
       track.scrollLeft = scrollLeft - (x - startX) * 1.6;
+      const now = performance.now();
+      const dt = now - lastT;
+      if (dt > 0) velocity = (e.pageX - lastX) / dt * 16;
+      lastX = e.pageX;
+      lastT = now;
     });
   }
 }
@@ -229,16 +306,33 @@ export function initAboutAnimations() {
   if (aboutTitle && !aboutTitle._split) {
     aboutTitle._split = true;
     const lines = splitLines(aboutTitle);
-    gsap.set(aboutTitle, { opacity: 1 });
     gsap.from(lines, {
-      yPercent: 110,
+      yPercent: 120,
       opacity: 0,
       duration: 1.2,
       stagger: 0.12,
-      ease: 'power4.out',
+      ease: 'expo.out',
       delay: 0.3,
     });
   }
+
+  document.querySelectorAll('.section-title').forEach(title => {
+    if (title._split) return;
+    title._split = true;
+    const lines = splitLines(title);
+    gsap.from(lines, {
+      yPercent: 110,
+      opacity: 0,
+      duration: 1.0,
+      stagger: 0.12,
+      ease: 'expo.out',
+      scrollTrigger: {
+        trigger: title,
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+      }
+    });
+  });
 
   document.querySelectorAll('.bio-reveal').forEach(bio => {
     if (bio._split) return;
@@ -282,16 +376,18 @@ export function initContactAnimations() {
   if (title && !title._split) {
     title._split = true;
     const chars = splitChars(title);
-    gsap.set(title, { opacity: 1 });
     gsap.from(chars, {
-      yPercent: 110,
+      yPercent: 120,
       opacity: 0,
       duration: 1.2,
       stagger: 0.06,
-      ease: 'power4.out',
+      ease: 'expo.out',
       delay: 0.3,
     });
   }
+  gsap.from('.contact-hero__sub', {
+    opacity: 0, y: 16, duration: 0.8, ease: 'power2.out', delay: 0.2,
+  });
 }
 
 function bindCardNavigation() {
@@ -308,6 +404,32 @@ function bindCardNavigation() {
         const href = card.dataset.href;
         if (href) window.location.href = href;
       }
+    });
+  });
+}
+
+function initSectionProgress() {
+  const progress = document.querySelector('.section-progress');
+  if (!progress || progress._bound) return;
+  progress._bound = true;
+  const cards = gsap.utils.toArray('.projects-featured .project-card');
+  if (!cards.length) return;
+  const numEl = progress.querySelector('.section-progress__num');
+  const totalEl = progress.querySelector('.section-progress__total');
+  if (totalEl) totalEl.textContent = String(cards.length).padStart(2, '0');
+  cards.forEach((card, i) => {
+    ScrollTrigger.create({
+      trigger: card,
+      start: 'top 60%',
+      end: 'bottom 40%',
+      onEnter: () => {
+        if (numEl) numEl.textContent = String(i + 1).padStart(2, '0');
+        progress.style.setProperty('--progress', (i + 1) / cards.length);
+      },
+      onEnterBack: () => {
+        if (numEl) numEl.textContent = String(i + 1).padStart(2, '0');
+        progress.style.setProperty('--progress', (i + 1) / cards.length);
+      },
     });
   });
 }

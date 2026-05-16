@@ -18,25 +18,28 @@
   <link rel="stylesheet" href="/assets/css/pages/project.css">
 </head>
 <body data-barba="wrapper">
+
 <canvas id="noise-canvas"></canvas>
 <div class="cursor"><div class="cursor__dot"></div><div class="cursor__ring"><span class="cursor__label"></span></div></div>
 <div class="page-transition-overlay"></div>
+
 <nav class="nav" id="nav">
-  <a href="/" class="nav__logo"><span class="nav__logo-m">M</span>K</a>
+  <a href="../" class="nav__logo"><span class="nav__logo-m">M</span>K</a>
   <div class="nav__links">
-    <a href="/work.html" class="nav__link">Work</a>
-    <a href="/about.html" class="nav__link">About</a>
-    <a href="/contact.html" class="nav__link btn-magnetic nav__cta">Let's Talk</a>
+    <a href="../work.html" class="nav__link">Work</a>
+    <a href="../about.html" class="nav__link">About</a>
+    <a href="../contact.html" class="nav__link btn-magnetic nav__cta">Let's Talk</a>
   </div>
   <button class="nav__menu-btn" aria-label="Open menu"><span></span><span></span></button>
 </nav>
+
 <div class="nav-overlay" role="dialog">
   <button class="nav-overlay__close" aria-label="Close menu">✕</button>
   <nav class="nav-overlay__links">
-    <a href="/" class="nav-overlay__link"><span class="nav-overlay__num">01</span>Home</a>
-    <a href="/work.html" class="nav-overlay__link"><span class="nav-overlay__num">02</span>Work</a>
-    <a href="/about.html" class="nav-overlay__link"><span class="nav-overlay__num">03</span>About</a>
-    <a href="/contact.html" class="nav-overlay__link"><span class="nav-overlay__num">04</span>Contact</a>
+    <a href="../" class="nav-overlay__link"><span class="nav-overlay__num">01</span>Home</a>
+    <a href="../work.html" class="nav-overlay__link"><span class="nav-overlay__num">02</span>Work</a>
+    <a href="../about.html" class="nav-overlay__link"><span class="nav-overlay__num">03</span>About</a>
+    <a href="../contact.html" class="nav-overlay__link"><span class="nav-overlay__num">04</span>Contact</a>
   </nav>
   <div class="nav-overlay__footer">
     <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
@@ -51,6 +54,7 @@
       <img src="/assets/images/projects/p03-cover.jpg" alt="Villa İDA" loading="eager">
     </div>
     <div class="proj-hero__overlay"></div>
+    <div class="proj-hero__spotlight"></div>
     <div class="proj-hero__content">
       <span class="proj-hero__num">03 / Project</span>
       <h1 class="proj-hero__title">Villa İDA</h1>
@@ -74,7 +78,7 @@
         and contemplation — forming the foundation for creating spaces where the user's
         attention is redirected toward their own thought process.</p>
       </div>
-      <div class="proj-overview__image reveal-clip">
+      <div class="proj-overview__image" data-clip>
         <img src="/assets/images/projects/p03-overview.jpg" alt="Villa İDA overview" loading="lazy">
       </div>
     </div>
@@ -82,18 +86,18 @@
 
   <section class="proj-gallery">
     <div class="proj-gallery__inner">
-      <div class="proj-gallery__item proj-gallery__item--full reveal-clip">
+      <div class="proj-gallery__item proj-gallery__item--full" data-clip>
         <img src="/assets/images/projects/p03-1.jpg" alt="Villa İDA" loading="lazy">
       </div>
       <div class="proj-gallery__row">
-        <div class="proj-gallery__item proj-gallery__item--half reveal-clip">
+        <div class="proj-gallery__item proj-gallery__item--half" data-clip>
           <img src="/assets/images/projects/p03-2.jpg" alt="Villa İDA" loading="lazy">
         </div>
-        <div class="proj-gallery__item proj-gallery__item--half reveal-clip">
+        <div class="proj-gallery__item proj-gallery__item--half" data-clip>
           <img src="/assets/images/projects/p03-3.jpg" alt="Villa İDA" loading="lazy">
         </div>
       </div>
-      <div class="proj-gallery__item proj-gallery__item--full reveal-clip">
+      <div class="proj-gallery__item proj-gallery__item--full" data-clip>
         <img src="/assets/images/projects/p03-cover.jpg" alt="Villa İDA courtyard" loading="lazy">
       </div>
     </div>
@@ -101,15 +105,15 @@
 
   <section class="proj-details">
     <div class="proj-details__inner">
-      <div class="proj-detail reveal">
+      <div class="proj-detail" data-reveal>
         <h3>Challenge</h3>
         <p>Translating the philosophical concept of Mount Ida — retreat, observation, contemplation — into built form.</p>
       </div>
-      <div class="proj-detail reveal">
+      <div class="proj-detail" data-reveal>
         <h3>Solution</h3>
         <p>A central courtyard with a water feature as the spatial heart; curved library walls that hold knowledge and frame silence.</p>
       </div>
-      <div class="proj-detail reveal">
+      <div class="proj-detail" data-reveal>
         <h3>Outcome</h3>
         <p>A villa that doesn't compete with the mountain — it listens to it.</p>
       </div>
@@ -133,7 +137,7 @@
       <img src="/assets/images/projects/p04-cover.jpg" alt="Sarot Thermal Palace" loading="lazy">
     </div>
     <div class="next-project__overlay"></div>
-    <a href="/projects/sarot-thermal.html" class="next-project__link">
+    <a href="./sarot-thermal.html" class="next-project__link">
       <span class="next-project__label">Next Project — 04</span>
       <h2 class="next-project__title">Sarot Thermal Palace</h2>
     </a>
@@ -149,7 +153,9 @@
       <span class="footer__tagline">Designing spaces where silence speaks</span>
     </div>
     <div class="footer__col footer__col--nav">
-      <a href="/work.html">Work</a><a href="/about.html">About</a><a href="/contact.html">Contact</a>
+      <a href="../work.html">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
     </div>
     <div class="footer__col footer__col--social">
       <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
@@ -161,6 +167,7 @@
     <span>İstanbul, Turkey</span>
   </div>
 </footer>
+
 <script type="module" src="/assets/js/main.js"></script>
 </body>
 </html>

@@ -18,25 +18,28 @@
   <link rel="stylesheet" href="/assets/css/pages/project.css">
 </head>
 <body data-barba="wrapper">
+
 <canvas id="noise-canvas"></canvas>
 <div class="cursor"><div class="cursor__dot"></div><div class="cursor__ring"><span class="cursor__label"></span></div></div>
 <div class="page-transition-overlay"></div>
+
 <nav class="nav" id="nav">
-  <a href="/" class="nav__logo"><span class="nav__logo-m">M</span>K</a>
+  <a href="../" class="nav__logo"><span class="nav__logo-m">M</span>K</a>
   <div class="nav__links">
-    <a href="/work.html" class="nav__link">Work</a>
-    <a href="/about.html" class="nav__link">About</a>
-    <a href="/contact.html" class="nav__link btn-magnetic nav__cta">Let's Talk</a>
+    <a href="../work.html" class="nav__link">Work</a>
+    <a href="../about.html" class="nav__link">About</a>
+    <a href="../contact.html" class="nav__link btn-magnetic nav__cta">Let's Talk</a>
   </div>
   <button class="nav__menu-btn" aria-label="Open menu"><span></span><span></span></button>
 </nav>
+
 <div class="nav-overlay" role="dialog">
   <button class="nav-overlay__close" aria-label="Close menu">✕</button>
   <nav class="nav-overlay__links">
-    <a href="/" class="nav-overlay__link"><span class="nav-overlay__num">01</span>Home</a>
-    <a href="/work.html" class="nav-overlay__link"><span class="nav-overlay__num">02</span>Work</a>
-    <a href="/about.html" class="nav-overlay__link"><span class="nav-overlay__num">03</span>About</a>
-    <a href="/contact.html" class="nav-overlay__link"><span class="nav-overlay__num">04</span>Contact</a>
+    <a href="../" class="nav-overlay__link"><span class="nav-overlay__num">01</span>Home</a>
+    <a href="../work.html" class="nav-overlay__link"><span class="nav-overlay__num">02</span>Work</a>
+    <a href="../about.html" class="nav-overlay__link"><span class="nav-overlay__num">03</span>About</a>
+    <a href="../contact.html" class="nav-overlay__link"><span class="nav-overlay__num">04</span>Contact</a>
   </nav>
   <div class="nav-overlay__footer">
     <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
@@ -51,6 +54,7 @@
       <div style="background: linear-gradient(135deg, #B8C4A0 0%, #7A8A68 60%, #3A4A28 100%);"></div>
     </div>
     <div class="proj-hero__overlay"></div>
+    <div class="proj-hero__spotlight"></div>
     <div class="proj-hero__content">
       <span class="proj-hero__num">05 / Project</span>
       <h1 class="proj-hero__title">TÜBİTAK TÜSSİDE</h1>
@@ -73,7 +77,7 @@
         ergonomic solutions, acoustic comfort, and a modern aesthetic, the project provides
         a dynamic ecosystem where productivity meets social interaction.</p>
       </div>
-      <div class="proj-overview__image reveal-clip">
+      <div class="proj-overview__image" data-clip>
         <div style="background: linear-gradient(160deg, #B8C4A0 0%, #6A7A58 100%);"></div>
       </div>
     </div>
@@ -81,14 +85,14 @@
 
   <section class="proj-gallery">
     <div class="proj-gallery__inner">
-      <div class="proj-gallery__item proj-gallery__item--full reveal-clip">
+      <div class="proj-gallery__item proj-gallery__item--full" data-clip>
         <div style="background: linear-gradient(135deg, #C4D0A8 0%, #8A9A70 100%);"></div>
       </div>
       <div class="proj-gallery__row">
-        <div class="proj-gallery__item proj-gallery__item--half reveal-clip">
+        <div class="proj-gallery__item proj-gallery__item--half" data-clip>
           <div style="background: linear-gradient(160deg, #B0C098 0%, #708060 100%);"></div>
         </div>
-        <div class="proj-gallery__item proj-gallery__item--half reveal-clip">
+        <div class="proj-gallery__item proj-gallery__item--half" data-clip>
           <div style="background: linear-gradient(160deg, #A8B890 0%, #586848 100%);"></div>
         </div>
       </div>
@@ -97,15 +101,15 @@
 
   <section class="proj-details">
     <div class="proj-details__inner">
-      <div class="proj-detail reveal">
+      <div class="proj-detail" data-reveal>
         <h3>Challenge</h3>
         <p>Designing a space that serves both rigorous scientific focus and spontaneous creative collaboration.</p>
       </div>
-      <div class="proj-detail reveal">
+      <div class="proj-detail" data-reveal>
         <h3>Solution</h3>
         <p>Modular 'village' zones — distinct character per zone while maintaining visual cohesion through a shared material vocabulary.</p>
       </div>
-      <div class="proj-detail reveal">
+      <div class="proj-detail" data-reveal>
         <h3>Outcome</h3>
         <p>A workplace that scientists want to return to — one that makes thinking feel like an adventure.</p>
       </div>
@@ -128,7 +132,7 @@
       <div style="background: linear-gradient(135deg, #A8B8C4 0%, #6878A0 60%, #2A3A5C 100%);"></div>
     </div>
     <div class="next-project__overlay"></div>
-    <a href="/projects/healthcare-iraq.html" class="next-project__link">
+    <a href="./healthcare-iraq.html" class="next-project__link">
       <span class="next-project__label">Next Project — 06</span>
       <h2 class="next-project__title">Mixed-Use Healthcare Center</h2>
     </a>
@@ -144,7 +148,9 @@
       <span class="footer__tagline">Designing spaces where silence speaks</span>
     </div>
     <div class="footer__col footer__col--nav">
-      <a href="/work.html">Work</a><a href="/about.html">About</a><a href="/contact.html">Contact</a>
+      <a href="../work.html">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
     </div>
     <div class="footer__col footer__col--social">
       <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
@@ -156,6 +162,7 @@
     <span>İstanbul, Turkey</span>
   </div>
 </footer>
+
 <script type="module" src="/assets/js/main.js"></script>
 </body>
 </html>

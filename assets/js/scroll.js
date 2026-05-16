@@ -10,7 +10,7 @@ export function initScroll() {
   if (lenisInstance) return lenisInstance;
 
   lenisInstance = new Lenis({
-    duration: 1.4,
+    duration: 1.2,
     easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     orientation: 'vertical',
     smoothWheel: true,
@@ -31,60 +31,86 @@ export function initScroll() {
 export function getLenis() { return lenisInstance; }
 
 export function initScrollAnimations() {
-  gsap.utils.toArray('.reveal').forEach(el => {
-    gsap.fromTo(el,
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.1,
+  gsap.utils.toArray('[data-reveal]').forEach(el => {
+    if (el._revealed) return;
+    el._revealed = true;
+    gsap.from(el, {
+      opacity: 0,
+      y: 50,
+      duration: 1.1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 88%',
+        toggleActions: 'play none none none',
+      }
+    });
+  });
+
+  gsap.utils.toArray('[data-clip]').forEach(el => {
+    if (el._clipped) return;
+    el._clipped = true;
+    const img = el.querySelector('img, .project-card__img-inner, .illus-item__inner, .about-hero__portrait-inner');
+    gsap.from(el, {
+      clipPath: 'inset(0 0 100% 0)',
+      duration: 1.3,
+      ease: 'power4.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 88%',
+        toggleActions: 'play none none none',
+      }
+    });
+    if (img) {
+      gsap.from(img, {
+        scale: 1.2,
+        duration: 1.6,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: el,
           start: 'top 88%',
           toggleActions: 'play none none none',
         }
-      }
-    );
-  });
-
-  gsap.utils.toArray('.reveal-clip').forEach(el => {
-    gsap.fromTo(el,
-      { clipPath: 'inset(0 0 100% 0)' },
-      {
-        clipPath: 'inset(0 0 0% 0)',
-        duration: 1.4,
-        ease: 'power4.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 85%',
-          toggleActions: 'play none none none',
-        }
-      }
-    );
-
-    const inner = el.querySelector(':scope > *');
-    if (inner) {
-      gsap.fromTo(inner,
-        { y: '8%', scale: 1.08 },
-        {
-          y: '0%',
-          scale: 1,
-          duration: 1.4,
-          ease: 'power4.out',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          }
-        }
-      );
+      });
     }
   });
 
-  gsap.utils.toArray('.parallax').forEach(el => {
+  const heroBgImg = document.querySelector('.hero__bg-img');
+  if (heroBgImg && !heroBgImg._parallax) {
+    heroBgImg._parallax = true;
+    gsap.to(heroBgImg, {
+      yPercent: 18,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+      }
+    });
+  }
+
+  const projHeroImg = document.querySelector('.proj-hero__bg img');
+  if (projHeroImg && !projHeroImg._parallax) {
+    projHeroImg._parallax = true;
+    gsap.to(projHeroImg, {
+      yPercent: 22,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.proj-hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+      }
+    });
+  }
+
+  gsap.utils.toArray('[data-parallax]').forEach(el => {
+    if (el._parallaxBound) return;
+    el._parallaxBound = true;
+    const speed = parseFloat(el.dataset.parallax) || -15;
     gsap.to(el, {
-      yPercent: -18,
+      yPercent: speed,
       ease: 'none',
       scrollTrigger: {
         trigger: el.closest('section') || el.parentElement,
