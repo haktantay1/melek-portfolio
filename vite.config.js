@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 // Set this to your GitHub repo name if deploying as a project page
 // e.g. '/melek-portfolio/' for username.github.io/melek-portfolio
 // Leave as '/' if using a custom domain or user/org page (username.github.io)
-const BASE = '/';
+const BASE = '/melek-portfolio/';
 
 export default defineConfig({
   root: '.',
