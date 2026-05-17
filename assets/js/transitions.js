@@ -167,6 +167,8 @@ function initContactForm() {
       opacity: 0, y: -20, duration: 0.5, ease: 'power2.in', onComplete: () => {
         form.style.display = 'none';
         if (success) {
+          success.removeAttribute('hidden');
+          success.style.display = 'block';
           success.classList.add('is-visible');
           const msg = success.querySelector('.form-success__text');
           if (msg) msg.textContent = `Thank you, ${name}. I'll be in touch within 48 hours.`;
