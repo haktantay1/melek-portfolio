@@ -3,63 +3,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Work — Melek Karlankuş</title>
+  <meta name="theme-color" content="#EDE7DD">
+  <title>Work — Melek Karlankuş / YULA Design Studio</title>
   <meta name="description" content="Selected projects by Melek Karlankuş — Interior Architect, YULA Design Studio.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/tokens.css">
-  <link rel="stylesheet" href="/assets/css/reset.css">
-  <link rel="stylesheet" href="/assets/css/base.css">
-  <link rel="stylesheet" href="/assets/css/components/nav.css">
-  <link rel="stylesheet" href="/assets/css/components/cursor.css">
-  <link rel="stylesheet" href="/assets/css/components/loader.css">
-  <link rel="stylesheet" href="/assets/css/components/card.css">
-  <link rel="stylesheet" href="/assets/css/components/footer.css">
-  <link rel="stylesheet" href="/assets/css/pages/work.css">
-</head>
-<body data-barba="wrapper">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,30..100;1,9..144,300..700,30..100&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
 
-<canvas id="noise-canvas"></canvas>
-<div class="cursor">
+  <link rel="stylesheet" href="./assets/css/tokens.css">
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/base.css">
+  <link rel="stylesheet" href="./assets/css/components/nav.css">
+  <link rel="stylesheet" href="./assets/css/components/cursor.css">
+  <link rel="stylesheet" href="./assets/css/components/loader.css">
+  <link rel="stylesheet" href="./assets/css/components/marquee.css">
+  <link rel="stylesheet" href="./assets/css/components/card.css">
+  <link rel="stylesheet" href="./assets/css/components/footer.css">
+  <link rel="stylesheet" href="./assets/css/pages/work.css">
+
+  <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1.10.0/dist/es-module-shims.js"></script><script type="importmap">
+  {
+    "imports": {
+      "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js",
+      "gsap/": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/",
+      "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.mjs",
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+    }
+  }
+  </script>
+</head>
+<body data-page="work">
+
+<canvas id="noise-canvas" aria-hidden="true"></canvas>
+
+<div class="cursor" aria-hidden="true">
   <div class="cursor__dot"></div>
   <div class="cursor__ring"><span class="cursor__label"></span></div>
 </div>
-<div class="page-transition-overlay"></div>
+
+<div id="loader" class="loader" aria-label="Loading">
+  <div class="loader__sweep" aria-hidden="true"></div>
+  <div class="loader__top">
+    <span class="loader__brand">YULA Design Studio</span>
+    <span class="loader__small">Archive · 2022–2026</span>
+  </div>
+  <div class="loader__center">
+    <div class="loader__counter">
+      <span class="loader__counter-num">0</span>
+      <span class="loader__counter-pct">%</span>
+    </div>
+  </div>
+  <div class="loader__bottom">
+    <div class="loader__title">
+      <span class="loader__title-line">Selected Work</span>
+    </div>
+    <span class="loader__small">07 Projects</span>
+  </div>
+  <div class="loader__progress"><div class="loader__progress-bar"></div></div>
+  <div class="loader__wipe" aria-hidden="true"></div>
+</div>
+
+<div class="page-transition-overlay" aria-hidden="true">
+  <div class="page-transition-overlay__panel"></div>
+  <div class="page-transition-overlay__panel"></div>
+  <div class="page-transition-overlay__panel"></div>
+  <div class="page-transition-overlay__panel"></div>
+  <div class="page-transition-overlay__panel"></div>
+</div>
+<div class="page-transition-overlay__brand" aria-hidden="true">YULA</div>
+
+<div class="scroll-indicator" aria-hidden="true"><div class="scroll-indicator__bar"></div></div>
 
 <nav class="nav" id="nav">
-  <a href="./" class="nav__logo"><span class="nav__logo-m">M</span>K</a>
+  <a href="./index.html" class="nav__logo">
+    <span class="nav__logo-mark"><span>M</span></span>
+    <span class="nav__logo-text">
+      <span class="nav__logo-name">Karlankuş</span>
+      <span class="nav__logo-studio">YULA · Studio</span>
+    </span>
+  </a>
   <div class="nav__links">
     <a href="./work.html" class="nav__link">Work</a>
     <a href="./about.html" class="nav__link">About</a>
-    <a href="./contact.html" class="nav__link btn-magnetic nav__cta">Let's Talk</a>
+    <a href="./contact.html" class="nav__link nav__cta btn-magnetic">Let's Talk</a>
   </div>
-  <button class="nav__menu-btn" aria-label="Open menu"><span></span><span></span></button>
+  <button class="nav__menu-btn" aria-label="Open menu">
+    <span></span><span></span>
+  </button>
 </nav>
 
 <div class="nav-overlay" role="dialog">
-  <button class="nav-overlay__close" aria-label="Close menu">✕</button>
-  <nav class="nav-overlay__links">
-    <a href="./" class="nav-overlay__link"><span class="nav-overlay__num">01</span>Home</a>
-    <a href="./work.html" class="nav-overlay__link"><span class="nav-overlay__num">02</span>Work</a>
-    <a href="./about.html" class="nav-overlay__link"><span class="nav-overlay__num">03</span>About</a>
-    <a href="./contact.html" class="nav-overlay__link"><span class="nav-overlay__num">04</span>Contact</a>
-  </nav>
-  <div class="nav-overlay__footer">
-    <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
-    <a href="mailto:melekkarlankus@gmail.com">Email</a>
+  <div class="nav-overlay__bg" aria-hidden="true"></div>
+  <div class="nav-overlay__top">
+    <span class="nav-overlay__brand">Melek Karlankuş — YULA Design Studio</span>
+    <button class="nav-overlay__close" aria-label="Close menu">
+      <span>Close</span>
+      <span class="nav-overlay__close-mark">✕</span>
+    </button>
+  </div>
+  <div class="nav-overlay__main">
+    <nav class="nav-overlay__links">
+      <a href="./index.html" class="nav-overlay__link"><span class="nav-overlay__num">01</span><span class="nav-overlay__link-inner" data-text="Home">Home</span></a>
+      <a href="./work.html" class="nav-overlay__link"><span class="nav-overlay__num">02</span><span class="nav-overlay__link-inner" data-text="Work">Work</span></a>
+      <a href="./about.html" class="nav-overlay__link"><span class="nav-overlay__num">03</span><span class="nav-overlay__link-inner" data-text="About">About</span></a>
+      <a href="./contact.html" class="nav-overlay__link"><span class="nav-overlay__num">04</span><span class="nav-overlay__link-inner" data-text="Contact">Contact</span></a>
+    </nav>
+  </div>
+  <aside class="nav-overlay__side">
+    <div class="nav-overlay__meta"><span class="nav-overlay__meta-label">Email</span><span class="nav-overlay__meta-value"><a href="mailto:melekkarlankus@gmail.com">melekkarlankus@gmail.com</a></span></div>
+    <div class="nav-overlay__meta"><span class="nav-overlay__meta-label">Instagram</span><span class="nav-overlay__meta-value"><a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">@yula.designstudio</a></span></div>
+    <div class="nav-overlay__meta"><span class="nav-overlay__meta-label">Studio</span><span class="nav-overlay__meta-value">İstanbul, TR</span></div>
+  </aside>
+  <div class="nav-overlay__bottom">
+    <span>© 2026 — Melek Karlankuş</span>
+    <span id="overlay-time">— IST</span>
   </div>
 </div>
 
-<main data-barba="container" data-barba-namespace="work">
+<main data-page-main>
 
   <section class="work-hero">
-    <div class="container">
+    <span class="work-hero__bg-text" aria-hidden="true">WORK</span>
+    <div class="container container--wide">
       <div class="work-hero__inner">
-        <h1 class="work-hero__title">Selected<br>Work</h1>
+        <div>
+          <span class="work-hero__eyebrow">02 / Archive · 2022 — 2026</span>
+          <h1 class="work-hero__title">Selected<br><em>Work</em></h1>
+        </div>
         <div class="work-hero__meta">
-          <span class="work-hero__sub">Interior Design · Visualization · Execution</span>
           <span class="work-hero__count">07</span>
+          <span class="work-hero__sub">Interior · Visualization · Execution</span>
+          <span class="work-hero__metaline"></span>
         </div>
       </div>
     </div>
@@ -73,135 +148,151 @@
   </div>
 
   <div class="work-grid">
-
-    <div class="project-card" data-cat="interior" data-href="./projects/minimalist-living.html"
-         role="link" tabindex="0" aria-label="Minimalist Living Space">
-      <div class="project-card__tag">Residential</div>
-      <div class="project-card__image" data-clip>
-        <img class="project-card__img-inner" src="/assets/images/projects/p01-cover.jpg"
-             alt="Minimalist Living Space" loading="lazy">
+    <a class="project-card" data-cat="interior" href="./projects/minimalist-living.html"
+       aria-label="Minimalist Living Space">
+      <div class="project-card__image" data-clip data-card-webgl>
+        <img class="project-card__img-inner" src="./assets/images/projects/p01-cover.jpg" alt="Minimalist Living Space" loading="lazy" decoding="async" fetchpriority="low">
+        <span class="project-card__cta">View · Project</span>
+        <span class="project-card__tag">Residential</span>
       </div>
       <div class="project-card__info" data-reveal>
-        <span class="project-card__num">01</span>
+        <span class="project-card__num">01 / Residential</span>
         <h3 class="project-card__title">Minimalist Living Space</h3>
-        <p class="project-card__subtitle">Organic form meets contemporary luxury</p>
-        <p class="project-card__meta">Residential Interior · 2024</p>
+        <p class="project-card__subtitle">Organic form meets contemporary luxury.</p>
+        <p class="project-card__meta"><span>Interior Design</span><span>2024</span></p>
       </div>
-    </div>
+    </a>
 
-    <div class="project-card" data-cat="interior" data-href="./projects/private-nook.html"
-         role="link" tabindex="0" aria-label="Private Nook">
-      <div class="project-card__tag">Residential</div>
-      <div class="project-card__image" data-clip>
-        <img class="project-card__img-inner" src="/assets/images/projects/p02-cover.jpg"
-             alt="Private Nook" loading="lazy">
+    <a class="project-card" data-cat="interior" href="./projects/private-nook.html"
+       aria-label="Private Nook">
+      <div class="project-card__image" data-clip data-card-webgl>
+        <img class="project-card__img-inner" src="./assets/images/projects/p02-cover.jpg" alt="Private Nook" loading="lazy" decoding="async" fetchpriority="low">
+        <span class="project-card__cta">View · Project</span>
+        <span class="project-card__tag">Residential</span>
       </div>
       <div class="project-card__info" data-reveal>
-        <span class="project-card__num">02</span>
+        <span class="project-card__num">02 / Residential</span>
         <h3 class="project-card__title">Private Nook</h3>
-        <p class="project-card__subtitle">Interior Atmosphere</p>
-        <p class="project-card__meta">Residential Interior · 2024</p>
+        <p class="project-card__subtitle">Interior atmosphere · light and shadow.</p>
+        <p class="project-card__meta"><span>Interior Design</span><span>2024</span></p>
       </div>
-    </div>
+    </a>
 
-    <div class="project-card" data-cat="interior" data-href="./projects/villa-ida.html"
-         role="link" tabindex="0" aria-label="Villa IDA">
-      <div class="project-card__tag">Architecture</div>
-      <div class="project-card__image" data-clip>
-        <img class="project-card__img-inner" src="/assets/images/projects/p03-cover.jpg"
-             alt="Villa İDA" loading="lazy">
+    <a class="project-card" data-cat="interior" href="./projects/villa-ida.html"
+       aria-label="Villa IDA">
+      <div class="project-card__image" data-clip data-card-webgl>
+        <img class="project-card__img-inner" src="./assets/images/projects/p03-cover.jpg" alt="Villa İDA" loading="lazy" decoding="async" fetchpriority="low">
+        <span class="project-card__cta">View · Project</span>
+        <span class="project-card__tag">Architecture</span>
       </div>
       <div class="project-card__info" data-reveal>
-        <span class="project-card__num">03</span>
+        <span class="project-card__num">03 / Architecture + Interior</span>
         <h3 class="project-card__title">Villa İDA</h3>
-        <p class="project-card__subtitle">Holistic Architecture & Interior</p>
-        <p class="project-card__meta">Architecture + Interior · 2024</p>
+        <p class="project-card__subtitle">Holistic architecture & interior — Ida Mountains.</p>
+        <p class="project-card__meta"><span>Architecture + Interior</span><span>2024</span></p>
       </div>
-    </div>
+    </a>
 
-    <div class="project-card" data-cat="interior" data-href="./projects/sarot-thermal.html"
-         role="link" tabindex="0" aria-label="Sarot Thermal Palace">
-      <div class="project-card__tag">Hospitality</div>
-      <div class="project-card__image" data-clip>
-        <img class="project-card__img-inner" src="/assets/images/projects/p04-cover.jpg"
-             alt="Sarot Thermal Palace" loading="lazy">
+    <a class="project-card" data-cat="interior" href="./projects/sarot-thermal.html"
+       aria-label="Sarot Thermal Palace">
+      <div class="project-card__image" data-clip data-card-webgl>
+        <img class="project-card__img-inner" src="./assets/images/projects/p04-cover.jpg" alt="Sarot Thermal Palace" loading="lazy" decoding="async" fetchpriority="low">
+        <span class="project-card__cta">View · Project</span>
+        <span class="project-card__tag">Hospitality</span>
       </div>
       <div class="project-card__info" data-reveal>
-        <span class="project-card__num">04</span>
+        <span class="project-card__num">04 / Hospitality</span>
         <h3 class="project-card__title">Sarot Thermal Palace</h3>
-        <p class="project-card__subtitle">Presidential Suite — Master Bedroom</p>
-        <p class="project-card__meta">Hospitality Interior · 2023</p>
+        <p class="project-card__subtitle">Presidential Suite — Master Bedroom.</p>
+        <p class="project-card__meta"><span>Hospitality Interior</span><span>2023</span></p>
       </div>
-    </div>
+    </a>
 
-    <div class="project-card" data-cat="interior" data-href="./projects/tubitak-tusside.html"
-         role="link" tabindex="0" aria-label="TÜBİTAK TÜSSİDE">
-      <div class="project-card__tag">Corporate</div>
-      <div class="project-card__image" data-clip>
-        <img class="project-card__img-inner" src="/assets/images/projects/p05-cover.jpg"
-             alt="TÜBİTAK TÜSSİDE" loading="lazy">
+    <a class="project-card" data-cat="interior" href="./projects/tubitak-tusside.html"
+       aria-label="TÜBİTAK TÜSSİDE">
+      <div class="project-card__image" data-clip data-card-webgl>
+        <img class="project-card__img-inner" src="./assets/images/projects/p05-cover.jpg" alt="TÜBİTAK TÜSSİDE" loading="lazy" decoding="async" fetchpriority="low">
+        <span class="project-card__cta">View · Project</span>
+        <span class="project-card__tag">Corporate</span>
       </div>
       <div class="project-card__info" data-reveal>
-        <span class="project-card__num">05</span>
+        <span class="project-card__num">05 / Corporate</span>
         <h3 class="project-card__title">TÜBİTAK TÜSSİDE</h3>
-        <p class="project-card__subtitle">Innovation & Collaboration Hub</p>
-        <p class="project-card__meta">Corporate Interior · 2023</p>
+        <p class="project-card__subtitle">Innovation & collaboration hub.</p>
+        <p class="project-card__meta"><span>Corporate Interior</span><span>2023</span></p>
       </div>
-    </div>
+    </a>
 
-    <div class="project-card" data-cat="execution" data-href="./projects/healthcare-iraq.html"
-         role="link" tabindex="0" aria-label="Healthcare Iraq">
-      <div class="project-card__tag">Execution</div>
-      <div class="project-card__image" data-clip>
-        <img class="project-card__img-inner" src="/assets/images/projects/p06-cover.jpg"
-             alt="Mixed-Use Healthcare Center Iraq" loading="lazy">
+    <a class="project-card" data-cat="execution" href="./projects/healthcare-iraq.html"
+       aria-label="Mixed-Use Healthcare Center">
+      <div class="project-card__image" data-clip data-card-webgl>
+        <img class="project-card__img-inner" src="./assets/images/projects/p06-cover.jpg" alt="Mixed-Use Healthcare Center Iraq" loading="lazy" decoding="async" fetchpriority="low">
+        <span class="project-card__cta">View · Project</span>
+        <span class="project-card__tag">Execution</span>
       </div>
       <div class="project-card__info" data-reveal>
-        <span class="project-card__num">06</span>
+        <span class="project-card__num">06 / Execution</span>
         <h3 class="project-card__title">Mixed-Use Healthcare Center</h3>
-        <p class="project-card__subtitle">Iraq</p>
-        <p class="project-card__meta">Execution Drawings · 2023</p>
+        <p class="project-card__subtitle">Iraq — five-story medical complex.</p>
+        <p class="project-card__meta"><span>Execution Drawings</span><span>2023</span></p>
       </div>
-    </div>
+    </a>
 
-    <div class="project-card" data-cat="execution" data-href="./projects/candyzoo-izmir.html"
-         role="link" tabindex="0" aria-label="CandyZoo Izmir">
-      <div class="project-card__tag">Retail</div>
-      <div class="project-card__image" data-clip>
-        <img class="project-card__img-inner" src="/assets/images/projects/p07-cover.jpg"
-             alt="CandyZoo İzmir" loading="lazy">
+    <a class="project-card" data-cat="execution" href="./projects/candyzoo-izmir.html"
+       aria-label="CandyZoo İzmir">
+      <div class="project-card__image" data-clip data-card-webgl>
+        <img class="project-card__img-inner" src="./assets/images/projects/p07-cover.jpg" alt="CandyZoo İzmir" loading="lazy" decoding="async" fetchpriority="low">
+        <span class="project-card__cta">View · Project</span>
+        <span class="project-card__tag">Retail</span>
       </div>
       <div class="project-card__info" data-reveal>
-        <span class="project-card__num">07</span>
+        <span class="project-card__num">07 / Retail</span>
         <h3 class="project-card__title">CandyZoo</h3>
-        <p class="project-card__subtitle">İzmir Branch — Implementation</p>
-        <p class="project-card__meta">Execution Drawings · 2022</p>
+        <p class="project-card__subtitle">İzmir Branch · implementation drawings.</p>
+        <p class="project-card__meta"><span>Execution Drawings</span><span>2022</span></p>
       </div>
-    </div>
-
+    </a>
   </div>
 
+  <section class="marquee-section marquee-section--dark" aria-hidden="true">
+    <div class="marquee-row">
+      <div class="marquee-inner">
+        <span>Illustrations <span class="marquee-dot"></span></span>
+        <span>Architectural Drawing <span class="marquee-dot"></span></span>
+        <span>Fashion Figures <span class="marquee-dot"></span></span>
+        <span>Digital Arts <span class="marquee-dot"></span></span>
+        <span>Selected Works <span class="marquee-dot"></span></span>
+      </div>
+    </div>
+  </section>
+
   <section class="illustrations-section" id="illustrations">
-    <div class="container">
+    <div class="container container--wide">
       <div class="section-header" data-reveal>
-        <span class="section-num">08</span>
-        <h2 class="section-title">Digital Illustrations</h2>
+        <span class="eyebrow eyebrow--accent eyebrow--dot">08 — Parallel Practice</span>
+        <h2 class="section-title">Digital <em>illustrations</em></h2>
       </div>
       <p class="illus-drag-label" data-reveal>Drag to explore</p>
     </div>
 
-    <div class="illus-scroll-track" role="region" aria-label="Illustrations gallery">
+    <div class="illus-scroll-track" data-cursor="drag" role="region" aria-label="Illustrations gallery">
       <div class="illus-item">
-        <img class="illus-item__inner" src="/assets/images/projects/illus-quote.jpg"
-             alt="Architecture quote illustration" loading="lazy">
+        <img class="illus-item__inner" src="./assets/images/projects/illus-quote.jpg" alt="Architecture quote illustration" loading="lazy" decoding="async" fetchpriority="low">
       </div>
       <div class="illus-item">
-        <img class="illus-item__inner" src="/assets/images/projects/illus-01.jpg"
-             alt="Fashion and architectural illustration board" loading="lazy">
+        <img class="illus-item__inner" src="./assets/images/projects/illus-01.jpg" alt="Fashion and architectural illustration" loading="lazy" decoding="async" fetchpriority="low">
       </div>
       <div class="illus-item">
-        <img class="illus-item__inner" src="/assets/images/projects/illus-02.jpg"
-             alt="Architectural facade illustration" loading="lazy">
+        <img class="illus-item__inner" src="./assets/images/projects/illus-02.jpg" alt="Architectural facade illustration" loading="lazy" decoding="async" fetchpriority="low">
+      </div>
+      <div class="illus-item">
+        <img class="illus-item__inner" src="./assets/images/projects/p01-1.jpg" alt="Interior detail" loading="lazy" decoding="async" fetchpriority="low">
+      </div>
+      <div class="illus-item">
+        <img class="illus-item__inner" src="./assets/images/projects/p02-1.jpg" alt="Interior detail" loading="lazy" decoding="async" fetchpriority="low">
+      </div>
+      <div class="illus-item">
+        <img class="illus-item__inner" src="./assets/images/projects/p03-1.jpg" alt="Architectural detail" loading="lazy" decoding="async" fetchpriority="low">
       </div>
     </div>
   </section>
@@ -209,29 +300,46 @@
 </main>
 
 <footer class="footer">
-  <div class="container footer__inner">
-    <div class="footer__col footer__col--brand">
-      <span class="footer__logo">Melek Karlankuş</span>
-      <span class="footer__studio">YULA Design Studio</span>
-      <span class="footer__tagline">Designing spaces where silence speaks</span>
+  <span class="footer__giant" aria-hidden="true">YULA</span>
+  <div class="container container--wide">
+    <div class="footer__signature">
+      <span class="footer__signature-eyebrow">Let's design together</span>
+      <h2 class="footer__signature-title"><a href="mailto:melekkarlankus@gmail.com">melekkarlankus@gmail.com</a></h2>
     </div>
-    <div class="footer__col footer__col--nav">
-      <a href="./work.html">Work</a>
-      <a href="./about.html">About</a>
-      <a href="./contact.html">Contact</a>
+    <div class="footer__inner">
+      <div class="footer__col">
+        <span class="footer__logo">Melek Karlankuş</span>
+        <span class="footer__studio">YULA · Design Studio</span>
+        <span class="footer__tagline">Designing spaces where silence speaks.</span>
+      </div>
+      <div class="footer__col">
+        <span class="footer__col-title">Navigate</span>
+        <a href="./index.html">Home</a>
+        <a href="./work.html">Work</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+      <div class="footer__col">
+        <span class="footer__col-title">Connect</span>
+        <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:melekkarlankus@gmail.com">Email</a>
+        
+      </div>
+      <div class="footer__col">
+        <span class="footer__col-title">Studio</span>
+        <a>İstanbul, TR</a>
+        <a>By appointment</a>
+        <a>Available · 2026</a>
+      </div>
     </div>
-    <div class="footer__col footer__col--social">
-      <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
-      <a href="mailto:melekkarlankus@gmail.com">Email</a>
-      <a href="tel:+905339693961">+90 533 969 3961</a>
+    <div class="footer__bottom">
+      <span>© 2026 Melek Karlankuş — All Rights Reserved</span>
+      <span>YULA · Edition MMXXVI</span>
+      <span class="footer__bottom-time"><span class="avail-dot"></span>Open for briefs</span>
     </div>
-  </div>
-  <div class="footer__bottom">
-    <span>© 2026 Melek Karlankuş — All Rights Reserved</span>
-    <span>İstanbul, Turkey</span>
   </div>
 </footer>
 
-<script type="module" src="/assets/js/main.js"></script>
+<script type="module" src="./assets/js/main.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-export const owner = {
+﻿export const owner = {
   name:      "Melek Karlankuş",
   nameShort: "Melek",
   studio:    "YULA Design Studio",
@@ -11,7 +11,7 @@ export const owner = {
         do not decorate a space, they complete it.`,
   location:  "İstanbul, Turkey",
   email:     "melekkarlankus@gmail.com",
-  phone:     "+90 533 969 3961",
+  phone:     "",
   available: true,
   instagram: "https://www.instagram.com/yula.designstudio",
   stats: { projects: 7, years: 3, countries: 3 },

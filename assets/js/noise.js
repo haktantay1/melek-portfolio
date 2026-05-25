@@ -1,7 +1,6 @@
 export function initNoise() {
   const canvas = document.getElementById('noise-canvas');
-  if (!canvas) return;
-  if (canvas._inited) return;
+  if (!canvas || canvas._inited) return;
   canvas._inited = true;
 
   const ctx = canvas.getContext('2d', { alpha: true });
@@ -16,7 +15,7 @@ export function initNoise() {
 
   let frame = 0;
   function generateNoise() {
-    if (++frame % 5 !== 0) {
+    if (++frame % 6 !== 0) {
       requestAnimationFrame(generateNoise);
       return;
     }

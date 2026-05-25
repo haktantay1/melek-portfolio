@@ -3,164 +3,166 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Private Nook — Melek Karlankuş</title>
-  <meta name="description" content="A tranquil sanctuary designed for contemplation and comfort. Interior Design by Melek Karlankuş.">
+  <meta name="theme-color" content="#0B0908">
+  <title>Private Nook — Melek Karlankuş / YULA</title>
+  <meta name="description" content="A tranquil sanctuary designed for contemplation and comfort. Interior Design by Melek Karlankuş, YULA Design Studio.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/tokens.css">
-  <link rel="stylesheet" href="/assets/css/reset.css">
-  <link rel="stylesheet" href="/assets/css/base.css">
-  <link rel="stylesheet" href="/assets/css/components/nav.css">
-  <link rel="stylesheet" href="/assets/css/components/cursor.css">
-  <link rel="stylesheet" href="/assets/css/components/loader.css">
-  <link rel="stylesheet" href="/assets/css/components/footer.css">
-  <link rel="stylesheet" href="/assets/css/pages/project.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,30..100;1,9..144,300..700,30..100&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components/nav.css">
+  <link rel="stylesheet" href="../assets/css/components/cursor.css">
+  <link rel="stylesheet" href="../assets/css/components/loader.css">
+  <link rel="stylesheet" href="../assets/css/components/footer.css">
+  <link rel="stylesheet" href="../assets/css/pages/project.css">
+  <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1.10.0/dist/es-module-shims.js"></script><script type="importmap">
+  {"imports":{"gsap":"https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js","gsap/":"https://cdn.jsdelivr.net/npm/gsap@3.12.5/","lenis":"https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.mjs","three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}
+  </script>
 </head>
-<body data-barba="wrapper">
+<body data-page="project">
 
-<canvas id="noise-canvas"></canvas>
+<canvas id="noise-canvas" aria-hidden="true"></canvas>
 <div class="cursor"><div class="cursor__dot"></div><div class="cursor__ring"><span class="cursor__label"></span></div></div>
-<div class="page-transition-overlay"></div>
+
+<div id="loader" class="loader">
+  <div class="loader__sweep"></div>
+  <div class="loader__top"><span class="loader__brand">YULA Design Studio</span><span class="loader__small">Project · 02</span></div>
+  <div class="loader__center"><div class="loader__counter"><span class="loader__counter-num">0</span><span class="loader__counter-pct">%</span></div></div>
+  <div class="loader__bottom"><div class="loader__title"><span class="loader__title-line">Private Nook</span></div><span class="loader__small">2024 · Residential</span></div>
+  <div class="loader__progress"><div class="loader__progress-bar"></div></div>
+  <div class="loader__wipe"></div>
+</div>
+
+<div class="page-transition-overlay" aria-hidden="true">
+  <div class="page-transition-overlay__panel"></div><div class="page-transition-overlay__panel"></div><div class="page-transition-overlay__panel"></div><div class="page-transition-overlay__panel"></div><div class="page-transition-overlay__panel"></div>
+</div>
+<div class="page-transition-overlay__brand" aria-hidden="true">YULA</div>
+<div class="scroll-indicator"><div class="scroll-indicator__bar"></div></div>
 
 <nav class="nav" id="nav">
-  <a href="../" class="nav__logo"><span class="nav__logo-m">M</span>K</a>
+  <a href="../index.html" class="nav__logo"><span class="nav__logo-mark"><span>M</span></span><span class="nav__logo-text"><span class="nav__logo-name">Karlankuş</span><span class="nav__logo-studio">YULA · Studio</span></span></a>
   <div class="nav__links">
     <a href="../work.html" class="nav__link">Work</a>
     <a href="../about.html" class="nav__link">About</a>
-    <a href="../contact.html" class="nav__link btn-magnetic nav__cta">Let's Talk</a>
+    <a href="../contact.html" class="nav__link nav__cta btn-magnetic">Let's Talk</a>
   </div>
-  <button class="nav__menu-btn" aria-label="Open menu"><span></span><span></span></button>
+  <button class="nav__menu-btn"><span></span><span></span></button>
 </nav>
 
 <div class="nav-overlay" role="dialog">
-  <button class="nav-overlay__close" aria-label="Close menu">✕</button>
-  <nav class="nav-overlay__links">
-    <a href="../" class="nav-overlay__link"><span class="nav-overlay__num">01</span>Home</a>
-    <a href="../work.html" class="nav-overlay__link"><span class="nav-overlay__num">02</span>Work</a>
-    <a href="../about.html" class="nav-overlay__link"><span class="nav-overlay__num">03</span>About</a>
-    <a href="../contact.html" class="nav-overlay__link"><span class="nav-overlay__num">04</span>Contact</a>
-  </nav>
-  <div class="nav-overlay__footer">
-    <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
-    <a href="mailto:melekkarlankus@gmail.com">Email</a>
-  </div>
+  <div class="nav-overlay__bg" aria-hidden="true"></div>
+  <div class="nav-overlay__top"><span class="nav-overlay__brand">Melek Karlankuş — YULA Design Studio</span><button class="nav-overlay__close"><span>Close</span><span class="nav-overlay__close-mark">✕</span></button></div>
+  <div class="nav-overlay__main"><nav class="nav-overlay__links">
+    <a href="../index.html" class="nav-overlay__link"><span class="nav-overlay__num">01</span><span class="nav-overlay__link-inner" data-text="Home">Home</span></a>
+    <a href="../work.html" class="nav-overlay__link"><span class="nav-overlay__num">02</span><span class="nav-overlay__link-inner" data-text="Work">Work</span></a>
+    <a href="../about.html" class="nav-overlay__link"><span class="nav-overlay__num">03</span><span class="nav-overlay__link-inner" data-text="About">About</span></a>
+    <a href="../contact.html" class="nav-overlay__link"><span class="nav-overlay__num">04</span><span class="nav-overlay__link-inner" data-text="Contact">Contact</span></a>
+  </nav></div>
+  <aside class="nav-overlay__side">
+    <div class="nav-overlay__meta"><span class="nav-overlay__meta-label">Email</span><span class="nav-overlay__meta-value"><a href="mailto:melekkarlankus@gmail.com">melekkarlankus@gmail.com</a></span></div>
+    <div class="nav-overlay__meta"><span class="nav-overlay__meta-label">Instagram</span><span class="nav-overlay__meta-value"><a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">@yula.designstudio</a></span></div>
+    <div class="nav-overlay__meta"><span class="nav-overlay__meta-label">Studio</span><span class="nav-overlay__meta-value">İstanbul, TR</span></div>
+  </aside>
+  <div class="nav-overlay__bottom"><span>© 2026 — Melek Karlankuş</span><span id="overlay-time">— IST</span></div>
 </div>
 
-<main data-barba="container" data-barba-namespace="project">
+<main data-page-main>
 
   <section class="proj-hero">
-    <div class="proj-hero__bg">
-      <img src="/assets/images/projects/p02-cover.jpg" alt="Private Nook" loading="eager">
-    </div>
+    <div class="proj-hero__bg"><img src="../assets/images/projects/p02-cover.jpg" alt="Private Nook" loading="eager" decoding="async" fetchpriority="high"></div>
     <div class="proj-hero__overlay"></div>
     <div class="proj-hero__spotlight"></div>
     <div class="proj-hero__content">
-      <span class="proj-hero__num">02 / Project</span>
-      <h1 class="proj-hero__title">Private Nook</h1>
-      <p class="proj-hero__subtitle">Interior Atmosphere</p>
+      <span class="proj-hero__num">02 / Residential Interior</span>
+      <h1 class="proj-hero__title"><em>Private</em> Nook</h1>
+      <p class="proj-hero__subtitle">A tranquil sanctuary designed for contemplation and comfort — light, shadow, and a mountain framed like a living painting.</p>
       <div class="proj-hero__meta">
         <span>Residential Interior</span>
         <span>2024</span>
-        <span>Interior Design &amp; Visualization</span>
+        <span>Interior Atmosphere</span>
       </div>
     </div>
   </section>
 
+  <section class="proj-facts">
+    <div class="proj-facts__inner">
+      <div class="proj-fact"><span class="proj-fact__label">Client</span><span class="proj-fact__value"><em>Private</em></span></div>
+      <div class="proj-fact"><span class="proj-fact__label">Location</span><span class="proj-fact__value">Türkiye</span></div>
+      <div class="proj-fact"><span class="proj-fact__label">Year</span><span class="proj-fact__value">2024</span></div>
+      <div class="proj-fact"><span class="proj-fact__label">Scope</span><span class="proj-fact__value">Residential Interior</span></div>
+      <div class="proj-fact"><span class="proj-fact__label">Area</span><span class="proj-fact__value">96 m²</span></div>
+    </div>
+  </section>
   <section class="proj-overview">
     <div class="proj-overview__inner">
       <div class="proj-overview__text">
-        <p class="bio-reveal">A tranquil sanctuary designed for contemplation and comfort. This private corner
-        focuses on the poetic interplay of light and shadow, created by wooden blinds
-        that animate the textures of the bespoke patterned seating. The design frames
-        a breathtaking mountain vista, bridging the gap between the cozy, high-textured
-        interior and the expansive serenity of the natural landscape.</p>
+        <p class="bio-reveal">A tranquil sanctuary designed for contemplation and comfort. This private corner focuses on the poetic interplay of light and shadow, created by wooden blinds that animate the textures of the bespoke patterned seating. The design frames a breathtaking mountain vista, bridging the gap between the cozy, high-textured interior and the expansive serenity of the natural landscape.</p>
       </div>
-      <div class="proj-overview__image" data-clip>
-        <img src="/assets/images/projects/p02-overview.jpg" alt="Private Nook detail" loading="lazy">
-      </div>
+      <div class="proj-overview__image" data-clip><img src="../assets/images/projects/p02-overview.jpg" alt="Private Nook detail" loading="lazy" decoding="async" fetchpriority="low"></div>
     </div>
   </section>
 
   <section class="proj-gallery">
     <div class="proj-gallery__inner">
-      <div class="proj-gallery__item proj-gallery__item--full" data-clip>
-        <img src="/assets/images/projects/p02-1.jpg" alt="Private Nook" loading="lazy">
-      </div>
+      <div class="proj-gallery__item proj-gallery__item--full" data-clip><img src="../assets/images/projects/p02-1.jpg" alt="" loading="lazy" decoding="async" fetchpriority="low"></div>
       <div class="proj-gallery__row">
-        <div class="proj-gallery__item proj-gallery__item--half" data-clip>
-          <img src="/assets/images/projects/p02-2.jpg" alt="Private Nook" loading="lazy">
-        </div>
-        <div class="proj-gallery__item proj-gallery__item--half" data-clip>
-          <img src="/assets/images/projects/p02-3.jpg" alt="Private Nook" loading="lazy">
-        </div>
+        <div class="proj-gallery__item proj-gallery__item--half" data-clip><img src="../assets/images/projects/p02-2.jpg" alt="" loading="lazy" decoding="async" fetchpriority="low"></div>
+        <div class="proj-gallery__item proj-gallery__item--half" data-clip><img src="../assets/images/projects/p02-3.jpg" alt="" loading="lazy" decoding="async" fetchpriority="low"></div>
       </div>
+    </div>
+  </section>
+
+  <section class="proj-quote">
+    <div class="proj-quote__inner">
+      <span class="proj-quote__mark" aria-hidden="true">“</span>
+      <p class="proj-quote__text">A corner that invites <em>stillness.</em> Exactly the room we did not know we needed.</p>
+      <p class="proj-quote__attr">Resident · Private Nook, 2024</p>
     </div>
   </section>
 
   <section class="proj-details">
     <div class="proj-details__inner">
-      <div class="proj-detail" data-reveal>
-        <h3>Challenge</h3>
-        <p>Bridging a dramatic mountain landscape with an intimate interior without losing the sense of shelter.</p>
-      </div>
-      <div class="proj-detail" data-reveal>
-        <h3>Solution</h3>
-        <p>Wooden blinds as mediators — they animate light, texture the seating surfaces, and frame the view as a living painting.</p>
-      </div>
-      <div class="proj-detail" data-reveal>
-        <h3>Outcome</h3>
-        <p>A corner that invites stillness; a space where one comes to think, to read, to simply be.</p>
-      </div>
+      <div class="proj-detail" data-reveal><h3><em>Challenge</em></h3><p>Bridging a dramatic mountain landscape with an intimate interior without losing the sense of shelter.</p></div>
+      <div class="proj-detail" data-reveal><h3><em>Solution</em></h3><p>Wooden blinds as mediators — they animate light, texture the seating surfaces, and frame the view as a living painting.</p></div>
+      <div class="proj-detail" data-reveal><h3><em>Outcome</em></h3><p>A corner that invites stillness; a space where one comes to think, to read, to simply be.</p></div>
     </div>
   </section>
 
   <section class="proj-tools">
     <div class="proj-tools__inner">
-      <span class="proj-tools__label">Tools Used</span>
-      <span class="proj-tool">AutoCAD</span>
-      <span class="proj-tool">3ds Max</span>
-      <span class="proj-tool">V-Ray</span>
-      <span class="proj-tool">Photoshop</span>
+      <span class="proj-tools__label">Tools / Stack</span>
+      <span class="proj-tool">AutoCAD</span><span class="proj-tool">3ds Max</span><span class="proj-tool">V-Ray</span><span class="proj-tool">Photoshop</span>
     </div>
   </section>
 
   <section class="next-project">
-    <div class="next-project__bg">
-      <img src="/assets/images/projects/p03-cover.jpg" alt="Villa İDA" loading="lazy">
-    </div>
+    <div class="next-project__bg"><img src="../assets/images/projects/p03-cover.jpg" alt="Villa İDA" loading="lazy" decoding="async" fetchpriority="low"></div>
     <div class="next-project__overlay"></div>
-    <a href="./villa-ida.html" class="next-project__link">
+    <a href="./villa-ida.html" class="next-project__link" data-cursor="gold">
       <span class="next-project__label">Next Project — 03</span>
-      <h2 class="next-project__title">Villa İDA</h2>
+      <h2 class="next-project__title"><em>Villa</em> İDA</h2>
+      <span class="next-project__arrow">Open<svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h13M14 6L9 1M14 6L9 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span>
     </a>
   </section>
 
 </main>
 
 <footer class="footer">
-  <div class="container footer__inner">
-    <div class="footer__col footer__col--brand">
-      <span class="footer__logo">Melek Karlankuş</span>
-      <span class="footer__studio">YULA Design Studio</span>
-      <span class="footer__tagline">Designing spaces where silence speaks</span>
+  <span class="footer__giant" aria-hidden="true">YULA</span>
+  <div class="container container--wide">
+    <div class="footer__signature"><span class="footer__signature-eyebrow">Let's design together</span><h2 class="footer__signature-title"><a href="mailto:melekkarlankus@gmail.com">melekkarlankus@gmail.com</a></h2></div>
+    <div class="footer__inner">
+      <div class="footer__col"><span class="footer__logo">Melek Karlankuş</span><span class="footer__studio">YULA · Design Studio</span><span class="footer__tagline">Designing spaces where silence speaks.</span></div>
+      <div class="footer__col"><span class="footer__col-title">Navigate</span><a href="../index.html">Home</a><a href="../work.html">Work</a><a href="../about.html">About</a><a href="../contact.html">Contact</a></div>
+      <div class="footer__col"><span class="footer__col-title">Connect</span><a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a><a href="mailto:melekkarlankus@gmail.com">Email</a></div>
+      <div class="footer__col"><span class="footer__col-title">Studio</span><a>İstanbul, TR</a><a>By appointment</a><a>Available · 2026</a></div>
     </div>
-    <div class="footer__col footer__col--nav">
-      <a href="../work.html">Work</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
-    </div>
-    <div class="footer__col footer__col--social">
-      <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
-      <a href="mailto:melekkarlankus@gmail.com">Email</a>
-    </div>
-  </div>
-  <div class="footer__bottom">
-    <span>© 2026 Melek Karlankuş — All Rights Reserved</span>
-    <span>İstanbul, Turkey</span>
+    <div class="footer__bottom"><span>© 2026 Melek Karlankuş — All Rights Reserved</span><span>YULA · Edition MMXXVI</span><span class="footer__bottom-time"><span class="avail-dot"></span>Open for briefs</span></div>
   </div>
 </footer>
 
-<script type="module" src="/assets/js/main.js"></script>
+<script type="module" src="../assets/js/main.js"></script>
 </body>
 </html>

@@ -2,24 +2,82 @@
   overflow: hidden;
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
-  padding: 24px 0;
   background: var(--color-bg-alt);
+  position: relative;
 }
 
-.marquee-wrapper { overflow: hidden; width: 100%; }
+.marquee-section--dark {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  border-color: rgba(255,255,255,0.08);
+}
+
+.marquee-section--accent {
+  background: var(--color-accent);
+  color: var(--color-paper);
+  border-color: rgba(255,255,255,0.08);
+}
+
+.marquee-row {
+  display: flex;
+  padding: clamp(14px, 2.2vw, 28px) 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-row + .marquee-row {
+  border-top: 1px solid var(--color-border);
+}
+.marquee-section--dark .marquee-row + .marquee-row {
+  border-top-color: rgba(255,255,255,0.08);
+}
 
 .marquee-inner {
   display: flex;
-  gap: 56px;
+  align-items: center;
+  gap: clamp(28px, 4vw, 64px);
   white-space: nowrap;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2rem, 5.5vw, 6.5rem);
+  letter-spacing: -0.012em;
+  color: var(--color-ink);
+  line-height: 1;
   will-change: transform;
 }
 
-.marquee-inner > span { flex: 0 0 auto; }
+.marquee-section--dark .marquee-inner { color: var(--color-paper); }
+.marquee-section--accent .marquee-inner { color: var(--color-paper); }
 
-.marquee-dot { color: var(--color-accent); }
+.marquee-inner > span {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(28px, 4vw, 64px);
+}
+
+.marquee-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.marquee-section--dark .marquee-dot { background: var(--color-gold); }
+.marquee-section--accent .marquee-dot { background: var(--color-gold-light); }
+
+.marquee-row--small .marquee-inner {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: clamp(0.75rem, 1vw, 1rem);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.marquee-row--outline .marquee-inner {
+  -webkit-text-stroke: 1px currentColor;
+  color: transparent;
+  font-weight: 400;
+}

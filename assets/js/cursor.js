@@ -42,12 +42,20 @@ export function initCursor() {
     gsap.to([dot, ring], { opacity: 1, duration: 0.3 });
   });
 
+  document.addEventListener('mousedown', () => {
+    gsap.to(ring, { scale: 0.85, duration: 0.2, ease: 'power3.out' });
+  });
+  document.addEventListener('mouseup', () => {
+    gsap.to(ring, { scale: 1, duration: 0.45, ease: 'elastic.out(1, 0.5)' });
+  });
+
   refreshCursorTargets();
 }
 
 const boundEls = new WeakSet();
+const magneticBound = new WeakSet();
 
-function refreshCursorTargets() {
+export function refreshCursorTargets() {
   if (!cursorState) return;
   const { cursor, label } = cursorState;
 
@@ -66,24 +74,24 @@ function refreshCursorTargets() {
     });
   };
 
-  addState(document.querySelectorAll('a, button, [role="link"], [role="button"], input, textarea, select, label'), 'cursor--link');
+  addState(document.querySelectorAll('a, button, [role="link"], [role="button"], input, textarea, select, label, .filter-btn'), 'cursor--link');
   addState(document.querySelectorAll('.project-card'), 'cursor--project', 'View');
   addState(document.querySelectorAll('.illus-scroll-track'), 'cursor--drag', 'Drag');
+  addState(document.querySelectorAll('[data-cursor="gold"]'), 'cursor--gold', 'Open');
+  addState(document.querySelectorAll('[data-cursor="drag"]'), 'cursor--drag', 'Drag');
 
-  document.querySelectorAll('.btn-magnetic').forEach(btn => {
-    if (btn._magneticBound) return;
-    btn._magneticBound = true;
-    const strength = 0.3;
+  document.querySelectorAll('.btn-magnetic, [data-magnetic]').forEach(btn => {
+    if (magneticBound.has(btn)) return;
+    magneticBound.add(btn);
+    const strength = parseFloat(btn.dataset.magnetic) || 0.32;
     btn.addEventListener('mousemove', e => {
       const r = btn.getBoundingClientRect();
       const x = e.clientX - r.left - r.width / 2;
       const y = e.clientY - r.top  - r.height / 2;
-      gsap.to(btn, { x: x * strength, y: y * strength, duration: 0.45, ease: 'power2.out' });
+      gsap.to(btn, { x: x * strength, y: y * strength, duration: 0.5, ease: 'power2.out' });
     });
     btn.addEventListener('mouseleave', () => {
-      gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1, 0.5)' });
+      gsap.to(btn, { x: 0, y: 0, duration: 0.8, ease: 'elastic.out(1, 0.5)' });
     });
   });
 }
-
-export { refreshCursorTargets };

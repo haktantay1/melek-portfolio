@@ -3,164 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mixed-Use Healthcare Center, Iraq — Melek Karlankuş</title>
-  <meta name="description" content="Five-story healthcare complex architectural execution drawings. By Melek Karlankuş, YULA Design Studio.">
+  <meta name="theme-color" content="#0B0908">
+  <title>Mixed-Use Healthcare Center · Iraq — Melek Karlankuş / YULA</title>
+  <meta name="description" content="An extensive five-story healthcare complex with exhaustive technical documentation. YULA Design Studio.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/tokens.css">
-  <link rel="stylesheet" href="/assets/css/reset.css">
-  <link rel="stylesheet" href="/assets/css/base.css">
-  <link rel="stylesheet" href="/assets/css/components/nav.css">
-  <link rel="stylesheet" href="/assets/css/components/cursor.css">
-  <link rel="stylesheet" href="/assets/css/components/loader.css">
-  <link rel="stylesheet" href="/assets/css/components/footer.css">
-  <link rel="stylesheet" href="/assets/css/pages/project.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,30..100;1,9..144,300..700,30..100&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components/nav.css">
+  <link rel="stylesheet" href="../assets/css/components/cursor.css">
+  <link rel="stylesheet" href="../assets/css/components/loader.css">
+  <link rel="stylesheet" href="../assets/css/components/footer.css">
+  <link rel="stylesheet" href="../assets/css/pages/project.css">
+  <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1.10.0/dist/es-module-shims.js"></script><script type="importmap">
+  {"imports":{"gsap":"https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js","gsap/":"https://cdn.jsdelivr.net/npm/gsap@3.12.5/","lenis":"https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.mjs","three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}
+  </script>
 </head>
-<body data-barba="wrapper">
+<body data-page="project">
 
-<canvas id="noise-canvas"></canvas>
+<canvas id="noise-canvas" aria-hidden="true"></canvas>
 <div class="cursor"><div class="cursor__dot"></div><div class="cursor__ring"><span class="cursor__label"></span></div></div>
-<div class="page-transition-overlay"></div>
+
+<div id="loader" class="loader">
+  <div class="loader__sweep"></div>
+  <div class="loader__top"><span class="loader__brand">YULA Design Studio</span><span class="loader__small">Project · 06</span></div>
+  <div class="loader__center"><div class="loader__counter"><span class="loader__counter-num">0</span><span class="loader__counter-pct">%</span></div></div>
+  <div class="loader__bottom"><div class="loader__title"><span class="loader__title-line">Healthcare Center · Iraq</span></div><span class="loader__small">2023 · Execution Drawings</span></div>
+  <div class="loader__progress"><div class="loader__progress-bar"></div></div>
+  <div class="loader__wipe"></div>
+</div>
+
+<div class="page-transition-overlay" aria-hidden="true">
+  <div class="page-transition-overlay__panel"></div><div class="page-transition-overlay__panel"></div><div class="page-transition-overlay__panel"></div><div class="page-transition-overlay__panel"></div><div class="page-transition-overlay__panel"></div>
+</div>
+<div class="page-transition-overlay__brand" aria-hidden="true">YULA</div>
+<div class="scroll-indicator"><div class="scroll-indicator__bar"></div></div>
 
 <nav class="nav" id="nav">
-  <a href="../" class="nav__logo"><span class="nav__logo-m">M</span>K</a>
+  <a href="../index.html" class="nav__logo"><span class="nav__logo-mark"><span>M</span></span><span class="nav__logo-text"><span class="nav__logo-name">Karlankuş</span><span class="nav__logo-studio">YULA · Studio</span></span></a>
   <div class="nav__links">
     <a href="../work.html" class="nav__link">Work</a>
     <a href="../about.html" class="nav__link">About</a>
-    <a href="../contact.html" class="nav__link btn-magnetic nav__cta">Let's Talk</a>
+    <a href="../contact.html" class="nav__link nav__cta btn-magnetic">Let's Talk</a>
   </div>
-  <button class="nav__menu-btn" aria-label="Open menu"><span></span><span></span></button>
+  <button class="nav__menu-btn"><span></span><span></span></button>
 </nav>
 
 <div class="nav-overlay" role="dialog">
-  <button class="nav-overlay__close" aria-label="Close menu">✕</button>
-  <nav class="nav-overlay__links">
-    <a href="../" class="nav-overlay__link"><span class="nav-overlay__num">01</span>Home</a>
-    <a href="../work.html" class="nav-overlay__link"><span class="nav-overlay__num">02</span>Work</a>
-    <a href="../about.html" class="nav-overlay__link"><span class="nav-overlay__num">03</span>About</a>
-    <a href="../contact.html" class="nav-overlay__link"><span class="nav-overlay__num">04</span>Contact</a>
-  </nav>
-  <div class="nav-overlay__footer">
-    <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
-    <a href="mailto:melekkarlankus@gmail.com">Email</a>
-  </div>
+  <div class="nav-overlay__bg" aria-hidden="true"></div>
+  <div class="nav-overlay__top"><span class="nav-overlay__brand">Melek Karlankuş — YULA Design Studio</span><button class="nav-overlay__close"><span>Close</span><span class="nav-overlay__close-mark">✕</span></button></div>
+  <div class="nav-overlay__main"><nav class="nav-overlay__links">
+    <a href="../index.html" class="nav-overlay__link"><span class="nav-overlay__num">01</span><span class="nav-overlay__link-inner" data-text="Home">Home</span></a>
+    <a href="../work.html" class="nav-overlay__link"><span class="nav-overlay__num">02</span><span class="nav-overlay__link-inner" data-text="Work">Work</span></a>
+    <a href="../about.html" class="nav-overlay__link"><span class="nav-overlay__num">03</span><span class="nav-overlay__link-inner" data-text="About">About</span></a>
+    <a href="../contact.html" class="nav-overlay__link"><span class="nav-overlay__num">04</span><span class="nav-overlay__link-inner" data-text="Contact">Contact</span></a>
+  </nav></div>
+  <aside class="nav-overlay__side">
+    <div class="nav-overlay__meta"><span class="nav-overlay__meta-label">Email</span><span class="nav-overlay__meta-value"><a href="mailto:melekkarlankus@gmail.com">melekkarlankus@gmail.com</a></span></div>
+    <div class="nav-overlay__meta"><span class="nav-overlay__meta-label">Instagram</span><span class="nav-overlay__meta-value"><a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">@yula.designstudio</a></span></div>
+    <div class="nav-overlay__meta"><span class="nav-overlay__meta-label">Studio</span><span class="nav-overlay__meta-value">İstanbul, TR</span></div>
+  </aside>
+  <div class="nav-overlay__bottom"><span>© 2026 — Melek Karlankuş</span><span id="overlay-time">— IST</span></div>
 </div>
 
-<main data-barba="container" data-barba-namespace="project">
+<main data-page-main>
 
   <section class="proj-hero">
-    <div class="proj-hero__bg">
-      <img src="/assets/images/projects/p06-cover.jpg" alt="Mixed-Use Healthcare Center Iraq" loading="eager">
-    </div>
+    <div class="proj-hero__bg"><img src="../assets/images/projects/p06-cover.jpg" alt="Mixed-Use Healthcare Center" loading="eager" decoding="async" fetchpriority="high"></div>
     <div class="proj-hero__overlay"></div>
     <div class="proj-hero__spotlight"></div>
     <div class="proj-hero__content">
-      <span class="proj-hero__num">06 / Project</span>
-      <h1 class="proj-hero__title">Mixed-Use Healthcare Center</h1>
-      <p class="proj-hero__subtitle">Iraq — Five-Story Complex</p>
+      <span class="proj-hero__num">06 / Architectural Execution</span>
+      <h1 class="proj-hero__title">Mixed-<em>Use</em><br>Healthcare</h1>
+      <p class="proj-hero__subtitle">An extensive five-story complex in Iraq — every floor delivered as a precise, buildable drawing set.</p>
       <div class="proj-hero__meta">
-        <span>Architectural Execution Drawings</span>
+        <span>Execution Drawings</span>
         <span>2023</span>
-        <span>Architectural Documentation</span>
+        <span>Iraq</span>
       </div>
     </div>
   </section>
 
+  <section class="proj-facts">
+    <div class="proj-facts__inner">
+      <div class="proj-fact"><span class="proj-fact__label">Client</span><span class="proj-fact__value"><em>Private group</em></span></div>
+      <div class="proj-fact"><span class="proj-fact__label">Location</span><span class="proj-fact__value">Iraq</span></div>
+      <div class="proj-fact"><span class="proj-fact__label">Year</span><span class="proj-fact__value">2023</span></div>
+      <div class="proj-fact"><span class="proj-fact__label">Scope</span><span class="proj-fact__value">Execution Drawings</span></div>
+      <div class="proj-fact"><span class="proj-fact__label">Floors</span><span class="proj-fact__value">5 floors</span></div>
+    </div>
+  </section>
   <section class="proj-overview">
     <div class="proj-overview__inner">
       <div class="proj-overview__text">
-        <p class="bio-reveal">An extensive five-story healthcare complex where high-level medical functions are
-        integrated with diverse social and commercial units. The architectural program manages
-        the complex coordination of operating theaters, a hair transplant center, doctor offices,
-        patient rooms, conference halls, a pharmacy, and a beauty salon. Every single unit
-        was developed with an exhaustive level of technical detail and a full-scale set of
-        execution drawings — demonstrating professional documentation standards at the highest level.</p>
+        <p class="bio-reveal">An extensive five-story healthcare complex where high-level medical functions are integrated with diverse social and commercial units. The architectural program manages the complex coordination of operating theaters, a hair transplant center, doctor offices, patient rooms, conference halls, a pharmacy, and a beauty salon. Every single unit within this five-story structure was developed with an exhaustive level of technical detail and a full-scale set of execution drawings.</p>
       </div>
-      <div class="proj-overview__image" data-clip>
-        <img src="/assets/images/projects/p06-overview.jpg" alt="Healthcare beauty salon section" loading="lazy">
-      </div>
+      <div class="proj-overview__image" data-clip><img src="../assets/images/projects/p06-overview.jpg" alt="Healthcare Center detail" loading="lazy" decoding="async" fetchpriority="low"></div>
     </div>
   </section>
 
   <section class="proj-gallery">
     <div class="proj-gallery__inner">
-      <div class="proj-gallery__item proj-gallery__item--full" data-clip>
-        <img src="/assets/images/projects/p06-cover.jpg" alt="Healthcare floor plan" loading="lazy">
-      </div>
-      <div class="proj-gallery__row">
-        <div class="proj-gallery__item proj-gallery__item--half" data-clip>
-          <img src="/assets/images/projects/p06-1.jpg" alt="Healthcare technical detail" loading="lazy">
-        </div>
-        <div class="proj-gallery__item proj-gallery__item--half" data-clip>
-          <img src="/assets/images/projects/p06-overview.jpg" alt="Healthcare beauty salon" loading="lazy">
-        </div>
-      </div>
+      <div class="proj-gallery__item proj-gallery__item--full" data-clip><img src="../assets/images/projects/p06-1.jpg" alt="" loading="lazy" decoding="async" fetchpriority="low"></div>
+    </div>
+  </section>
+
+  <section class="proj-quote">
+    <div class="proj-quote__inner">
+      <span class="proj-quote__mark" aria-hidden="true">“</span>
+      <p class="proj-quote__text">Five floors, coordinated to the last conduit. The contractor handover was <em>the smoothest</em> we have seen.</p>
+      <p class="proj-quote__attr">Project Coordinator · Iraq, 2023</p>
     </div>
   </section>
 
   <section class="proj-details">
     <div class="proj-details__inner">
-      <div class="proj-detail" data-reveal>
-        <h3>Challenge</h3>
-        <p>Coordinating a complex multi-function medical program across five floors while maintaining clarity in technical documentation.</p>
-      </div>
-      <div class="proj-detail" data-reveal>
-        <h3>Solution</h3>
-        <p>Systematic floor-by-floor documentation with coordinated electrical, mechanical, and architectural drawings.</p>
-      </div>
-      <div class="proj-detail" data-reveal>
-        <h3>Outcome</h3>
-        <p>A complete construction document set ready for contractor handover — precision at every scale.</p>
-      </div>
+      <div class="proj-detail" data-reveal><h3><em>Challenge</em></h3><p>Coordinating a complex multi-function medical program across five floors while maintaining clarity in technical documentation.</p></div>
+      <div class="proj-detail" data-reveal><h3><em>Solution</em></h3><p>Systematic floor-by-floor documentation with coordinated electrical, mechanical, and architectural drawings.</p></div>
+      <div class="proj-detail" data-reveal><h3><em>Outcome</em></h3><p>A complete construction document set ready for contractor handover — precision at every scale.</p></div>
     </div>
   </section>
 
   <section class="proj-tools">
     <div class="proj-tools__inner">
-      <span class="proj-tools__label">Tools Used</span>
-      <span class="proj-tool">AutoCAD</span>
-      <span class="proj-tool">Revit</span>
-      <span class="proj-tool">Photoshop</span>
+      <span class="proj-tools__label">Tools / Stack</span>
+      <span class="proj-tool">AutoCAD</span><span class="proj-tool">Revit</span><span class="proj-tool">Photoshop</span>
     </div>
   </section>
 
   <section class="next-project">
-    <div class="next-project__bg">
-      <img src="/assets/images/projects/p07-cover.jpg" alt="CandyZoo İzmir" loading="lazy">
-    </div>
+    <div class="next-project__bg"><img src="../assets/images/projects/p07-cover.jpg" alt="CandyZoo İzmir" loading="lazy" decoding="async" fetchpriority="low"></div>
     <div class="next-project__overlay"></div>
-    <a href="./candyzoo-izmir.html" class="next-project__link">
+    <a href="./candyzoo-izmir.html" class="next-project__link" data-cursor="gold">
       <span class="next-project__label">Next Project — 07</span>
-      <h2 class="next-project__title">CandyZoo</h2>
+      <h2 class="next-project__title"><em>CandyZoo</em><br>İzmir</h2>
+      <span class="next-project__arrow">Open<svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h13M14 6L9 1M14 6L9 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span>
     </a>
   </section>
 
 </main>
 
 <footer class="footer">
-  <div class="container footer__inner">
-    <div class="footer__col footer__col--brand">
-      <span class="footer__logo">Melek Karlankuş</span>
-      <span class="footer__studio">YULA Design Studio</span>
-      <span class="footer__tagline">Designing spaces where silence speaks</span>
+  <span class="footer__giant" aria-hidden="true">YULA</span>
+  <div class="container container--wide">
+    <div class="footer__signature"><span class="footer__signature-eyebrow">Let's design together</span><h2 class="footer__signature-title"><a href="mailto:melekkarlankus@gmail.com">melekkarlankus@gmail.com</a></h2></div>
+    <div class="footer__inner">
+      <div class="footer__col"><span class="footer__logo">Melek Karlankuş</span><span class="footer__studio">YULA · Design Studio</span><span class="footer__tagline">Designing spaces where silence speaks.</span></div>
+      <div class="footer__col"><span class="footer__col-title">Navigate</span><a href="../index.html">Home</a><a href="../work.html">Work</a><a href="../about.html">About</a><a href="../contact.html">Contact</a></div>
+      <div class="footer__col"><span class="footer__col-title">Connect</span><a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a><a href="mailto:melekkarlankus@gmail.com">Email</a></div>
+      <div class="footer__col"><span class="footer__col-title">Studio</span><a>İstanbul, TR</a><a>By appointment</a><a>Available · 2026</a></div>
     </div>
-    <div class="footer__col footer__col--nav">
-      <a href="../work.html">Work</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
-    </div>
-    <div class="footer__col footer__col--social">
-      <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
-      <a href="mailto:melekkarlankus@gmail.com">Email</a>
-    </div>
-  </div>
-  <div class="footer__bottom">
-    <span>© 2026 Melek Karlankuş — All Rights Reserved</span>
-    <span>İstanbul, Turkey</span>
+    <div class="footer__bottom"><span>© 2026 Melek Karlankuş — All Rights Reserved</span><span>YULA · Edition MMXXVI</span><span class="footer__bottom-time"><span class="avail-dot"></span>Open for briefs</span></div>
   </div>
 </footer>
 
-<script type="module" src="/assets/js/main.js"></script>
+<script type="module" src="../assets/js/main.js"></script>
 </body>
 </html>

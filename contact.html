@@ -3,107 +3,164 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — Melek Karlankuş</title>
+  <meta name="theme-color" content="#EDE7DD">
+  <title>Contact — Melek Karlankuş / YULA Design Studio</title>
   <meta name="description" content="Get in touch with Melek Karlankuş — YULA Design Studio. Available for interior design projects in İstanbul and internationally.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/tokens.css">
-  <link rel="stylesheet" href="/assets/css/reset.css">
-  <link rel="stylesheet" href="/assets/css/base.css">
-  <link rel="stylesheet" href="/assets/css/components/nav.css">
-  <link rel="stylesheet" href="/assets/css/components/cursor.css">
-  <link rel="stylesheet" href="/assets/css/components/loader.css">
-  <link rel="stylesheet" href="/assets/css/components/footer.css">
-  <link rel="stylesheet" href="/assets/css/pages/contact.css">
-</head>
-<body data-barba="wrapper">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,30..100;1,9..144,300..700,30..100&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
 
-<canvas id="noise-canvas"></canvas>
-<div class="cursor"><div class="cursor__dot"></div><div class="cursor__ring"><span class="cursor__label"></span></div></div>
-<div class="page-transition-overlay"></div>
+  <link rel="stylesheet" href="./assets/css/tokens.css">
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/base.css">
+  <link rel="stylesheet" href="./assets/css/components/nav.css">
+  <link rel="stylesheet" href="./assets/css/components/cursor.css">
+  <link rel="stylesheet" href="./assets/css/components/loader.css">
+  <link rel="stylesheet" href="./assets/css/components/footer.css">
+  <link rel="stylesheet" href="./assets/css/pages/contact.css">
+
+  <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1.10.0/dist/es-module-shims.js"></script><script type="importmap">
+  {
+    "imports": {
+      "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js",
+      "gsap/": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/",
+      "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.mjs",
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+    }
+  }
+  </script>
+</head>
+<body data-page="contact">
+
+<canvas id="noise-canvas" aria-hidden="true"></canvas>
+
+<div class="cursor" aria-hidden="true">
+  <div class="cursor__dot"></div>
+  <div class="cursor__ring"><span class="cursor__label"></span></div>
+</div>
+
+<div id="loader" class="loader" aria-label="Loading">
+  <div class="loader__sweep" aria-hidden="true"></div>
+  <div class="loader__top">
+    <span class="loader__brand">YULA Design Studio</span>
+    <span class="loader__small">Contact · 2026</span>
+  </div>
+  <div class="loader__center">
+    <div class="loader__counter">
+      <span class="loader__counter-num">0</span>
+      <span class="loader__counter-pct">%</span>
+    </div>
+  </div>
+  <div class="loader__bottom">
+    <div class="loader__title">
+      <span class="loader__title-line">Let's Talk</span>
+    </div>
+    <span class="loader__small">İstanbul · Türkiye</span>
+  </div>
+  <div class="loader__progress"><div class="loader__progress-bar"></div></div>
+  <div class="loader__wipe" aria-hidden="true"></div>
+</div>
+
+<div class="page-transition-overlay" aria-hidden="true">
+  <div class="page-transition-overlay__panel"></div>
+  <div class="page-transition-overlay__panel"></div>
+  <div class="page-transition-overlay__panel"></div>
+  <div class="page-transition-overlay__panel"></div>
+  <div class="page-transition-overlay__panel"></div>
+</div>
+<div class="page-transition-overlay__brand" aria-hidden="true">YULA</div>
+
+<div class="scroll-indicator" aria-hidden="true"><div class="scroll-indicator__bar"></div></div>
 
 <nav class="nav" id="nav">
-  <a href="./" class="nav__logo"><span class="nav__logo-m">M</span>K</a>
+  <a href="./index.html" class="nav__logo">
+    <span class="nav__logo-mark"><span>M</span></span>
+    <span class="nav__logo-text">
+      <span class="nav__logo-name">Karlankuş</span>
+      <span class="nav__logo-studio">YULA · Studio</span>
+    </span>
+  </a>
   <div class="nav__links">
     <a href="./work.html" class="nav__link">Work</a>
     <a href="./about.html" class="nav__link">About</a>
-    <a href="./contact.html" class="nav__link btn-magnetic nav__cta">Let's Talk</a>
+    <a href="./contact.html" class="nav__link nav__cta btn-magnetic">Let's Talk</a>
   </div>
   <button class="nav__menu-btn" aria-label="Open menu"><span></span><span></span></button>
 </nav>
 
 <div class="nav-overlay" role="dialog">
-  <button class="nav-overlay__close" aria-label="Close menu">✕</button>
-  <nav class="nav-overlay__links">
-    <a href="./" class="nav-overlay__link"><span class="nav-overlay__num">01</span>Home</a>
-    <a href="./work.html" class="nav-overlay__link"><span class="nav-overlay__num">02</span>Work</a>
-    <a href="./about.html" class="nav-overlay__link"><span class="nav-overlay__num">03</span>About</a>
-    <a href="./contact.html" class="nav-overlay__link"><span class="nav-overlay__num">04</span>Contact</a>
-  </nav>
-  <div class="nav-overlay__footer">
-    <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
-    <a href="mailto:melekkarlankus@gmail.com">Email</a>
+  <div class="nav-overlay__bg" aria-hidden="true"></div>
+  <div class="nav-overlay__top">
+    <span class="nav-overlay__brand">Melek Karlankuş — YULA Design Studio</span>
+    <button class="nav-overlay__close" aria-label="Close menu">
+      <span>Close</span>
+      <span class="nav-overlay__close-mark">✕</span>
+    </button>
+  </div>
+  <div class="nav-overlay__main">
+    <nav class="nav-overlay__links">
+      <a href="./index.html" class="nav-overlay__link"><span class="nav-overlay__num">01</span><span class="nav-overlay__link-inner" data-text="Home">Home</span></a>
+      <a href="./work.html" class="nav-overlay__link"><span class="nav-overlay__num">02</span><span class="nav-overlay__link-inner" data-text="Work">Work</span></a>
+      <a href="./about.html" class="nav-overlay__link"><span class="nav-overlay__num">03</span><span class="nav-overlay__link-inner" data-text="About">About</span></a>
+      <a href="./contact.html" class="nav-overlay__link"><span class="nav-overlay__num">04</span><span class="nav-overlay__link-inner" data-text="Contact">Contact</span></a>
+    </nav>
+  </div>
+  <aside class="nav-overlay__side">
+    <div class="nav-overlay__meta"><span class="nav-overlay__meta-label">Email</span><span class="nav-overlay__meta-value"><a href="mailto:melekkarlankus@gmail.com">melekkarlankus@gmail.com</a></span></div>
+    <div class="nav-overlay__meta"><span class="nav-overlay__meta-label">Instagram</span><span class="nav-overlay__meta-value"><a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">@yula.designstudio</a></span></div>
+    <div class="nav-overlay__meta"><span class="nav-overlay__meta-label">Studio</span><span class="nav-overlay__meta-value">İstanbul, TR</span></div>
+  </aside>
+  <div class="nav-overlay__bottom">
+    <span>© 2026 — Melek Karlankuş</span>
+    <span id="overlay-time">— IST</span>
   </div>
 </div>
 
-<main data-barba="container" data-barba-namespace="contact">
+<main data-page-main>
 
   <section class="contact-hero">
-    <div class="container">
-      <span class="contact-hero__sub">Available for new projects</span>
-      <h1 class="contact-hero__title">Let's Talk</h1>
-      <span class="contact-hero__time" id="live-time" aria-live="polite"></span>
+    <span class="contact-hero__bg-text" aria-hidden="true">TALK</span>
+    <div class="container container--wide">
+      <span class="contact-hero__sub"><span class="avail-dot"></span>Available for new projects · 2026</span>
+      <h1 class="contact-hero__title">Let's <em>talk</em></h1>
+      <span class="contact-hero__time" id="live-time" aria-live="polite">— IST</span>
+      <span class="contact-hero__line"></span>
     </div>
   </section>
 
-  <div class="contact-layout">
+  <div class="contact-layout container container--wide">
 
     <div>
       <form class="contact-form" id="contact-form" novalidate>
 
         <div class="form-group" data-reveal>
-          <label class="form-label" for="name">Full Name</label>
+          <label class="form-label" for="name">01 / Your Name</label>
           <input class="form-input" type="text" id="name" name="name"
-                 placeholder="Your name" required autocomplete="name">
+                 placeholder="Your full name" required autocomplete="name">
         </div>
 
         <div class="form-group" data-reveal>
-          <label class="form-label" for="email">Email Address</label>
+          <label class="form-label" for="email">02 / Email Address</label>
           <input class="form-input" type="email" id="email" name="email"
                  placeholder="your@email.com" required autocomplete="email">
         </div>
 
         <div class="form-group" data-reveal>
           <fieldset style="border:none; padding:0;">
-            <legend class="form-label">Project Type</legend>
+            <legend class="form-label">03 / Project Type</legend>
             <div class="radio-group">
-              <div class="radio-pill">
-                <input type="radio" name="project_type" id="type-residential" value="Residential">
-                <label for="type-residential">Residential</label>
-              </div>
-              <div class="radio-pill">
-                <input type="radio" name="project_type" id="type-hospitality" value="Hospitality">
-                <label for="type-hospitality">Hospitality</label>
-              </div>
-              <div class="radio-pill">
-                <input type="radio" name="project_type" id="type-corporate" value="Corporate">
-                <label for="type-corporate">Corporate</label>
-              </div>
-              <div class="radio-pill">
-                <input type="radio" name="project_type" id="type-execution" value="Execution">
-                <label for="type-execution">Execution Drawings</label>
-              </div>
-              <div class="radio-pill">
-                <input type="radio" name="project_type" id="type-other" value="Other">
-                <label for="type-other">Other</label>
-              </div>
+              <div class="radio-pill"><input type="radio" name="project_type" id="type-residential" value="Residential"><label for="type-residential">Residential</label></div>
+              <div class="radio-pill"><input type="radio" name="project_type" id="type-hospitality" value="Hospitality"><label for="type-hospitality">Hospitality</label></div>
+              <div class="radio-pill"><input type="radio" name="project_type" id="type-corporate" value="Corporate"><label for="type-corporate">Corporate</label></div>
+              <div class="radio-pill"><input type="radio" name="project_type" id="type-execution" value="Execution"><label for="type-execution">Execution</label></div>
+              <div class="radio-pill"><input type="radio" name="project_type" id="type-other" value="Other"><label for="type-other">Other</label></div>
             </div>
           </fieldset>
         </div>
 
         <div class="form-group" data-reveal>
-          <label class="form-label" for="message">Brief Message</label>
+          <label class="form-label" for="message">04 / Brief Message</label>
           <textarea class="form-textarea" id="message" name="message"
                     placeholder="Tell me about your project, timeline, and vision..."
                     rows="4"></textarea>
@@ -111,42 +168,29 @@
 
         <div class="form-group" data-reveal>
           <fieldset style="border:none; padding:0;">
-            <legend class="form-label">Budget Range</legend>
+            <legend class="form-label">05 / Budget Range</legend>
             <div class="radio-group">
-              <div class="radio-pill">
-                <input type="radio" name="budget" id="budget-1" value="Under $10k">
-                <label for="budget-1">Under $10k</label>
-              </div>
-              <div class="radio-pill">
-                <input type="radio" name="budget" id="budget-2" value="$10–50k">
-                <label for="budget-2">$10–50k</label>
-              </div>
-              <div class="radio-pill">
-                <input type="radio" name="budget" id="budget-3" value="$50–100k">
-                <label for="budget-3">$50–100k</label>
-              </div>
-              <div class="radio-pill">
-                <input type="radio" name="budget" id="budget-4" value="$100k+">
-                <label for="budget-4">$100k+</label>
-              </div>
+              <div class="radio-pill"><input type="radio" name="budget" id="budget-1" value="Under $10k"><label for="budget-1">Under $10k</label></div>
+              <div class="radio-pill"><input type="radio" name="budget" id="budget-2" value="$10–50k"><label for="budget-2">$10–50k</label></div>
+              <div class="radio-pill"><input type="radio" name="budget" id="budget-3" value="$50–100k"><label for="budget-3">$50–100k</label></div>
+              <div class="radio-pill"><input type="radio" name="budget" id="budget-4" value="$100k+"><label for="budget-4">$100k+</label></div>
             </div>
           </fieldset>
         </div>
 
         <button type="submit" class="form-submit btn-magnetic">
           <span>SEND MESSAGE</span>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <path d="M4 11H18M18 11L11 4M18 11L11 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
 
       </form>
 
-      <div class="form-success" role="alert" hidden style="display:none;">
+      <div class="form-success" role="alert" hidden>
         <svg class="form-success__check" width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true">
           <circle cx="40" cy="40" r="36" stroke="#6B1F2A" stroke-width="1.5"/>
-          <path class="check-path" d="M24 40L35 51L56 29" stroke="#6B1F2A" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round"/>
+          <path class="check-path" d="M24 40L35 51L56 29" stroke="#6B1F2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <h2 class="form-success__title">Message Sent</h2>
         <p class="form-success__text">Thank you. I'll be in touch within 48 hours.</p>
@@ -165,11 +209,6 @@
       </div>
 
       <div class="sidebar-block" data-reveal>
-        <span class="sidebar-label">Phone</span>
-        <a href="tel:+905339693961" class="sidebar-value">+90 533 969 3961</a>
-      </div>
-
-      <div class="sidebar-block" data-reveal>
         <span class="sidebar-label">Instagram</span>
         <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener"
            class="sidebar-value">@yula.designstudio</a>
@@ -182,7 +221,7 @@
 
       <div class="contact-avail" data-reveal>
         <span class="avail-dot" aria-hidden="true"></span>
-        Currently available for new projects
+        Currently available · 2026
       </div>
 
     </aside>
@@ -191,29 +230,46 @@
 </main>
 
 <footer class="footer">
-  <div class="container footer__inner">
-    <div class="footer__col footer__col--brand">
-      <span class="footer__logo">Melek Karlankuş</span>
-      <span class="footer__studio">YULA Design Studio</span>
-      <span class="footer__tagline">Designing spaces where silence speaks</span>
+  <span class="footer__giant" aria-hidden="true">YULA</span>
+  <div class="container container--wide">
+    <div class="footer__signature">
+      <span class="footer__signature-eyebrow">Let's design together</span>
+      <h2 class="footer__signature-title"><a href="mailto:melekkarlankus@gmail.com">melekkarlankus@gmail.com</a></h2>
     </div>
-    <div class="footer__col footer__col--nav">
-      <a href="./work.html">Work</a>
-      <a href="./about.html">About</a>
-      <a href="./contact.html">Contact</a>
+    <div class="footer__inner">
+      <div class="footer__col">
+        <span class="footer__logo">Melek Karlankuş</span>
+        <span class="footer__studio">YULA · Design Studio</span>
+        <span class="footer__tagline">Designing spaces where silence speaks.</span>
+      </div>
+      <div class="footer__col">
+        <span class="footer__col-title">Navigate</span>
+        <a href="./index.html">Home</a>
+        <a href="./work.html">Work</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+      <div class="footer__col">
+        <span class="footer__col-title">Connect</span>
+        <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:melekkarlankus@gmail.com">Email</a>
+        
+      </div>
+      <div class="footer__col">
+        <span class="footer__col-title">Studio</span>
+        <a>İstanbul, TR</a>
+        <a>By appointment</a>
+        <a>Available · 2026</a>
+      </div>
     </div>
-    <div class="footer__col footer__col--social">
-      <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
-      <a href="mailto:melekkarlankus@gmail.com">Email</a>
-      <a href="tel:+905339693961">+90 533 969 3961</a>
+    <div class="footer__bottom">
+      <span>© 2026 Melek Karlankuş — All Rights Reserved</span>
+      <span>YULA · Edition MMXXVI</span>
+      <span class="footer__bottom-time"><span class="avail-dot"></span>Open for briefs</span>
     </div>
-  </div>
-  <div class="footer__bottom">
-    <span>© 2026 Melek Karlankuş — All Rights Reserved</span>
-    <span>İstanbul, Turkey</span>
   </div>
 </footer>
 
-<script type="module" src="/assets/js/main.js"></script>
+<script type="module" src="./assets/js/main.js"></script>
 </body>
 </html>

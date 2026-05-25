@@ -3,78 +3,151 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — Melek Karlankuş</title>
+  <meta name="theme-color" content="#EDE7DD">
+  <title>About — Melek Karlankuş / YULA Design Studio</title>
   <meta name="description" content="Interior Architect based in İstanbul. YULA Design Studio — residential, hospitality, and corporate interiors.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/tokens.css">
-  <link rel="stylesheet" href="/assets/css/reset.css">
-  <link rel="stylesheet" href="/assets/css/base.css">
-  <link rel="stylesheet" href="/assets/css/components/nav.css">
-  <link rel="stylesheet" href="/assets/css/components/cursor.css">
-  <link rel="stylesheet" href="/assets/css/components/loader.css">
-  <link rel="stylesheet" href="/assets/css/components/footer.css">
-  <link rel="stylesheet" href="/assets/css/pages/about.css">
-</head>
-<body data-barba="wrapper">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,30..100;1,9..144,300..700,30..100&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
 
-<canvas id="noise-canvas"></canvas>
-<div class="cursor"><div class="cursor__dot"></div><div class="cursor__ring"><span class="cursor__label"></span></div></div>
-<div class="page-transition-overlay"></div>
+  <link rel="stylesheet" href="./assets/css/tokens.css">
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/base.css">
+  <link rel="stylesheet" href="./assets/css/components/nav.css">
+  <link rel="stylesheet" href="./assets/css/components/cursor.css">
+  <link rel="stylesheet" href="./assets/css/components/loader.css">
+  <link rel="stylesheet" href="./assets/css/components/marquee.css">
+  <link rel="stylesheet" href="./assets/css/components/footer.css">
+  <link rel="stylesheet" href="./assets/css/pages/about.css">
+
+  <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1.10.0/dist/es-module-shims.js"></script><script type="importmap">
+  {
+    "imports": {
+      "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js",
+      "gsap/": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/",
+      "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.mjs",
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+    }
+  }
+  </script>
+</head>
+<body data-page="about">
+
+<canvas id="noise-canvas" aria-hidden="true"></canvas>
+
+<div class="cursor" aria-hidden="true">
+  <div class="cursor__dot"></div>
+  <div class="cursor__ring"><span class="cursor__label"></span></div>
+</div>
+
+<div id="loader" class="loader" aria-label="Loading">
+  <div class="loader__sweep" aria-hidden="true"></div>
+  <div class="loader__top">
+    <span class="loader__brand">YULA Design Studio</span>
+    <span class="loader__small">Studio Profile</span>
+  </div>
+  <div class="loader__center">
+    <div class="loader__counter">
+      <span class="loader__counter-num">0</span>
+      <span class="loader__counter-pct">%</span>
+    </div>
+  </div>
+  <div class="loader__bottom">
+    <div class="loader__title">
+      <span class="loader__title-line">About — Studio</span>
+    </div>
+    <span class="loader__small">Practice / 2022 — 2026</span>
+  </div>
+  <div class="loader__progress"><div class="loader__progress-bar"></div></div>
+  <div class="loader__wipe" aria-hidden="true"></div>
+</div>
+
+<div class="page-transition-overlay" aria-hidden="true">
+  <div class="page-transition-overlay__panel"></div>
+  <div class="page-transition-overlay__panel"></div>
+  <div class="page-transition-overlay__panel"></div>
+  <div class="page-transition-overlay__panel"></div>
+  <div class="page-transition-overlay__panel"></div>
+</div>
+<div class="page-transition-overlay__brand" aria-hidden="true">YULA</div>
+
+<div class="scroll-indicator" aria-hidden="true"><div class="scroll-indicator__bar"></div></div>
 
 <nav class="nav" id="nav">
-  <a href="./" class="nav__logo"><span class="nav__logo-m">M</span>K</a>
+  <a href="./index.html" class="nav__logo">
+    <span class="nav__logo-mark"><span>M</span></span>
+    <span class="nav__logo-text">
+      <span class="nav__logo-name">Karlankuş</span>
+      <span class="nav__logo-studio">YULA · Studio</span>
+    </span>
+  </a>
   <div class="nav__links">
     <a href="./work.html" class="nav__link">Work</a>
     <a href="./about.html" class="nav__link">About</a>
-    <a href="./contact.html" class="nav__link btn-magnetic nav__cta">Let's Talk</a>
+    <a href="./contact.html" class="nav__link nav__cta btn-magnetic">Let's Talk</a>
   </div>
   <button class="nav__menu-btn" aria-label="Open menu"><span></span><span></span></button>
 </nav>
 
 <div class="nav-overlay" role="dialog">
-  <button class="nav-overlay__close" aria-label="Close menu">✕</button>
-  <nav class="nav-overlay__links">
-    <a href="./" class="nav-overlay__link"><span class="nav-overlay__num">01</span>Home</a>
-    <a href="./work.html" class="nav-overlay__link"><span class="nav-overlay__num">02</span>Work</a>
-    <a href="./about.html" class="nav-overlay__link"><span class="nav-overlay__num">03</span>About</a>
-    <a href="./contact.html" class="nav-overlay__link"><span class="nav-overlay__num">04</span>Contact</a>
-  </nav>
-  <div class="nav-overlay__footer">
-    <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
-    <a href="mailto:melekkarlankus@gmail.com">Email</a>
+  <div class="nav-overlay__bg" aria-hidden="true"></div>
+  <div class="nav-overlay__top">
+    <span class="nav-overlay__brand">Melek Karlankuş — YULA Design Studio</span>
+    <button class="nav-overlay__close" aria-label="Close menu">
+      <span>Close</span>
+      <span class="nav-overlay__close-mark">✕</span>
+    </button>
+  </div>
+  <div class="nav-overlay__main">
+    <nav class="nav-overlay__links">
+      <a href="./index.html" class="nav-overlay__link"><span class="nav-overlay__num">01</span><span class="nav-overlay__link-inner" data-text="Home">Home</span></a>
+      <a href="./work.html" class="nav-overlay__link"><span class="nav-overlay__num">02</span><span class="nav-overlay__link-inner" data-text="Work">Work</span></a>
+      <a href="./about.html" class="nav-overlay__link"><span class="nav-overlay__num">03</span><span class="nav-overlay__link-inner" data-text="About">About</span></a>
+      <a href="./contact.html" class="nav-overlay__link"><span class="nav-overlay__num">04</span><span class="nav-overlay__link-inner" data-text="Contact">Contact</span></a>
+    </nav>
+  </div>
+  <aside class="nav-overlay__side">
+    <div class="nav-overlay__meta"><span class="nav-overlay__meta-label">Email</span><span class="nav-overlay__meta-value"><a href="mailto:melekkarlankus@gmail.com">melekkarlankus@gmail.com</a></span></div>
+    <div class="nav-overlay__meta"><span class="nav-overlay__meta-label">Instagram</span><span class="nav-overlay__meta-value"><a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">@yula.designstudio</a></span></div>
+    <div class="nav-overlay__meta"><span class="nav-overlay__meta-label">Studio</span><span class="nav-overlay__meta-value">İstanbul, TR</span></div>
+  </aside>
+  <div class="nav-overlay__bottom">
+    <span>© 2026 — Melek Karlankuş</span>
+    <span id="overlay-time">— IST</span>
   </div>
 </div>
 
-<main data-barba="container" data-barba-namespace="about">
+<main data-page-main>
 
   <section class="about-hero">
-    <div class="container">
+    <span class="about-hero__bg-text" aria-hidden="true">A B O U T</span>
+    <div class="container container--wide">
       <div class="about-hero__inner">
 
         <div class="about-hero__portrait" data-clip>
           <div class="about-hero__portrait-inner">
-            <img src="/assets/images/projects/portrait.jpg" alt="Melek Karlankuş — YULA Design Studio" loading="eager">
+            <img src="./assets/images/projects/portrait.jpg" alt="Melek Karlankuş — YULA Design Studio" loading="eager" decoding="async" fetchpriority="high">
           </div>
         </div>
 
         <div class="about-hero__text">
-          <h1 class="about-hero__title">About</h1>
+          <span class="about-hero__eyebrow">03 / The Architect</span>
+          <h1 class="about-hero__title">A <em>listening</em><br>practice.</h1>
           <p class="about-hero__bio bio-reveal">
             I am an interior architect based in İstanbul, crafting environments
-            that emerge from the dialogue between material honesty and poetic form.
-            My work spans private residences, hospitality destinations, and
-            institutional spaces — each shaped by a conviction that great interiors
-            do not decorate a space, they complete it.
+            that emerge from the dialogue between material honesty and poetic
+            form. My work spans private residences, hospitality destinations,
+            and institutional spaces — each shaped by a conviction that great
+            interiors do not decorate a space, they complete it.
           </p>
-          <p class="about-hero__bio bio-reveal" style="margin-top: 1.5rem; opacity: 0.75;">
-            My approach begins with listening — to the client, to the light, to the
-            site. From that listening, a spatial narrative emerges: one that is
-            grounded in material truth, refined through iterative form-finding, and
-            delivered with the precision of technical excellence.
+          <p class="about-hero__bio bio-reveal">
+            My approach begins with listening — to the client, to the light,
+            to the site. From that listening, a spatial narrative emerges:
+            grounded in material truth, refined through iterative form-finding,
+            and delivered with the precision of technical excellence.
           </p>
-          <div style="margin-top: 3rem;" data-reveal>
+          <div style="margin-top: 2.5rem;" data-reveal>
             <a href="./contact.html" class="link-underline btn-magnetic">Start a Project →</a>
           </div>
         </div>
@@ -83,32 +156,45 @@
     </div>
   </section>
 
+  <section class="marquee-section" aria-hidden="true">
+    <div class="marquee-row">
+      <div class="marquee-inner">
+        <span>Practice <span class="marquee-dot"></span></span>
+        <span>Research <span class="marquee-dot"></span></span>
+        <span>Material <span class="marquee-dot"></span></span>
+        <span>Form <span class="marquee-dot"></span></span>
+        <span>Atmosphere <span class="marquee-dot"></span></span>
+        <span>Detail <span class="marquee-dot"></span></span>
+      </div>
+    </div>
+  </section>
+
   <section class="story-section">
-    <div class="container">
+    <div class="container container--wide">
       <div class="section-header" data-reveal>
-        <span class="section-num">01</span>
-        <h2 class="section-title">Timeline</h2>
+        <span class="eyebrow eyebrow--accent eyebrow--dot">01 — Timeline</span>
+        <h2 class="section-title">A working <em>chronology</em></h2>
       </div>
 
       <div class="timeline">
         <div class="timeline-item" data-reveal>
           <span class="timeline-year">2022</span>
           <div class="timeline-content">
-            <h3>CandyZoo İzmir</h3>
+            <h3>CandyZoo · İzmir</h3>
             <p>Completed architectural execution drawings for a high-energy retail brand — first large-scale documentation project, delivered in full.</p>
           </div>
         </div>
         <div class="timeline-item" data-reveal>
           <span class="timeline-year">2023</span>
           <div class="timeline-content">
-            <h3>TÜBİTAK TÜSSİDE + Sarot Thermal Palace</h3>
+            <h3>TÜBİTAK TÜSSİDE · Sarot Thermal Palace</h3>
             <p>Delivered a comprehensive corporate interior for Turkey's leading scientific institution, alongside the Presidential Suite at Sarot Thermal Palace. Mixed-Use Healthcare Center documentation for Iraq also completed.</p>
           </div>
         </div>
         <div class="timeline-item" data-reveal>
           <span class="timeline-year">2024</span>
           <div class="timeline-content">
-            <h3>Villa İDA + Minimalist Living + Private Nook</h3>
+            <h3>Villa İDA · Minimalist Living · Private Nook</h3>
             <p>Most prolific year yet — three residential and architectural projects, each pushing the studio's design language further toward holistic, material-honest practice.</p>
           </div>
         </div>
@@ -124,30 +210,30 @@
   </section>
 
   <section class="services-section">
-    <div class="container">
+    <div class="container container--wide">
       <div class="section-header" data-reveal>
-        <span class="section-num">02</span>
-        <h2 class="section-title">Services</h2>
+        <span class="eyebrow eyebrow--accent eyebrow--dot">02 — Services</span>
+        <h2 class="section-title">What we <em>do</em></h2>
       </div>
 
       <div class="services-grid">
         <div class="service-item" data-reveal>
-          <span class="service-num">01</span>
+          <span class="service-num">01 / Interior</span>
           <h3 class="service-title">Interior Design</h3>
           <p class="service-desc">From concept to completion — residential, hospitality, and commercial spaces designed with material precision and spatial poetry.</p>
         </div>
         <div class="service-item" data-reveal>
-          <span class="service-num">02</span>
+          <span class="service-num">02 / Visualization</span>
           <h3 class="service-title">3D Visualization</h3>
           <p class="service-desc">Photorealistic renders that communicate the atmosphere of a space before a single wall is built.</p>
         </div>
         <div class="service-item" data-reveal>
-          <span class="service-num">03</span>
+          <span class="service-num">03 / Documentation</span>
           <h3 class="service-title">Execution Drawings</h3>
           <p class="service-desc">Technical documentation — floor plans, sections, elevations, and details — to the standard required for construction.</p>
         </div>
         <div class="service-item" data-reveal>
-          <span class="service-num">04</span>
+          <span class="service-num">04 / Illustration</span>
           <h3 class="service-title">Digital Illustration</h3>
           <p class="service-desc">Architectural and fashion illustrations that tell the story of a space or a style with an artist's hand.</p>
         </div>
@@ -156,13 +242,13 @@
   </section>
 
   <section class="skills-section">
-    <div class="container">
+    <div class="container container--wide">
       <div class="section-header" data-reveal>
-        <span class="section-num">03</span>
-        <h2 class="section-title">Skills &amp; Tools</h2>
+        <span class="eyebrow eyebrow--accent eyebrow--dot">03 — Skills & Tools</span>
+        <h2 class="section-title">Instruments of <em>the trade</em></h2>
       </div>
 
-      <div class="skills-cloud">
+      <div class="skills-cloud" data-reveal>
         <span class="skill-tag">Interior Architecture</span>
         <span class="skill-tag">Space Planning</span>
         <span class="skill-tag">3D Visualization</span>
@@ -187,10 +273,10 @@
   </section>
 
   <section class="studio-section">
-    <div class="container">
+    <div class="container container--wide">
       <div data-reveal>
-        <span class="section-num" style="display:block; text-align:center; margin-bottom:2rem;">04</span>
-        <span class="studio-name">YULA Design Studio</span>
+        <span class="eyebrow eyebrow--gold" style="color: var(--color-gold); display:block; margin-bottom:2rem;">04 / The Studio</span>
+        <span class="studio-name">YULA</span>
         <p class="studio-desc">
           YULA is the creative studio through which Melek Karlankuş brings her practice to life.
           The name carries a quiet resonance — and the circular forms within it echo the studio's
@@ -198,10 +284,10 @@
           Based in İstanbul, working with clients across Turkey and internationally.
         </p>
         <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-          <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener" class="studio-ig">
+          <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener" class="studio-ig btn-magnetic">
             @yula.designstudio
           </a>
-          <a href="./contact.html" class="studio-ig">
+          <a href="./contact.html" class="studio-ig btn-magnetic">
             Work Together →
           </a>
         </div>
@@ -212,29 +298,46 @@
 </main>
 
 <footer class="footer">
-  <div class="container footer__inner">
-    <div class="footer__col footer__col--brand">
-      <span class="footer__logo">Melek Karlankuş</span>
-      <span class="footer__studio">YULA Design Studio</span>
-      <span class="footer__tagline">Designing spaces where silence speaks</span>
+  <span class="footer__giant" aria-hidden="true">YULA</span>
+  <div class="container container--wide">
+    <div class="footer__signature">
+      <span class="footer__signature-eyebrow">Let's design together</span>
+      <h2 class="footer__signature-title"><a href="mailto:melekkarlankus@gmail.com">melekkarlankus@gmail.com</a></h2>
     </div>
-    <div class="footer__col footer__col--nav">
-      <a href="./work.html">Work</a>
-      <a href="./about.html">About</a>
-      <a href="./contact.html">Contact</a>
+    <div class="footer__inner">
+      <div class="footer__col">
+        <span class="footer__logo">Melek Karlankuş</span>
+        <span class="footer__studio">YULA · Design Studio</span>
+        <span class="footer__tagline">Designing spaces where silence speaks.</span>
+      </div>
+      <div class="footer__col">
+        <span class="footer__col-title">Navigate</span>
+        <a href="./index.html">Home</a>
+        <a href="./work.html">Work</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+      <div class="footer__col">
+        <span class="footer__col-title">Connect</span>
+        <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:melekkarlankus@gmail.com">Email</a>
+        
+      </div>
+      <div class="footer__col">
+        <span class="footer__col-title">Studio</span>
+        <a>İstanbul, TR</a>
+        <a>By appointment</a>
+        <a>Available · 2026</a>
+      </div>
     </div>
-    <div class="footer__col footer__col--social">
-      <a href="https://www.instagram.com/yula.designstudio" target="_blank" rel="noopener">Instagram</a>
-      <a href="mailto:melekkarlankus@gmail.com">Email</a>
-      <a href="tel:+905339693961">+90 533 969 3961</a>
+    <div class="footer__bottom">
+      <span>© 2026 Melek Karlankuş — All Rights Reserved</span>
+      <span>YULA · Edition MMXXVI</span>
+      <span class="footer__bottom-time"><span class="avail-dot"></span>Open for briefs</span>
     </div>
-  </div>
-  <div class="footer__bottom">
-    <span>© 2026 Melek Karlankuş — All Rights Reserved</span>
-    <span>İstanbul, Turkey</span>
   </div>
 </footer>
 
-<script type="module" src="/assets/js/main.js"></script>
+<script type="module" src="./assets/js/main.js"></script>
 </body>
 </html>
