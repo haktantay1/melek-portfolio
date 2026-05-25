@@ -1,14 +1,14 @@
 /* ════════════════════════════════════════════════════════════
-   YULA INTRO — "The Four Commitments"
-   The studio's manifesto unfolds: Listen. Specify. Iterate. Deliver.
-   then morphs into the YULA wordmark.
+   YULA INTRO — "Candle to Fire"
+   Pitch black → candle lights → flame grows → screen ignites
+   → YULA wordmark burns into view → curtain reveals page.
    ════════════════════════════════════════════════════════════ */
 
 .yula-intro {
   position: fixed;
   inset: 0;
   z-index: var(--z-loader, 9999);
-  background: #0E0C0A;
+  background: #060403;
   color: #F4F0E6;
   overflow: hidden;
   isolation: isolate;
@@ -16,120 +16,99 @@
   user-select: none;
 }
 
-/* Subtle film grain */
-.yula-intro__grain {
+/* ── Base pitch-dark layer with subtle vignette ── */
+.yula-intro__dark {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 70% 70% at 50% 60%, rgba(8, 5, 3, 0) 0%, rgba(4, 2, 1, 0.85) 80%, #020100 100%);
+}
+
+/* ── Ember glow behind candle (slowly builds) ── */
+.yula-intro__embers {
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.07;
-  mix-blend-mode: overlay;
-  background-image:
-    radial-gradient(rgba(255,255,255,0.55) 1px, transparent 1px),
-    radial-gradient(rgba(255,255,255,0.35) 1px, transparent 1px);
-  background-size: 2px 2px, 3px 3px;
-  background-position: 0 0, 1px 1px;
-  animation: yula-grain 0.7s steps(3) infinite;
-}
-@keyframes yula-grain {
-  0%   { transform: translate(0, 0); }
-  33%  { transform: translate(-1px, 1px); }
-  66%  { transform: translate(1px, -1px); }
-  100% { transform: translate(0, 0); }
+  background:
+    radial-gradient(ellipse 50% 45% at 50% 55%, rgba(255, 140, 36, 0.45) 0%, rgba(180, 60, 10, 0.18) 35%, rgba(0,0,0,0) 70%),
+    radial-gradient(circle  at 50% 58%, rgba(255, 200, 80, 0.6) 0%, rgba(0,0,0,0) 30%);
+  mix-blend-mode: screen;
+  will-change: opacity;
 }
 
-/* Top & bottom meta strips */
-.yula-intro__top,
-.yula-intro__bottom {
+/* ── Fire blaze — fills the screen at climax ── */
+.yula-intro__blaze {
   position: absolute;
-  left: 0;
-  right: 0;
-  z-index: 4;
-  padding: clamp(20px, 3vw, 36px) clamp(24px, 4vw, 56px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 0.6rem;
-  letter-spacing: 0.38em;
-  text-transform: uppercase;
-  color: rgba(244, 240, 230, 0.62);
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 55%, #FFF6CC 0%, #FFD566 12%, #FF8A22 28%, #C13A04 52%, #4A0B00 78%, #060403 100%);
+  filter: blur(2px);
+  will-change: opacity, transform;
+  mix-blend-mode: screen;
 }
-.yula-intro__top    { top: 0;    border-bottom: 1px solid rgba(244,240,230,0.08); }
-.yula-intro__bottom { bottom: 0; border-top:    1px solid rgba(244,240,230,0.08); }
 
-/* The architect's first stroke — horizontal ink line at center */
-.yula-intro__rule {
+/* ── The candle (centered, bottom-anchored) ── */
+.yula-intro__candle {
+  position: absolute;
+  left: 50%;
+  bottom: 18vh;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: clamp(110px, 14vw, 200px);
+  height: clamp(310px, 38vw, 540px);
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+.yula-intro__candle-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter:
+    drop-shadow(0 0 20px rgba(255, 170, 60, 0.35))
+    drop-shadow(0 0 60px rgba(255, 130, 30, 0.25));
+}
+
+.yula-intro__flame,
+.yula-intro__flame-outer {
+  transform-origin: 50% 95%;
+  transform-box: fill-box;
+  will-change: transform, opacity;
+}
+
+.yula-intro__spark {
+  will-change: transform, opacity;
+}
+
+/* ── YULA wordmark (emerges from the fire) ── */
+.yula-intro__mark {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
-  width: min(78vw, 1100px);
-  height: 1px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.yula-intro__rule-line {
-  display: block;
-  width: 100%;
-  height: 1px;
-  background: rgba(244, 240, 230, 0.78);
-  transform-origin: left center;
-  will-change: transform;
-}
-
-/* Stage — where the four commitments stamp + YULA wordmark appears */
-.yula-intro__stage {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, calc(-50% - 1.6em));
-  z-index: 3;
-  display: grid;
-  place-items: center;
-  width: min(90vw, 1200px);
-  text-align: center;
-  pointer-events: none;
-}
-
-/* Stack all words + mark at the same grid cell so they overlap */
-.yula-intro__word,
-.yula-intro__mark {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-}
-
-.yula-intro__word {
-  font-family: var(--font-display, 'Fraunces', serif);
-  font-weight: 300;
-  font-variation-settings: 'SOFT' 100, 'opsz' 144;
-  font-size: clamp(3rem, 9vw, 11rem);
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: #F4F0E6;
-  will-change: transform, opacity, filter;
-}
-.yula-intro__word em {
-  font-style: italic;
-  font-weight: 200;
-}
-
-/* The YULA wordmark — final state, much bigger */
-.yula-intro__mark {
+  z-index: 4;
   display: inline-flex;
   align-items: baseline;
   gap: clamp(0.2em, 1vw, 0.5em);
   font-family: var(--font-display, 'Fraunces', serif);
   font-weight: 200;
   font-variation-settings: 'SOFT' 100, 'opsz' 144;
-  font-size: clamp(5rem, 16vw, 22rem);
+  font-size: clamp(5rem, 18vw, 24rem);
   line-height: 0.84;
   letter-spacing: -0.06em;
-  color: #F4F0E6;
-  overflow: hidden;
   height: 1em;
+  overflow: hidden;
+  /* Glowing ember look — multi-layer text shadow */
+  color: #FFE4A6;
+  text-shadow:
+    0 0 12px rgba(255, 180, 70, 0.55),
+    0 0 38px rgba(255, 120, 30, 0.45),
+    0 0 90px rgba(255, 80, 20, 0.35),
+    0 4px 24px rgba(120, 30, 5, 0.6);
+  will-change: opacity, transform, filter;
 }
 .yula-intro__mark-letter {
   display: inline-block;
@@ -140,41 +119,89 @@
 }
 .yula-intro__mark-letter em {
   font-style: italic;
+  font-weight: 200;
   display: inline-block;
 }
-.yula-intro__mark-letter:nth-child(2) em,
-.yula-intro__mark-letter:nth-child(4) em {
-  /* Roman accents for U and A (italic-roman-italic-roman rhythm) */
+.yula-intro__mark-letter:not(:has(em)) {
+  /* U and A: roman, slightly heavier */
   font-style: normal;
   font-weight: 300;
   font-variation-settings: 'SOFT' 30, 'opsz' 144;
 }
 
-/* Curtain — 5 vertical panels that sweep up to reveal page */
+/* ── Soft caption under the wordmark ── */
+.yula-intro__caption {
+  position: absolute;
+  top: calc(50% + clamp(3.5rem, 11vw, 11rem));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: rgba(255, 220, 170, 0.78);
+  text-shadow: 0 0 12px rgba(255, 140, 60, 0.4);
+}
+
+/* ── Meta strips at the four corners ── */
+.yula-intro__meta {
+  position: absolute;
+  z-index: 5;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.58rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: rgba(244, 240, 230, 0.55);
+  padding: 0;
+  pointer-events: none;
+}
+.yula-intro__meta--tl { top: clamp(22px, 3.5vw, 40px); left:  clamp(24px, 4vw, 56px); }
+.yula-intro__meta--tr { top: clamp(22px, 3.5vw, 40px); right: clamp(24px, 4vw, 56px); }
+.yula-intro__meta--bl { bottom: clamp(22px, 3.5vw, 40px); left:  clamp(24px, 4vw, 56px); }
+.yula-intro__meta--br { bottom: clamp(22px, 3.5vw, 40px); right: clamp(24px, 4vw, 56px); }
+
+/* ── Smoke / haze drifting up after the fire ── */
+.yula-intro__smoke {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 30% at 50% 75%, rgba(80, 50, 35, 0.45) 0%, rgba(0,0,0,0) 70%),
+    radial-gradient(ellipse 60% 40% at 50% 55%, rgba(120, 80, 60, 0.25) 0%, rgba(0,0,0,0) 70%);
+  filter: blur(4px);
+  mix-blend-mode: screen;
+  animation: yula-smoke-drift 3.5s ease-out infinite;
+}
+@keyframes yula-smoke-drift {
+  0%   { transform: translateY(0) scale(1);     opacity: 0.55; }
+  100% { transform: translateY(-40px) scale(1.1); opacity: 0; }
+}
+
+/* ── Curtain — 5 vertical panels rise to reveal page ── */
 .yula-intro__curtain {
   position: absolute;
   inset: 0;
-  z-index: 5;
+  z-index: 6;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   pointer-events: none;
 }
 .yula-intro__curtain > span {
   display: block;
-  background: #0E0C0A;
+  background: #060403;
   will-change: transform;
 }
 
 /* ════════════════════════════════════════════════════════════
-   LEGACY .loader fallback — in case any HTML still references it,
-   keep it visually consistent (dark bg, no counter chrome).
+   LEGACY .loader fallback — hide all old chrome
    ════════════════════════════════════════════════════════════ */
 .loader {
   position: fixed;
   inset: 0;
   z-index: var(--z-loader, 9999);
-  background: #0E0C0A;
-  color: #F4F0E6;
+  background: #060403;
   pointer-events: none;
 }
 .loader__sweep,
@@ -185,8 +212,8 @@
 .loader__wipe { display: none !important; }
 
 @media (max-width: 700px) {
-  .yula-intro__top,
-  .yula-intro__bottom { padding: 16px 18px; font-size: 0.5rem; letter-spacing: 0.3em; }
-  .yula-intro__top    .yula-intro__meta:nth-child(2),
-  .yula-intro__bottom .yula-intro__meta:nth-child(2) { display: none; }
+  .yula-intro__meta { font-size: 0.5rem; letter-spacing: 0.32em; }
+  .yula-intro__meta--tr,
+  .yula-intro__meta--br { display: none; }
+  .yula-intro__candle { bottom: 14vh; }
 }

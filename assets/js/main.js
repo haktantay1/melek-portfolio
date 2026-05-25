@@ -7,9 +7,8 @@ import { initNav } from './nav.js';
 import { initMarquee } from './marquee.js';
 import { initNoise } from './noise.js';
 import { initTransitions } from './transitions.js';
-import { initCardWebGL } from './webgl.js';
 import { initHeroReel } from './heroReel.js';
-import { initLiveTimes } from './globe.js';
+import { initLiveTimes } from './clock.js';
 import { initSound } from './sound.js';
 import {
   initHomeAnimations,
@@ -47,12 +46,10 @@ function bootstrap() {
   if (page === 'home') {
     safe('marquee',  initMarquee);
     safe('heroReel', initHeroReel);
-    safe('cardWebGL',initCardWebGL);
     safe('homeAnim', initHomeAnimations);
     startLiveClock();
   } else if (page === 'work') {
     safe('marquee',  initMarquee);
-    safe('cardWebGL',initCardWebGL);
     safe('workAnim', initWorkAnimations);
   } else if (page === 'about') {
     safe('marquee',  initMarquee);
