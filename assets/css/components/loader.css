@@ -1,23 +1,30 @@
 /* ════════════════════════════════════════════════════════════
-   YULA INTRO — "Candle to Fire" (CSS-only sequence, JS just removes it)
-   Pure black → candle lights → flame grows → screen ignites
-   → YULA emerges from embers → curtain reveals page.
+   YULA INTRO — "Candle to Fire"
+   High-quality SVG candle close-up (top portion only),
+   gradient-painted flame with white-hot core, blue base, and
+   asymmetric S-curve outer body. All animation is CSS — JS
+   only injects DOM and schedules removal.
    ════════════════════════════════════════════════════════════ */
 
 .yula-intro {
   position: fixed;
   inset: 0;
   z-index: var(--z-loader, 9999);
-  background: #060403;
+  background: #050302;
   color: #F4F0E6;
   overflow: hidden;
   isolation: isolate;
   pointer-events: none;
   user-select: none;
-  animation: yula-intro-curtain 0.9s ease-in-out 5.4s forwards;
+  animation: yula-intro-curtain 0.9s ease-in-out 5.6s forwards;
 }
 
-/* Returning visitors get a fast curtain only, with everything else hidden */
+@keyframes yula-intro-curtain {
+  0%   { opacity: 1; clip-path: inset(0 0 0 0); }
+  100% { opacity: 0; clip-path: inset(0 0 100% 0); }
+}
+
+/* Returning visitors — fast curtain only */
 .yula-intro--returning {
   animation: yula-intro-curtain 0.55s ease-in-out 0.05s forwards;
 }
@@ -31,49 +38,43 @@
   display: none !important;
 }
 
-@keyframes yula-intro-curtain {
-  0%   { opacity: 1; clip-path: inset(0 0 0 0); }
-  100% { opacity: 0; clip-path: inset(0 0 100% 0); }
-}
-
-/* ── Pitch-dark vignette base ── */
+/* ──────────── Background layers ──────────── */
 .yula-intro__dark {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: radial-gradient(ellipse 70% 70% at 50% 60%, rgba(8, 5, 3, 0) 0%, rgba(4, 2, 1, 0.9) 80%, #020100 100%);
+  background:
+    radial-gradient(ellipse 80% 80% at 50% 60%, rgba(8, 5, 3, 0) 0%, rgba(4, 2, 1, 0.92) 80%, #020100 100%);
 }
 
-/* ── Ember glow (grows from candle, then dims) ── */
 .yula-intro__embers {
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 50% 45% at 50% 60%, rgba(255, 140, 36, 0.55) 0%, rgba(180, 60, 10, 0.2) 35%, rgba(0,0,0,0) 70%),
-    radial-gradient(circle at 50% 62%, rgba(255, 200, 80, 0.7) 0%, rgba(0,0,0,0) 30%);
+    radial-gradient(ellipse 55% 50% at 50% 62%, rgba(255, 150, 50, 0.55) 0%, rgba(180, 60, 10, 0.22) 35%, rgba(0,0,0,0) 75%),
+    radial-gradient(circle  at 50% 64%, rgba(255, 200, 80, 0.7) 0%, rgba(0,0,0,0) 32%);
   mix-blend-mode: screen;
   opacity: 0;
   animation: yula-embers 6s ease-in-out forwards;
 }
 @keyframes yula-embers {
-  0%    { opacity: 0; transform: scale(0.4); }
-  25%   { opacity: 0.4; transform: scale(0.7); }
+  0%    { opacity: 0;   transform: scale(0.4); }
+  25%   { opacity: 0.45; transform: scale(0.75); }
   50%   { opacity: 1;   transform: scale(1.1); }
-  65%   { opacity: 1;   transform: scale(1.3); }
-  80%   { opacity: 0.55; transform: scale(1.1); }
+  65%   { opacity: 1;   transform: scale(1.35); }
+  82%   { opacity: 0.55; transform: scale(1.1); }
   100%  { opacity: 0;   transform: scale(0.9); }
 }
 
-/* ── Full-screen blaze (erupts at climax) ── */
 .yula-intro__blaze {
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
   background:
-    radial-gradient(circle at 50% 55%, #FFF6CC 0%, #FFD566 10%, #FF8A22 24%, #C13A04 48%, #4A0B00 76%, #060403 100%);
+    radial-gradient(circle at 50% 55%, #FFF6CC 0%, #FFD566 10%, #FF8A22 24%, #C13A04 48%, #4A0B00 76%, #050302 100%);
   filter: blur(2px);
   mix-blend-mode: screen;
   opacity: 0;
@@ -84,221 +85,95 @@
 @keyframes yula-blaze {
   0%   { opacity: 0;   transform: scale(0.15); }
   43%  { opacity: 0;   transform: scale(0.15); }
-  50%  { opacity: 0.85; transform: scale(1); }
-  58%  { opacity: 1;   transform: scale(1.1); }
-  68%  { opacity: 0.55; transform: scale(1); }
-  85%  { opacity: 0.25; transform: scale(0.95); }
-  100% { opacity: 0;   transform: scale(0.9); }
+  50%  { opacity: 0.9; transform: scale(1); }
+  58%  { opacity: 1;   transform: scale(1.12); }
+  68%  { opacity: 0.6; transform: scale(1.02); }
+  85%  { opacity: 0.25; transform: scale(0.97); }
+  100% { opacity: 0;   transform: scale(0.92); }
 }
 
-/* ── THE CANDLE — pure CSS, no SVG ── */
+/* ──────────── Candle container ────────────
+   Only the TOP of the candle is visible — body extends below
+   the viewport. Sized for cinema-tier presence on big screens
+   and still readable on phones. */
 .yula-intro__candle {
   position: absolute;
   left: 50%;
-  bottom: 22vh;
+  bottom: -8vh;                       /* push body off-screen */
   transform: translateX(-50%);
   z-index: 3;
-  width: clamp(70px, 7vw, 110px);
+  width: clamp(280px, 32vw, 480px);
+  height: clamp(420px, 78vh, 820px);
   pointer-events: none;
   opacity: 0;
-  animation: yula-candle-in 1.0s ease-out 0.3s forwards;
+  animation: yula-candle-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+  filter:
+    drop-shadow(0 0 24px rgba(255, 130, 30, 0.35))
+    drop-shadow(0 0 70px rgba(255, 100, 20, 0.22));
 }
 @keyframes yula-candle-in {
-  0%   { opacity: 0; transform: translateX(-50%) translateY(30px) scale(0.9); }
+  0%   { opacity: 0; transform: translateX(-50%) translateY(34px) scale(0.94); }
   100% { opacity: 1; transform: translateX(-50%) translateY(0)    scale(1); }
 }
 
-/* The wax column */
-.yula-intro__candle-body {
+.yula-intro__svg {
   width: 100%;
-  height: clamp(260px, 28vw, 420px);
-  background: linear-gradient(90deg,
-    #2A2018 0%,
-    #4A3A28 15%,
-    #E0D2B4 40%,
-    #F4EBD2 55%,
-    #C0AE88 75%,
-    #2A2018 100%);
-  border-radius: 3px 3px 4px 4px;
-  box-shadow:
-    inset 0 4px 0 -1px rgba(255, 240, 220, 0.7),
-    inset 0 -10px 30px rgba(0, 0, 0, 0.5),
-    0 20px 30px -10px rgba(0, 0, 0, 0.7);
-  position: relative;
-}
-/* Top rim (ellipse-like with two pseudos) */
-.yula-intro__candle-body::before {
-  content: '';
-  position: absolute;
-  top: -6px;
-  left: 0;
-  right: 0;
-  height: 12px;
-  background: radial-gradient(ellipse at center, #F8F0DC 0%, #C0AE88 50%, #6A5840 100%);
-  border-radius: 50%;
-  z-index: 1;
-}
-/* Wick base — dark recess at top */
-.yula-intro__candle-body::after {
-  content: '';
-  position: absolute;
-  top: -3px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 16px;
-  height: 6px;
-  background: radial-gradient(ellipse at center, #1A100A 0%, #3A2618 70%, transparent 100%);
-  border-radius: 50%;
-  z-index: 2;
+  height: 100%;
+  display: block;
 }
 
-/* The wick (thin vertical line) */
-.yula-intro__wick {
-  position: absolute;
-  top: -22px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 22px;
-  background: linear-gradient(180deg, #1A0F08 0%, #3A2618 100%);
-  border-radius: 1px;
-  z-index: 3;
-}
-
-/* THE FLAME (radial-gradient layered) */
+/* ──────────── Flame (SVG group animations) ──────────── */
+/* Wax + wick are static — the FLAME group flickers as one. */
 .yula-intro__flame {
-  position: absolute;
-  top: -60px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 36px;
-  height: 70px;
-  z-index: 4;
-  opacity: 0;
+  transform-origin: 200px 660px;       /* base of flame at wick tip */
   animation:
-    yula-flame-ignite 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.0s forwards,
-    yula-flame-flicker 0.15s ease-in-out 1.6s infinite alternate;
-  transform-origin: 50% 100%;
+    yula-flame-rise 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 1.0s backwards,
+    yula-flame-flicker 0.17s ease-in-out 1.7s infinite alternate;
 }
-@keyframes yula-flame-ignite {
-  0%   { opacity: 0; transform: translateX(-50%) scaleY(0.05) scaleX(0.4); }
-  60%  { opacity: 1; transform: translateX(-50%) scaleY(1.15) scaleX(1.05); }
-  100% { opacity: 1; transform: translateX(-50%) scaleY(1)    scaleX(1); }
+@keyframes yula-flame-rise {
+  0%   { opacity: 0; transform: scaleY(0.05) scaleX(0.45); }
+  60%  { opacity: 1; transform: scaleY(1.12) scaleX(1.04); }
+  100% { opacity: 1; transform: scaleY(1)    scaleX(1); }
 }
 @keyframes yula-flame-flicker {
-  0%   { transform: translateX(-50%) scaleY(1)    scaleX(1)    rotate(-0.5deg); }
-  100% { transform: translateX(-50%) scaleY(1.08) scaleX(0.94) rotate(0.5deg); }
-}
-/* Flame outer aura */
-.yula-intro__flame::before {
-  content: '';
-  position: absolute;
-  inset: -25px -20px -10px -20px;
-  background: radial-gradient(ellipse 50% 60% at 50% 75%, rgba(255, 170, 60, 0.85) 0%, rgba(255, 100, 20, 0.4) 50%, transparent 80%);
-  filter: blur(6px);
-  pointer-events: none;
-}
-/* Flame body (teardrop shape via border-radius + gradient) */
-.yula-intro__flame::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 55% 75% at 50% 70%,
-    #FFFCE6 0%,
-    #FFE8A0 18%,
-    #FFB347 38%,
-    #FF6A1A 62%,
-    rgba(180, 40, 10, 0.5) 85%,
-    transparent 100%);
-  border-radius: 50% 50% 45% 45% / 70% 70% 30% 30%;
-  filter: blur(0.6px);
-  box-shadow:
-    0 0 24px rgba(255, 170, 60, 0.7),
-    0 0 60px rgba(255, 110, 30, 0.4);
-}
-/* Hot blue base */
-.yula-intro__flame-base {
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 8px;
-  height: 14px;
-  background: radial-gradient(ellipse at center, #9FDFFF 0%, #5DB4FF 60%, transparent 100%);
-  border-radius: 50%;
-  z-index: 1;
-  filter: blur(1px);
-}
-/* Hot white core */
-.yula-intro__flame-core {
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 6px;
-  height: 18px;
-  background: radial-gradient(ellipse at center, #FFFFFF 0%, #FFFCE6 60%, transparent 100%);
-  border-radius: 50%;
-  z-index: 2;
-  filter: blur(0.5px);
+  0%   { transform: scaleY(1)    scaleX(1)    rotate(-0.4deg); }
+  100% { transform: scaleY(1.07) scaleX(0.95) rotate(0.6deg); }
 }
 
-/* SPARKS — emitted from flame, drift upward */
-.yula-intro__sparks {
-  position: absolute;
-  top: -80px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 4px;
-  pointer-events: none;
+/* The huge soft aura pulses gently */
+.yula-intro__flame-aura {
+  transform-origin: 200px 660px;
+  animation: yula-aura-pulse 1.6s ease-in-out 1.8s infinite alternate;
 }
-.yula-intro__spark {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: #FFD27A;
-  box-shadow: 0 0 6px rgba(255, 200, 80, 0.9);
-  opacity: 0;
-}
-.yula-intro__spark:nth-child(1)  { animation: yula-spark 1.8s ease-out 1.4s infinite; --dx: -22px; --dy: -60px; }
-.yula-intro__spark:nth-child(2)  { animation: yula-spark 2.0s ease-out 1.6s infinite; --dx: 18px;  --dy: -75px; }
-.yula-intro__spark:nth-child(3)  { animation: yula-spark 1.6s ease-out 1.5s infinite; --dx: -8px;  --dy: -90px; }
-.yula-intro__spark:nth-child(4)  { animation: yula-spark 2.2s ease-out 1.8s infinite; --dx: 28px;  --dy: -50px; }
-.yula-intro__spark:nth-child(5)  { animation: yula-spark 1.9s ease-out 2.0s infinite; --dx: -30px; --dy: -70px; }
-.yula-intro__spark:nth-child(6)  { animation: yula-spark 1.7s ease-out 1.7s infinite; --dx: 12px;  --dy: -100px;}
-.yula-intro__spark:nth-child(7)  { animation: yula-spark 2.1s ease-out 1.9s infinite; --dx: -16px; --dy: -55px; }
-.yula-intro__spark:nth-child(8)  { animation: yula-spark 1.8s ease-out 2.1s infinite; --dx: 24px;  --dy: -80px; }
-@keyframes yula-spark {
-  0%   { opacity: 0;   transform: translate(0, 0)              scale(0.5); }
-  10%  { opacity: 1;   transform: translate(0, 0)              scale(1); }
-  100% { opacity: 0;   transform: translate(var(--dx), var(--dy)) scale(0.2); }
+@keyframes yula-aura-pulse {
+  0%   { opacity: 0.85; transform: scale(1); }
+  100% { opacity: 1;    transform: scale(1.08); }
 }
 
-/* ── YULA WORDMARK — emerges from the fire ── */
+/* ──────────── YULA wordmark ──────────── */
 .yula-intro__mark {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
+  margin: 0;
   font-family: var(--font-display, 'Fraunces', 'Cormorant Garamond', serif);
   font-weight: 200;
-  font-size: clamp(5rem, 16vw, 20rem);
+  font-size: clamp(5rem, 17vw, 22rem);
   line-height: 0.9;
   letter-spacing: -0.06em;
   color: #FFE4A6;
   text-shadow:
-    0 0 16px rgba(255, 180, 70, 0.7),
-    0 0 48px rgba(255, 120, 30, 0.55),
-    0 0 100px rgba(255, 80, 20, 0.45),
-    0 4px 28px rgba(120, 30, 5, 0.7);
+    0 0 18px rgba(255, 180, 70, 0.75),
+    0 0 50px rgba(255, 120, 30, 0.6),
+    0 0 110px rgba(255, 80, 20, 0.5),
+    0 4px 30px rgba(120, 30, 5, 0.75);
   opacity: 0;
-  animation: yula-mark-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) 3.4s forwards;
+  animation: yula-mark-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) 3.5s forwards;
 }
 @keyframes yula-mark-in {
-  0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.92); filter: blur(20px); }
+  0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.92); filter: blur(22px); }
   60%  { opacity: 1; transform: translate(-50%, -50%) scale(1.02); filter: blur(0); }
   100% { opacity: 1; transform: translate(-50%, -50%) scale(1);    filter: blur(0); }
 }
@@ -307,24 +182,27 @@
   font-weight: 200;
 }
 
-/* Caption under wordmark */
 .yula-intro__caption {
   position: absolute;
   top: calc(50% + clamp(3rem, 11vw, 10rem));
   left: 50%;
-  transform: translateX(-50%);
   z-index: 5;
   font-family: var(--font-mono, monospace);
   font-size: 0.7rem;
   letter-spacing: 0.45em;
   text-transform: uppercase;
-  color: rgba(255, 220, 170, 0.8);
-  text-shadow: 0 0 14px rgba(255, 140, 60, 0.5);
+  color: rgba(255, 220, 170, 0.85);
+  text-shadow: 0 0 14px rgba(255, 140, 60, 0.55);
   opacity: 0;
-  animation: yula-fade-in 0.8s ease-out 4.3s forwards;
+  transform: translateX(-50%) translateY(10px);
+  animation: yula-caption-in 0.8s ease-out 4.4s forwards;
+}
+@keyframes yula-caption-in {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  100% { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
-/* Corner meta strips */
+/* ──────────── Corner meta ──────────── */
 .yula-intro__meta {
   position: absolute;
   z-index: 6;
@@ -332,29 +210,21 @@
   font-size: 0.58rem;
   letter-spacing: 0.42em;
   text-transform: uppercase;
-  color: rgba(244, 240, 230, 0.55);
+  color: rgba(244, 240, 230, 0.6);
   opacity: 0;
-  animation: yula-fade-in 0.8s ease-out 4.5s forwards;
-}
-.yula-intro__meta--tl { top: clamp(22px, 3.5vw, 40px); left:  clamp(24px, 4vw, 56px); }
-.yula-intro__meta--tr { top: clamp(22px, 3.5vw, 40px); right: clamp(24px, 4vw, 56px); animation-delay: 4.6s; }
-.yula-intro__meta--bl { bottom: clamp(22px, 3.5vw, 40px); left:  clamp(24px, 4vw, 56px); animation-delay: 4.7s; }
-.yula-intro__meta--br { bottom: clamp(22px, 3.5vw, 40px); right: clamp(24px, 4vw, 56px); animation-delay: 4.8s; }
-
-@keyframes yula-fade-in {
-  0%   { opacity: 0; transform: translateY(8px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-.yula-intro__meta--tl,
-.yula-intro__meta--tr,
-.yula-intro__meta--bl,
-.yula-intro__meta--br {
   transform: translateY(8px);
+  animation: yula-meta-in 0.8s ease-out forwards;
 }
-/* override fade-in transform for meta which sets its own position */
-.yula-intro__caption { transform: translateX(-50%) translateY(8px); }
+.yula-intro__meta--tl { top: clamp(22px, 3.5vw, 40px); left:  clamp(24px, 4vw, 56px); animation-delay: 4.55s; }
+.yula-intro__meta--tr { top: clamp(22px, 3.5vw, 40px); right: clamp(24px, 4vw, 56px); animation-delay: 4.65s; }
+.yula-intro__meta--bl { bottom: clamp(22px, 3.5vw, 40px); left:  clamp(24px, 4vw, 56px); animation-delay: 4.75s; }
+.yula-intro__meta--br { bottom: clamp(22px, 3.5vw, 40px); right: clamp(24px, 4vw, 56px); animation-delay: 4.85s; }
+@keyframes yula-meta-in {
+  0%   { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 0.6; transform: translateY(0); }
+}
 
-/* ── Smoke / haze rising after the fire ── */
+/* ──────────── Smoke ──────────── */
 .yula-intro__smoke {
   position: absolute;
   inset: 0;
@@ -366,22 +236,22 @@
   filter: blur(6px);
   mix-blend-mode: screen;
   opacity: 0;
-  animation: yula-smoke 2.5s ease-out 3.6s forwards;
+  animation: yula-smoke 2.6s ease-out 3.7s forwards;
 }
 @keyframes yula-smoke {
   0%   { opacity: 0;   transform: translateY(20px) scale(1); }
-  30%  { opacity: 0.6; transform: translateY(0)    scale(1.05); }
-  100% { opacity: 0;   transform: translateY(-60px) scale(1.2); }
+  30%  { opacity: 0.65; transform: translateY(0)    scale(1.05); }
+  100% { opacity: 0;   transform: translateY(-70px) scale(1.25); }
 }
 
 /* ════════════════════════════════════════════════════════════
-   LEGACY .loader fallback — hide all old chrome
+   LEGACY .loader fallback
    ════════════════════════════════════════════════════════════ */
 .loader {
   position: fixed;
   inset: 0;
   z-index: var(--z-loader, 9999);
-  background: #060403;
+  background: #050302;
   pointer-events: none;
 }
 .loader__sweep,
@@ -395,13 +265,14 @@
   .yula-intro__meta { font-size: 0.5rem; letter-spacing: 0.32em; }
   .yula-intro__meta--tr,
   .yula-intro__meta--br { display: none; }
-  .yula-intro__candle { bottom: 18vh; }
+  .yula-intro__candle { bottom: -4vh; width: clamp(220px, 60vw, 320px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .yula-intro { animation-duration: 0.6s !important; animation-delay: 0s !important; }
+  .yula-intro { animation-duration: 0.6s !important; animation-delay: 0.2s !important; }
   .yula-intro__candle,
   .yula-intro__flame,
+  .yula-intro__flame-aura,
   .yula-intro__embers,
   .yula-intro__blaze,
   .yula-intro__mark,
